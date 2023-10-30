@@ -19,18 +19,35 @@ int listSize(MyLinkedList* obj){
 }
 
 /* Adds element elem to the list */
-void addElem(MyLinkedList* obj, int elem){
-
+MyLinkedList* addElem(MyLinkedList* obj, int elem){
+    MyLinkedList* node = (MyLinkedList*)malloc(sizeof(*node));
+    node->val = elem;
+    node->next = (MyLinkedList*)obj;
+    return node;
 }
 
 /* Adds element elem at index position (0-indexed) of the list (if valid) */
-void addElemAtIndex(MyLinkedList* obj, int elem, int index){
+MyLinkedList* addElemAtIndex(MyLinkedList* obj, int elem, int index){
+    int size = listSize(obj);
+    if (index < 0 || index > size)
+        return obj;
 
+    MyLinkedList* ret = obj;
+    for (int i = 0; i<index-1; ++i)
+        obj = obj->next;
+
+    MyLinkedList* node = (MyLinkedList*)malloc(sizeof(*node));
+    node->val = elem;
+    node->next = (MyLinkedList*)(index == 0 ? obj : obj->next);
+    obj->next = index == 0 ? obj->next : node;
+
+    return (index == 0) ? node : ret;
 }
 
 /* Removes all elements matching value */
 void removeElemByValue(MyLinkedList* obj, int value){
-
+    int size = listSize(obj);
+    // TO-DO
 }
 
 /* Removes element at position index (0-indexed) */
