@@ -10,12 +10,12 @@ struct s_llist {
 
 /* Initializes list object */
 MyLinkedList* createList(){
-    return NULL;
+    return (MyLinkedList*)NULL;
 }
 
 /* Returns the amount of elements in the list */
 int listSize(MyLinkedList* obj){
-    return 0;
+    return (obj == NULL) ? 0 : 1 + listSize(obj->next);
 }
 
 /* Adds element elem to the list */
