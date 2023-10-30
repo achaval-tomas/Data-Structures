@@ -17,10 +17,10 @@ MyLinkedList* createList();
 int listSize(MyLinkedList* obj);
 
 /* Adds element elem to the list */
-void addElem(MyLinkedList* obj, int elem);
+MyLinkedList* addElem(MyLinkedList* obj, int elem);
 
 /* Adds element elem at index position (0-indexed) of the list (if valid) */
-void addElemAtIndex(MyLinkedList* obj, int elem, int index);
+MyLinkedList* addElemAtIndex(MyLinkedList* obj, int elem, int index);
 
 /* Removes all elements matching value */
 void removeElemByValue(MyLinkedList* obj, int value);
