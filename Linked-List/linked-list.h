@@ -23,16 +23,16 @@ MyLinkedList* addElem(MyLinkedList* obj, int elem);
 MyLinkedList* addElemAtIndex(MyLinkedList* obj, int elem, int index);
 
 /* Removes all elements matching value */
-void removeElemByValue(MyLinkedList* obj, int value);
+MyLinkedList* removeElemByValue(MyLinkedList* obj, int value);
 
 /* Removes element at position index (0-indexed) */
-void removeElemByIndex(MyLinkedList* obj, int index);
+MyLinkedList* removeElemByIndex(MyLinkedList* obj, int index);
 
 /* Adds all elements in group to the list */
-void addElemGroup(MyLinkedList* obj, int *group, int groupSize);
+MyLinkedList* addElemGroup(MyLinkedList* obj, int *group, int groupSize);
 
 /* Removes all matches from each element in group */
-void removeGroup(MyLinkedList* obj, int *group, int groupSize);
+MyLinkedList* removeGroup(MyLinkedList* obj, int *group, int groupSize);
 
 /* Returns a boolean value indicating whether the element is in the list */
 bool elemExists(MyLinkedList* obj, int elem);
@@ -42,5 +42,8 @@ int elemAtIndex(MyLinkedList* obj, int index);
 
 /* Frees all space used by the list, returns NULL if successfull */
 void* freeList(MyLinkedList* obj);
+
+/* Prints the linked list to STDOUT */
+void printList(MyLinkedList* obj);
 
 #endif /* LIST_HEADER */

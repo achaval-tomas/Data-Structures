@@ -1,0 +1,27 @@
+TEST ADD ELEM:
+[ 5 ]
+
+TEST ADD AT INDEX:
+Tester Size : 6 (should be 6)
+[ 0 1 2 3 4 5 ]
+
+TEST REMOVING GROUP:
+Tester should be [3, 4, 5]
+ Tester: [ 3 4 5 ]
+
+TEST ADDING GROUP:
+Tester should be [2, 1, 0, 3, 4, 5]
+ Tester: [ 2 1 0 3 4 5 ]
+
+TEST ELEM EXISTS:
+ exists(3): 1 (should return 1)
+ exists(7): 0 (should return 0)
+
+TEST ELEM AT INDEX:
+Tester should be [-1, 2, 1, 100, 0, 3, 4, 5, 18]
+ Tester: [ -1 2 1 100 0 3 4 5 18 ]
+
+TEST REMOVE AT INDEX:
+Tester should be [ 2, 1, 0, 3, 4, 5 ]
+ Tester: [ 2 1 0 3 4 5 ]
+
