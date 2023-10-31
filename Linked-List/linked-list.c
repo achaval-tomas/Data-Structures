@@ -33,17 +33,19 @@ MyLinkedList* addElemAtIndex(MyLinkedList* obj, int elem, int index){
     int size = listSize(obj);
     if (index < 0 || index > size)
         return obj;
+    if (index == 0)
+        return addElem(obj, elem);
 
     MyLinkedList* ret = obj;
-    for (int i = 0; i<index-1; ++i)
+    for (int i = 0; i<index-1 && obj->next; ++i)
         obj = obj->next;
 
-    MyLinkedList* node = (MyLinkedList*)malloc(sizeof(*node));
+    MyLinkedList* node = malloc(sizeof(*node));
     node->val = elem;
-    node->next = (MyLinkedList*)(index == 0 ? obj : obj->next);
-    obj->next = index == 0 ? obj->next : node;
+    node->next = obj->next;
+    obj->next = node;
 
-    return (index == 0) ? node : ret;
+    return ret;
 }
 
 /* Removes all elements matching value */
@@ -139,4 +141,5 @@ void printList(MyLinkedList* obj){
         obj = obj->next;
     }
     fprintf(stdout, "]\n");
+    fflush(stdout);
 }

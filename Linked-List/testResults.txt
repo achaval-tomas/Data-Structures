@@ -7,11 +7,11 @@ Tester Size : 6 (should be 6)
 
 TEST REMOVING GROUP:
 Tester should be [3, 4, 5]
- Tester: [ 3 4 5 ]
+	Tester: [ 3 4 5 ]
 
 TEST ADDING GROUP:
 Tester should be [2, 1, 0, 3, 4, 5]
- Tester: [ 2 1 0 3 4 5 ]
+	Tester: [ 2 1 0 3 4 5 ]
 
 TEST ELEM EXISTS:
  exists(3): 1 (should return 1)
@@ -19,9 +19,16 @@ TEST ELEM EXISTS:
 
 TEST ELEM AT INDEX:
 Tester should be [-1, 2, 1, 100, 0, 3, 4, 5, 18]
- Tester: [ -1 2 1 100 0 3 4 5 18 ]
+	Tester: [ -1 2 1 100 0 3 4 5 18 ]
 
 TEST REMOVE AT INDEX:
 Tester should be [ 2, 1, 0, 3, 4, 5 ]
- Tester: [ 2 1 0 3 4 5 ]
+	Tester: [ 2 1 0 3 4 5 ]
+
+TEST REMOVE ALL MATCHES:
+Tester SHOULD CONTAIN the number 111.
+	Tester: [ 111 111 111 111 111 2 1 0 3 4 5 111 ]
+
+Tester SHOULD NOT CONTAIN the number 111.
+	Tester: [ 2 1 0 3 4 5 ]
 
