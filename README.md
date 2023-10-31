@@ -3,10 +3,10 @@ My implementations of different data structures in C.
 
 ## Structures available:
   * [**Linked List**](https://github.com/achaval-tomas/Data-Structures/tree/main/Linked-List)
+  * [**Array**](https://github.com/achaval-tomas/Data-Structures/tree/main/Array)
 
 
 ## To Do / Ideas
- * Array
  * Set
  * Hash Table
  * Linked Lists
