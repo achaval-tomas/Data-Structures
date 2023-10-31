@@ -58,11 +58,10 @@ MyLinkedList* removeElemByValue(MyLinkedList* obj, int value){
         free(killme);
     }
     obj = ret;
-    int size = listSize(obj);
-    for (int i = 0; i<size && obj && obj->next; ++i){
+    while (obj && obj->next){
         while (obj && obj->next && obj->next->val == value){
             MyLinkedList* killme = obj->next;
-            obj->next = obj->next ? obj->next->next : NULL;
+            obj->next = obj->next->next;
             free(killme);
         }
         obj = obj->next;
