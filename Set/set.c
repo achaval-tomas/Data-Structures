@@ -23,8 +23,8 @@ unsigned int setSize(MySet* set){
 /*  ADD ELEMENT TO THE SET  */
 void addTo(MySet* set, int elem){
     if (!exists(set, elem)){
-        set->elements = realloc(set->elements, (set->size+1)*sizeof(int));
-        (set->elements)[set->size++] = elem;
+        set->elements = realloc(set->elements, (++set->size)*sizeof(int));
+        (set->elements)[set->size-1] = elem;
     }
 }
 
@@ -35,7 +35,7 @@ void removeFrom(MySet* set, int elem){
         if (!found){
             found = found || ((set->elements)[i] == elem);
         } else {
-            (set->elements)[i] = (set->elements)[i-1];
+            (set->elements)[i-1] = (set->elements)[i];
         }
     }
     if (found)
