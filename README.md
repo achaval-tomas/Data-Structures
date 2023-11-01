@@ -2,12 +2,12 @@
 My implementations of different data structures in C.
 
 ## Structures available:
-  * [**Linked List**](https://github.com/achaval-tomas/Data-Structures/tree/main/Linked-List)
   * [**Array**](https://github.com/achaval-tomas/Data-Structures/tree/main/Array)
+  * [**Linked List**](https://github.com/achaval-tomas/Data-Structures/tree/main/Linked-List)
+  * [**Set**](https://github.com/achaval-tomas/Data-Structures/tree/main/Set)
 
 
 ## To Do / Ideas
- * Set
  * Hash Table
  * Linked Lists
    * Doubly Linked List
