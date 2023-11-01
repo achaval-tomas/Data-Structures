@@ -4,14 +4,16 @@
 #define SET_HEADER
 
 #include <stdlib.h>
+#include <stdio.h>
+#include <stdbool.h>
 
 typedef struct s_set MySet;
 
 /*  CREATE A NEW EMPTY SET  */
-MySet* newSet();
+MySet* newSet(void);
 
 /*  RETURNS THE AMOUNT OF ELEMENTS IN THE SET  */
-int setSize(MySet* set);
+unsigned int setSize(MySet* set);
 
 /*  ADD ELEMENT TO THE SET  */
 void addTo(MySet* set, int elem);
