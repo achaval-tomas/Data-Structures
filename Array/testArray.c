@@ -29,31 +29,31 @@ int main(void){
     /*  TEST SWAPPING  */
     replaceAtIndex(tester, 2, 333);
     replaceAtIndex(tester, 4, 999);
-    fprintf(stdout, "NEW ELEMS AT INDEX 2 AND 4:\n\t");
+    fprintf(stdout, "NEW ELEMS AT INDEX 2 AND 4:\n\tARRAY: ");
     printArray(tester);
     swap(tester, 2, 4);
-    fprintf(stdout, "SWAP INDEX 2 WITH 4:\n\t");
+    fprintf(stdout, "SWAP INDEX 2 WITH 4:\n\tARRAY: ");
     printArray(tester);
     fprintf(stdout, "\n");
 
     /*  TEST REMOVING AT INDEX  */
     removeAtIndex(tester, 2);
     removeAtIndex(tester, 3);
-    fprintf(stdout, "ELEMS AT INDEX 2 AND 4 SHOULD HAVE BEEN REMOVED:\n\t");
+    fprintf(stdout, "ELEMS AT INDEX 2 AND 4 SHOULD HAVE BEEN REMOVED:\n\tARRAY: ");
     printArray(tester);
     fprintf(stdout, "\n");
 
     /*  TEST EXTREME SET IN RANGE  */
     setInRange(tester, 4, 15, 99);
-    fprintf(stdout, "ARRAY SHOULD'VE BEEN EXPANDED WITH ELEVEN 99s:\n\t");
+    fprintf(stdout, "ARRAY SHOULD'VE BEEN EXPANDED WITH ELEVEN 99s:\n\tARRAY: ");
     printArray(tester);
     fprintf(stdout, "\n");
 
     removeMatches(tester, 10);
-    fprintf(stdout, "ARRAY SHOULD NOT CONTAIN 10s:\n\t");
+    fprintf(stdout, "ARRAY SHOULD NOT CONTAIN 10s:\n\tARRAY: ");
     printArray(tester);
     setInRange(tester, 0, 5, 33);
-    fprintf(stdout, "ARRAY SHOULD START WITH FIVE 33s:\n\t");
+    fprintf(stdout, "ARRAY SHOULD START WITH FIVE 33s:\n\tARRAY: ");
     printArray(tester);
     fprintf(stdout, "\n");
 
