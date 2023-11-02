@@ -33,4 +33,4 @@ void s_free(MyStack* q);
 void s_print(MyStack* q);
 
 
-#endif /* STACK */
+#endif /* STACK_HEADER */
