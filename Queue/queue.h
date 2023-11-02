@@ -4,6 +4,7 @@
 #define QUEUE_HEADER
 
 #include <stdlib.h>
+#include <stdio.h>
 
 typedef struct s_queue MyQueue;
 
