@@ -6,6 +6,7 @@ My implementations of different data structures in C.
   * [**Linked List**](https://github.com/achaval-tomas/Data-Structures/tree/main/Linked-List)
   * [**Set**](https://github.com/achaval-tomas/Data-Structures/tree/main/Set)
   * [**Queue**](https://github.com/achaval-tomas/Data-Structures/tree/main/Queue)
+  * [**Stack**](https://github.com/achaval-tomas/Data-Structures/tree/main/Stack)
 
 
 ## To Do / Ideas
@@ -13,7 +14,6 @@ My implementations of different data structures in C.
  * Linked Lists
    * Doubly Linked List
    * Circular Linked List
- * Stack
  * Queues
    * Priority Queue
  * Trees
