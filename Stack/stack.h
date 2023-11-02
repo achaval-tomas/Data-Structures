@@ -12,25 +12,24 @@ typedef struct s_stack MyStack;
 MyStack* s_newStack(void);
 
 /*  PUSH elem TO TOP */
-MyStack* s_push(MyStack* q, int elem);
+MyStack* s_push(MyStack* s, int elem);
 
 /*  POP TOP ELEM  */
-void s_pop(MyStack* q);
+void s_pop(MyStack* s);
 
 /*  RETURNS THE TOP  */
-int s_top(MyStack* q);
+int s_top(MyStack* s);
 
 /*  RETURNS SIZE OF STACK  */
-int s_size(MyStack* q);
+int s_size(MyStack* s);
 
 /*  RETURNS 1 IF STACK IS EMPTY, 0 otherwise  */
-int s_isEmpty(MyStack* q);
+int s_isEmpty(MyStack* s);
 
 /*  FREE ALL SPACE USED BY STACK  */
-void s_free(MyStack* q);
+void s_free(MyStack* s);
 
 /*  PRINT STACK TO stdout  */
-void s_print(MyStack* q);
-
+void s_print(MyStack* s);
 
 #endif /* STACK_HEADER */
