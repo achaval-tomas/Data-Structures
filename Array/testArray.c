@@ -2,6 +2,11 @@
 
 #include "array.h"
 
+bool cmpf (int a, int b){
+    return a < b;
+}
+
+
 int main(void){
 
     /*  INITIALIZE ARRAY OBJECT WITH SIZE 10 */
@@ -54,6 +59,18 @@ int main(void){
     printArray(tester);
     setInRange(tester, 0, 5, 33);
     fprintf(stdout, "ARRAY SHOULD START WITH FIVE 33s:\n\tARRAY: ");
+    printArray(tester);
+    fprintf(stdout, "\n");
+
+    /*  TEST QUICK SORT  */
+    resize(tester, 20);
+    setZeroes(tester);
+    for (int i = 0; i<20; ++i)
+        replaceAtIndex(tester, i, i%6);
+    fprintf(stdout, "ARRAY SHOULD NOT BE SORTED:\n\tARRAY: ");
+    printArray(tester);
+    quickSort(tester, cmpf);
+    fprintf(stdout, "ARRAY SHOULD BE SORTED IN ASCENDING ORDER:\n\tARRAY: ");
     printArray(tester);
     fprintf(stdout, "\n");
 

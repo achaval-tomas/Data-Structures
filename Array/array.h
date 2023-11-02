@@ -4,6 +4,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdbool.h>
 
 typedef struct s_array MyArray;
 
@@ -39,5 +40,13 @@ void freeArray(MyArray* arr);
 
 /*  PRINTS ARRAY TO STDOUT  */
 void printArray(MyArray* arr);
+
+/*  Quick Sort the array
+ *
+ *  cmp should return true if a GOES BEFORE b
+ *  Generally, O(nlog(n)) worst case O(n^2)
+ * 
+ */
+void quickSort(MyArray* arr, bool cmp (int a, int b));
 
 #endif /* ARRAY_HEADER */

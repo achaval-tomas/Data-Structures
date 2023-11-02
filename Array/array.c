@@ -87,3 +87,39 @@ void printArray(MyArray* arr){
     fprintf(stdout, "]\n");
     fflush(stdout);
 }
+
+/*  AUXILIARY FUNCTION FOR QUICK SORT  */
+void swapArr(int* arr, int i, int j){
+    int aux = arr[i];
+    arr[i] = arr[j];
+    arr[j] = aux;
+}
+
+
+/*  AUXILIARY FUNCTION FOR QUICK SORT  */
+int partition(int* arr, int lft, int rgt, bool cmp (int a, int b)){
+    int piv = lft;
+    int pive = arr[piv];
+    for (int i = lft+1; i<rgt;++i){
+        if (cmp(arr[i], pive)){
+            piv++;
+            swapArr(arr, i, piv);
+        }
+    }
+    swapArr(arr, lft, piv);
+    return piv;
+}
+
+/*  AUXILIARY FUNCTION FOR QUICK SORT  */
+void sort(int* arr, int lft, int rgt, bool cmp (int a, int b)){
+    if (lft<rgt){
+        int ppiv = partition(arr, lft, rgt, cmp);
+        sort(arr, lft, ppiv, cmp);
+        sort(arr, ppiv+1, rgt, cmp);
+    }
+}
+
+/*  Quick Sort the array  */
+void quickSort(MyArray* arr, bool cmp (int a, int b)){
+    sort(arr->array, 0, arr->size, cmp);
+}
