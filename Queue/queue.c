@@ -44,14 +44,14 @@ void q_dequeue(MyQueue* q){
         free(q->in_front);
         q->in_front = NULL;
     } else {
-        q->pos = -1;;
+        q->pos = -1;
     }
 }
 
 /*  RETURNS THE FIRST ELEMENT IN THE QUEUE  */
 int q_front(MyQueue* q){
     assert(q->pos != -1);
-    while (q->pos != 0)
+    while (q->in_front)
         q = q->in_front;
     return q->e;
 }
@@ -68,10 +68,10 @@ int q_isEmpty(MyQueue* q){
 
 /*  FREE ALL SPACE USED BY QUEUE  */
 void q_free(MyQueue* q){
-    while (q->pos != 0){
+    while (q->in_front){
         MyQueue* killme = q;
         q = q->in_front;
-        free(q);
+        free(killme);
     }
     free(q);
 }
