@@ -17,9 +17,9 @@ My implementations of different data structures in C.
  * Queues
    * Priority Queue
  * Trees
-   * Simple
    * Binary Tree
    * N-ary Tree
+   * Binary Seach Tree
    * Trie
  * Graphs
    * Simple
