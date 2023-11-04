@@ -75,18 +75,9 @@ void removeNode(MyTree* tree, int elem){
                 searcher = side ? searcher->left : searcher->right;
             }
 
-            if (searcher == node){
-                if (side) {
-                    free(helper->left);
-                    helper->left = NULL;
-                } else {
-                    free(helper->right);
-                    helper->right = NULL;
-                }
-                continue;
-            }
-
-            node->val = searcher->val;
+            if (searcher != node)
+                node->val = searcher->val;
+                
             if (side) {
                 free(helper->left);
                 helper->left = NULL;
