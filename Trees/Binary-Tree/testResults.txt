@@ -18,17 +18,31 @@ DOES 99 EXIST? 0 -> should be 0
 
 REMOVING NODES...
 	[ 8 4 2 10 6 1 9 5 3 11 7 ]
-	[ 8 4 2 10 6 1 9 5 3 11 7 ]
-	[ 8 4 2 10 6 1 9 5 3 11 7 ]
-	[ 8 4 2 10 6 1 9 5 3 11 7 ]
-	[ 8 4 2 10 6 1 9 5 3 11 7 ]
-	[ 8 4 2 10 6 1 9 5 3 11 7 ]
-	[ 8 4 2 10 6 1 9 5 3 11 7 ]
-	[ 8 4 2 10 6 1 9 5 3 11 7 ]
-	[ 8 4 2 10 6 1 9 5 3 11 7 ]
-	[ 8 4 2 10 6 1 9 5 3 11 7 ]
-	[ 8 4 2 10 6 1 9 5 3 11 7 ]
+	[ 4 2 10 6 8 9 5 3 11 7 ]
+	[ 4 10 6 8 9 5 3 11 7 ]
+	[ 4 10 6 8 5 9 11 7 ]
+	[ 10 6 8 5 9 11 7 ]
+	[ 10 6 8 9 11 7 ]
+	[ 10 8 9 11 7 ]
+	[ 10 8 9 11 ]
+	[ 10 11 9 ]
+	[ 10 11 ]
+	[ 11 ]
+	[ ]
 
-IS IT EMPTY? 0 -> should now be 1
+IS IT EMPTY? 1 -> should now be 1
+
+TREE SHOULD BE COMPOSED OF 0s AND 1s
+	TREE: [ 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 ]
+IS IT EMPTY? 0 -> should be 0, SIZE: 20
+
+TREE SHOULD BE COMPOSED OF ONLY 0s
+	TREE: [ 0 0 0 0 0 0 0 0 0 0 ]
+IS IT EMPTY? 0 -> should be 0, SIZE: 10
+
+TREE SHOULD BE EMPTY
+	TREE: [ ]
+IS IT EMPTY? 1 -> should be 1, SIZE: 0
+
 
 ALL TESTCASES PASSED SUCCESSFULLY.
