@@ -38,6 +38,8 @@ int main(void){
 
     /*  TESTING REMOVE NODE  */
     fprintf(stdout, "REMOVING NODES...\n");
+    fprintf(stdout, "\t");
+    printTree(tester, INORDER);
     for (int i = 1; i<=11; ++i){
         removeNode(tester, i);
         fprintf(stdout, "\t");
@@ -47,7 +49,31 @@ int main(void){
 
     /*  TESTING IS EMPTY AGAIN  */
     fprintf(stdout, "IS IT EMPTY? %d -> should now be 1\n", isEmpty(tester));
+    fprintf(stdout, "\n");
     fflush(stdout);
+
+    /*  TESTING REMOVE ALL INSTANCES OF AN ELEMENT  */
+    for (int i = 0; i<10; ++i){
+        addNode(tester, 1);
+        addNode(tester, 0);
+    }
+
+    fprintf(stdout, "TREE SHOULD BE COMPOSED OF 0s AND 1s\n\tTREE: ");
+    printTree(tester, INORDER);
+    fprintf(stdout, "IS IT EMPTY? %d -> should be 0, SIZE: %d\n", isEmpty(tester), treeSize(tester));
+    fprintf(stdout, "\n");
+
+    removeNode(tester, 1);
+    fprintf(stdout, "TREE SHOULD BE COMPOSED OF ONLY 0s\n\tTREE: ");
+    printTree(tester, INORDER);
+    fprintf(stdout, "IS IT EMPTY? %d -> should be 0, SIZE: %d\n", isEmpty(tester), treeSize(tester));
+    fprintf(stdout, "\n");
+
+    removeNode(tester, 0);
+    fprintf(stdout, "TREE SHOULD BE EMPTY\n\tTREE: ");
+    printTree(tester, INORDER);
+    fprintf(stdout, "IS IT EMPTY? %d -> should be 1, SIZE: %d\n", isEmpty(tester), treeSize(tester));
+    fprintf(stdout, "\n");
 
     freeTree(tester);
     fprintf(stdout, "\nALL TESTCASES PASSED SUCCESSFULLY.\n");
