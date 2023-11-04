@@ -117,10 +117,10 @@ void freeTree(MyTree* tree){
 }
 
 /*  PRINT TREE  */
-void printTree(MyTree* tree, order_t type){
+void printTree(MyTree* tree, order_t order){
     int *a = orderTraversal(tree, order);
     int size = treeSize(tree);
-    
+
     fprintf(stdout, "[ ");
     for (int i = 0; i<size; ++i)
         fprintf(stdout, "%d ", a[i]);

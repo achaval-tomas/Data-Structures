@@ -43,6 +43,6 @@ int* orderTraversal(MyTree* tree, order_t order);
 void freeTree(MyTree* tree);
 
 /*  PRINT TREE  */
-void printTree(MyTree* tree, order_t type);
+void printTree(MyTree* tree, order_t order);
 
 #endif /* BINARY_TREE_HEADER */
