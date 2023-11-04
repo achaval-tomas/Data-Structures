@@ -9,6 +9,13 @@
 
 typedef struct s_btree MyTree;
 
+/*  ENUM FOR TREE ORDER TRAVERSALS  */
+typedef enum {
+    PREORDER = 0,
+    INORDER = 1,
+    POSTORDER = 2
+} order_t;
+
 /*  CREATE A NEW TREE OBJECT  */
 MyTree* newTree(void);
 
@@ -30,22 +37,12 @@ bool isEmpty(MyTree* tree);
 /*  ORDER FUNCTIONS
  *  Returned array must be freed by caller.
  */
-int* preOrderTraversal(MyTree* tree);
-
-int* postOrderTraversal(MyTree* tree);
-
-int* inOrderTraversal(MyTree* tree);
+int* orderTraversal(MyTree* tree, order_t order);
 
 /*  FREE ALL SPACE USED BY TREE  */
 void freeTree(MyTree* tree);
 
 /*  PRINT TREE  */
-typedef enum {
-    PREORDER,
-    POSTORDER,
-    INORDER
-} order_t;
-
 void printTree(MyTree* tree, order_t type);
 
 #endif /* BINARY_TREE_HEADER */

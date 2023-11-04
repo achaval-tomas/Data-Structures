@@ -59,14 +59,46 @@ bool isEmpty(MyTree* tree){
     return tree == NULL || (tree->left == tree->right);
 }
 
-/*  ORDER FUNCTIONS
+/*  HELPER FOR ORDER FUNCTIONS  */
+int* helper(MyTree* root, int *arr, int *i, order_t order){
+    if (root == NULL)
+        return NULL;
+    switch (order){
+        case PREORDER:
+            arr[*i] = root->val;
+            ++*i;
+            helper(root->left, arr, i, order);
+            helper(root->right, arr, i, order);
+            break;
+        case INORDER:
+            helper(root->left, arr, i, order);
+            arr[*i] = root->val;
+            ++*i;
+            helper(root->right, arr, i, order);
+            break;
+        case POSTORDER:
+            helper(root->left, arr, i, order);
+            helper(root->right, arr, i, order);
+            arr[*i] = root->val;
+            ++*i;
+            break;
+        default:
+            return NULL;
+    }
+    return arr;
+}
+
+/*  ORDER TRAVERSALS
  *  Returned array must be freed by caller.
+ *  PREORDER = 0, INORDER = 1, POSTORDER = 2
  */
-int* preOrderTraversal(MyTree* tree){}
-
-int* postOrderTraversal(MyTree* tree){}
-
-int* inOrderTraversal(MyTree* tree){}
+int* orderTraversal(MyTree* tree, order_t order){
+    int treeLen = treeSize(tree);
+    int *ret = malloc(treeLen*sizeof(*ret));
+    int i = 0;
+    ret = helper(tree, ret, &i, order);
+    return ret;
+}
 
 /*  FREE ALL SPACE USED BY TREE  */
 void freeTree(MyTree* tree){
