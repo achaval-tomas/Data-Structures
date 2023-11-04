@@ -47,14 +47,54 @@ void addNode(MyTree* tree, int elem){
 }
 
 /*  REMOVE ALL INSTANCES OF ELEM FROM THE TREE  */
+// To-Do IMPROVE THIS FUNCTION
 void removeNode(MyTree* tree, int elem){
-    if (exists(tree, elem)){
-        if (treeSize(tree) == 1){
+    MyTree* node = tree;
+    while (exists(tree, elem)){
+        node = tree;
+        if (treeSize(node) == 1){
             // TAKE TREE TO UNINITIALIZED STEP
-            tree->left = tree;
-            tree->right = tree;  
+            node->val = -1;
+            node->left = node;
+            node->right = node;  
+        
         } else {
-            // TO-DO
+            MyTree* searcher = node;
+            MyTree* helper = node;
+            bool side = 0;
+            while (node->val != elem) {
+                side = exists(node->left, elem);
+                helper = node;
+                node = side ? node->left : node->right;
+            }
+
+            searcher = node;
+            while (searcher->left || searcher->right){
+                side = treeSize(searcher->left) >= treeSize(searcher->right);
+                helper = searcher;
+                searcher = side ? searcher->left : searcher->right;
+            }
+
+            if (searcher == node){
+                if (side) {
+                    free(helper->left);
+                    helper->left = NULL;
+                } else {
+                    free(helper->right);
+                    helper->right = NULL;
+                }
+                continue;
+            }
+
+            node->val = searcher->val;
+            if (side) {
+                free(helper->left);
+                helper->left = NULL;
+            } else {
+                free(helper->right);
+                helper->right = NULL;
+            }
+
         }
     }
 }
@@ -101,6 +141,8 @@ int* helper(MyTree* root, int *arr, int *i, order_t order){
  */
 int* orderTraversal(MyTree* tree, order_t order){
     int treeLen = treeSize(tree);
+    if (treeLen == 0)
+        return NULL;
     int *ret = malloc(treeLen*sizeof(*ret));
     int i = 0;
     ret = helper(tree, ret, &i, order);
@@ -112,8 +154,6 @@ void freeTree(MyTree* tree){
     if (!tree)
         return;
     if (isEmpty(tree)){
-        free(tree->right);
-        free(tree->left);
         free(tree);
         return;
     }
