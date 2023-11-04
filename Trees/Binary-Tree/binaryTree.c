@@ -31,14 +31,14 @@ void addNode(MyTree* tree, int elem){
         tree->left = NULL;
         tree->right = NULL;
     } else {
-        if (tree->left && !tree->right){
-            tree->right = newTree();
-            addNode(tree->right, elem);
-        } else if (!tree->left && tree->right){
+        if ((!tree->left && tree->right) || (tree->left == tree->right)){
             tree->left = newTree();
             addNode(tree->left, elem);
+        } else if (tree->left && !tree->right){
+            tree->right = newTree();
+            addNode(tree->right, elem);
         } else {
-            if (treeSize(tree->left) < treeSize(tree->right))
+            if (treeSize(tree->left) <= treeSize(tree->right))
                 addNode(tree->left, elem);
             else
                 addNode(tree->right, elem);
@@ -46,8 +46,18 @@ void addNode(MyTree* tree, int elem){
     }
 }
 
-/*  REMOVE ELEM FROM THE TREE  */
-void remove(MyTree* tree, int elem){}
+/*  REMOVE ALL INSTANCES OF ELEM FROM THE TREE  */
+void removeNode(MyTree* tree, int elem){
+    if (exists(tree, elem)){
+        if (treeSize(tree) == 1){
+            // TAKE TREE TO UNINITIALIZED STEP
+            tree->left = tree;
+            tree->right = tree;  
+        } else {
+            // TO-DO
+        }
+    }
+}
 
 /*  CHECK IF ELEM EXISTS IN TREE  */
 bool exists(MyTree* tree, int elem){
@@ -56,7 +66,7 @@ bool exists(MyTree* tree, int elem){
 
 /*  DETERMINES IF TREE IS EMPTY  */
 bool isEmpty(MyTree* tree){
-    return tree == NULL || (tree->left == tree->right);
+    return tree == NULL || (tree->left && (tree->left == tree->right));
 }
 
 /*  HELPER FOR ORDER FUNCTIONS  */
@@ -65,22 +75,19 @@ int* helper(MyTree* root, int *arr, int *i, order_t order){
         return NULL;
     switch (order){
         case PREORDER:
-            arr[*i] = root->val;
-            ++*i;
+            arr[(*i)++] = root->val;
             helper(root->left, arr, i, order);
             helper(root->right, arr, i, order);
             break;
         case INORDER:
             helper(root->left, arr, i, order);
-            arr[*i] = root->val;
-            ++*i;
+            arr[(*i)++] = root->val;
             helper(root->right, arr, i, order);
             break;
         case POSTORDER:
             helper(root->left, arr, i, order);
             helper(root->right, arr, i, order);
-            arr[*i] = root->val;
-            ++*i;
+            arr[(*i)++] = root->val;
             break;
         default:
             return NULL;

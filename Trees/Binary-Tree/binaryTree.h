@@ -25,8 +25,8 @@ int treeSize(MyTree* tree);
 /*  ADD NODE TO THE TREE  */
 void addNode(MyTree* tree, int elem);
 
-/*  REMOVE ELEM FROM THE TREE  */
-void remove(MyTree* tree, int elem);
+/*  REMOVE ALL INSTANCES OF ELEM FROM THE TREE  */
+void removeNode(MyTree* tree, int elem);
 
 /*  CHECK IF ELEM EXISTS IN TREE  */
 bool exists(MyTree* tree, int elem);
