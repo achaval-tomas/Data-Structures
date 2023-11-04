@@ -2,12 +2,13 @@
 My implementations of different data structures in C.
 
 ## Structures available:
-  * [**Array**](https://github.com/achaval-tomas/Data-Structures/tree/main/Array)
-  * [**Linked List**](https://github.com/achaval-tomas/Data-Structures/tree/main/Linked-List)
-  * [**Set**](https://github.com/achaval-tomas/Data-Structures/tree/main/Set)
-  * [**Queue**](https://github.com/achaval-tomas/Data-Structures/tree/main/Queue)
-  * [**Stack**](https://github.com/achaval-tomas/Data-Structures/tree/main/Stack)
-
+  * [**Array**](/Array)
+  * [**Linked List**](/Linked-List)
+  * [**Set**](/Set)
+  * [**Queue**](/Queue)
+  * [**Stack**](/Stack)
+  * [**Trees**](/Trees)
+    * [**Binary Tree**](/Trees/Binary-Tree)
 
 ## To Do / Ideas
  * Hash Table
@@ -17,7 +18,6 @@ My implementations of different data structures in C.
  * Queues
    * Priority Queue
  * Trees
-   * Binary Tree
    * N-ary Tree
    * Binary Seach Tree
    * Trie
