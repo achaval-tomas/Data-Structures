@@ -8,7 +8,10 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include "../Array/array.h"
+#include "../Stack/stack.h"
 
 void handleArray();
+
+void handleStack();
 
 #endif /*  HANDLERS  */

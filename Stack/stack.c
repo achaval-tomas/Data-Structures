@@ -35,7 +35,10 @@ MyStack* s_push(MyStack* s, int elem){
 
 /*  POP FRONT  */
 void s_pop(MyStack* s){
-    assert(s->pos != -1);
+    if (s->pos == -1){
+        fprintf(stdout, "\nNOTHING TO POP.\n");
+        return;
+    }
     if (s->below){
         MyStack* freeme = s->below;
         s->e = s->below->e;
@@ -49,7 +52,10 @@ void s_pop(MyStack* s){
 
 /*  RETURNS THE TOP  */
 int s_top(MyStack* s){
-    assert(s->pos != -1);
+    if (s->pos == -1){
+        fprintf(stdout, "\nNOTHING ON TOP.\n");
+        return 0;
+    }
     return s->e;
 }
 
@@ -76,7 +82,7 @@ void s_free(MyStack* s){
 /*  PRINT STACK TO stdout  */
 void s_print(MyStack* s){
     fprintf(stdout, "TOP --> ");
-    while (s != NULL){
+    while (s && s->pos != -1){
         fprintf(stdout, "%d ", s->e);
         s = s->below;
     }

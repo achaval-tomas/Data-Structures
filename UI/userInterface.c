@@ -32,6 +32,9 @@ int main(int argc, char* argv[]){
             case 'a':
                 handleArray();
                 break;
+            case 'k':
+                handleStack();
+                break;
             case 'e':
                 fflush(stdin);
                 fflush(stdout);
