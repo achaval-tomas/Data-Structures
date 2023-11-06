@@ -21,9 +21,14 @@ void printMenu(){
 
 int main(int argc, char* argv[]){
     char quit = 0;
+    char choice = 0;
     while (!quit){
+
         printMenu();
-        switch(getchar()){
+        fflush(stdin);
+        fscanf(stdin, " %c", &choice);  // Get user input.
+
+        switch(choice){
             case 'a':
                 handleArray();
                 break;

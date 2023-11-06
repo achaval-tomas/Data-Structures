@@ -12,8 +12,10 @@ void printArrayInfo(MyArray* arr){
 void printArrayMenu(MyArray* arr){
         fprintf(stdout, "\n- MAIN MENU -> ARRAY MENU\n");
         printArrayInfo(arr);
-        fprintf(stdout, "\t\tAdd at index: 'a'\n"
+        fprintf(stdout, "\n\t\tAdd at index: 'a'\n"
                         "\t\tRemove element: 'r'\n"
+                        "\t\tSet in Range: 'R'\n"
+                        "\t\tSwap Indexes: 's'\n"
                         "\t\tPrint Array: 'p'\n"
                         "\t\tExit: 'e'\n"
                         "\t\tSelect Option: ");
@@ -22,15 +24,17 @@ void printArrayMenu(MyArray* arr){
 
 void handleArray(){
     MyArray* arr = init();
-    char quit = 0;
+    char quit = 0, choice = 0;
+    int elem = 0, idx = 0, idx2 = 0;
     while (!quit){
 
         printArrayMenu(arr);
+        fflush(stdin);
+        fscanf(stdin, " %c", &choice);  // Get user input.
 
-        /*  HANDLE ARRAY MENU  */
-        switch(getchar()){
+        switch(choice){
             case 'a':
-                int elem, idx;
+
                 fprintf(stdout, "\n\t\t\tSelect elem: ");
                 fflush(stdin);
                 fscanf(stdin, " %d", &elem);
@@ -44,13 +48,44 @@ void handleArray(){
                 break;
             
             case 'r':
-                int val;
+
                 fprintf(stdout, "\n\t\t\tSelect elem to remove: ");
                 fflush(stdin);
-                fscanf(stdin, " %d", &val);
+                fscanf(stdin, " %d", &elem);
                 
                 // REMOVE ALL INSTANCES OF SELECTED ELEMENT
-                removeMatches(arr, val);
+                removeMatches(arr, elem);
+                break;
+
+            case 'R':
+
+                fprintf(stdout, "\n\t\t\tSelect elem to add: ");
+                fflush(stdin);
+                fscanf(stdin, " %d", &elem);
+
+                fprintf(stdout, "\n\t\t\tStart of range (>= 0): ");
+                fflush(stdin);
+                fscanf(stdin, " %d", &idx);
+
+                fprintf(stdout, "\n\t\t\tEnd of range: ");
+                fflush(stdin);
+                fscanf(stdin, " %d", &idx2);
+                
+                setInRange(arr, idx, idx2, elem);
+
+                break;
+
+            case 's':
+
+                fprintf(stdout, "\n\t\t\tSelect First Index: ");
+                fflush(stdin);
+                fscanf(stdin, " %d", &idx);
+
+                fprintf(stdout, "\n\t\t\tSelect Second Index: ");
+                fflush(stdin);
+                fscanf(stdin, " %d", &idx2);
+                
+                swap(arr, idx, idx2);
                 break;
 
             case 'p':
