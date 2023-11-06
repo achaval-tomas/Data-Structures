@@ -1,4 +1,11 @@
 /*  My Graphs Specification  */
+/*
+ *    Graphs are represented as an adjacency list between their
+ *  vertices. If printed, [a, b] represents an edge connecting vertex
+ *  a with vertex b.
+ * 
+ */
+
 
 #ifndef GRAPH_HEADER
 #define GRAPH_HEADER
@@ -12,7 +19,7 @@ typedef struct s_graph MyGraph;
 /*  CREATE A NEW EMPTY GRAPH  */
 MyGraph* newGraph(void);
 
-/*  RETURNS THE AMOUNT OF UNIQUE VERTICES IN THE GRAPH  */
+/*  RETURNS THE AMOUNT OF EDGES IN THE GRAPH  */
 int graphSize(MyGraph* graph);
 
 /*  ADD EDGE [v1, v2] TO GRAPH  */
