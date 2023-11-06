@@ -68,7 +68,7 @@ void removeVertex(MyGraph* graph, int v){
     while (i<graph->size) {
         if ((graph->adjList)[i].v1 == v)
             removeEdge(graph, v, (graph->adjList)[i].v2);
-        else if (((graph->adjList)[i]).v2 == v)
+        else if ((graph->adjList)[i].v2 == v)
             removeEdge(graph, (graph->adjList)[i].v1, v);
         else 
             ++i;
