@@ -31,8 +31,8 @@ int main(void){
 
     /*  TESTING IS EMPTY AND EXISTS  */
     fprintf(stdout, "IS IT EMPTY? %d -> should be 0\n", isEmpty(tester));
-    fprintf(stdout, "DOES 11 EXIST? %d -> should be 1\n", exists(tester, 11));
-    fprintf(stdout, "DOES 99 EXIST? %d -> should be 0\n", exists(tester, 99));
+    fprintf(stdout, "DOES 11 EXIST? %d -> should be 1\n", isNode(tester, 11));
+    fprintf(stdout, "DOES 99 EXIST? %d -> should be 0\n", isNode(tester, 99));
     fprintf(stdout, "\n");
     fflush(stdout);
 

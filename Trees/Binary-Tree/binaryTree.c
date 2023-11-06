@@ -50,7 +50,7 @@ void addNode(MyTree* tree, int elem){
 // To-Do IMPROVE THIS FUNCTION
 void removeNode(MyTree* tree, int elem){
     MyTree* node = tree;
-    while (exists(tree, elem)){
+    while (isNode(tree, elem)){
         node = tree;
         if (treeSize(node) == 1){
             // TAKE TREE TO UNINITIALIZED STEP
@@ -63,7 +63,7 @@ void removeNode(MyTree* tree, int elem){
             MyTree* helper = node;
             bool side = 0;
             while (node->val != elem) {
-                side = exists(node->left, elem);
+                side = isNode(node->left, elem);
                 helper = node;
                 node = side ? node->left : node->right;
             }
@@ -91,8 +91,8 @@ void removeNode(MyTree* tree, int elem){
 }
 
 /*  CHECK IF ELEM EXISTS IN TREE  */
-bool exists(MyTree* tree, int elem){
-    return isEmpty(tree) ? false : (tree->val == elem) || exists(tree->left, elem) || exists(tree->right, elem);
+bool isNode(MyTree* tree, int elem){
+    return isEmpty(tree) ? false : (tree->val == elem) || isNode(tree->left, elem) || isNode(tree->right, elem);
 }
 
 /*  DETERMINES IF TREE IS EMPTY  */

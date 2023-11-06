@@ -29,7 +29,7 @@ void addNode(MyTree* tree, int elem);
 void removeNode(MyTree* tree, int elem);
 
 /*  CHECK IF ELEM EXISTS IN TREE  */
-bool exists(MyTree* tree, int elem);
+bool isNode(MyTree* tree, int elem);
 
 /*  DETERMINES IF TREE IS EMPTY  */
 bool isEmpty(MyTree* tree);
