@@ -9,8 +9,11 @@
 #include <stdbool.h>
 #include "../Array/array.h"
 #include "../Stack/stack.h"
+#include "../Queue/queue.h"
 
 void handleArray();
+
+void handleQueue();
 
 void handleStack();
 
