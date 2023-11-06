@@ -50,7 +50,10 @@ void setInRange(MyArray* arr, int start, int end, int elem){
 /*  SWAPS ELEM AT INDEX i WITH ELEM AT INDEX j  */
 void swap(MyArray* arr, int i, int j){
     int size = arraySize(arr);
-    assert(0<=i && i<size && 0<=j && j<size);
+    if (i<0 || i>=size || j<0 || j>=size){
+        fprintf(stdout, "\nINVALID INDEX.\n");
+        return;
+    }
     int aux = (arr->array)[i];
     (arr->array)[i] = (arr->array)[j];
     (arr->array)[j] = aux;
