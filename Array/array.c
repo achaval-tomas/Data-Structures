@@ -18,8 +18,11 @@ MyArray* init(){
 
 /*  RESIZE ARRAY TO newSize  */
 void resize(MyArray* arr, int newSize){
+    int len = arr->size;
     arr->size = newSize;
     arr->array = realloc((arr->array), newSize*sizeof(MyArray*));
+    if (len < newSize)
+        setInRange(arr, len, newSize, 0); // If array increased in size, set new places to 0.
 }
 
 /*  RETURNS CURRENT ELEM COUNT OF ARRAY  */
@@ -39,6 +42,7 @@ void setInRange(MyArray* arr, int start, int end, int elem){
     assert(start >= 0);
     if (end > arraySize(arr))
         resize(arr, end);
+
     for (int i = start; i<end; ++i)
         (arr->array)[i] = elem;
 }
