@@ -9,6 +9,8 @@ My implementations of different data structures in C.
   * [**Stack**](/Stack)
   * [**Trees**](/Trees)
     * [**Binary Tree**](/Trees/Binary-Tree)
+  * [**Graphs**](/Graphs)
+    * [**Normal Graph**](/Graphs/Normal-Graphs)
 
 ## To Do / Ideas
  * Hash Table
@@ -22,7 +24,6 @@ My implementations of different data structures in C.
    * Binary Seach Tree
    * Trie
  * Graphs
-   * Simple
    * Directed
    * Weighted
  * Fibonacci Heap
