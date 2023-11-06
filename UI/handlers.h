@@ -10,8 +10,11 @@
 #include "../Array/array.h"
 #include "../Stack/stack.h"
 #include "../Queue/queue.h"
+#include "../Set/set.h"
 
 void handleArray();
+
+void handleSet();
 
 void handleQueue();
 
