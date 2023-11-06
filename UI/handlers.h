@@ -6,6 +6,7 @@
 #define HANDLERS
 
 #include <stdio.h>
+#include <stdbool.h>
 #include "../Array/array.h"
 
 void handleArray();

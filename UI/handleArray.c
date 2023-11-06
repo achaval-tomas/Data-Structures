@@ -1,5 +1,8 @@
 #include "handlers.h"
 
+/*  COMPARE FUNCTION FOR QUICK SORT  */
+bool cmp(int a, int b){return a<=b;}
+
 /*  PRINT INFO OF ARRAY (size and current state)  */
 void printArrayInfo(MyArray* arr){
     fprintf(stdout, "\n\t\tCURRENT ARRAY: ");
@@ -16,6 +19,9 @@ void printArrayMenu(MyArray* arr){
                         "\t\tRemove element: 'r'\n"
                         "\t\tSet in Range: 'R'\n"
                         "\t\tSwap Indexes: 's'\n"
+                        "\t\tRemove at Index: 'i'\n"
+                        "\t\tSet all to Zero: 'z'\n"
+                        "\t\tQuick Sort the array: 'q'\n"
                         "\t\tPrint Array: 'p'\n"
                         "\t\tExit: 'e'\n"
                         "\t\tSelect Option: ");
@@ -86,6 +92,23 @@ void handleArray(){
                 fscanf(stdin, " %d", &idx2);
                 
                 swap(arr, idx, idx2);
+                break;
+            
+            case 'i':
+
+                fprintf(stdout, "\n\t\t\tSelect index to remove: ");
+                fflush(stdin);
+                fscanf(stdin, " %d", &idx);
+                
+                // REMOVE ALL INSTANCES OF SELECTED ELEMENT
+                removeAtIndex(arr, idx);
+                break;
+            
+            case 'z':
+                setZeroes(arr);
+
+            case 'q':
+                quickSort(arr, cmp);
                 break;
 
             case 'p':

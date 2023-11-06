@@ -66,6 +66,10 @@ void replaceAtIndex(MyArray* arr, int i, int elem){
 
 void removeAtIndex(MyArray* arr, int idx){
     int size = arraySize(arr);
+    if (idx < 0 || idx >= size){
+        fprintf(stdout, "\nINVALID INDEX.\n");
+        return;
+    }
     for (int i = idx; i<size-1; ++i)
         (arr->array)[i] = (arr->array)[i+1];
     resize(arr, size-1);
