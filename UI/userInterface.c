@@ -9,6 +9,7 @@ void printMenu(){
     fprintf(stdout, "\n- MAIN MENU\n"
                     "SELECT AN OPTION:\n"
                     "\tArray: 'a'\n"
+                    "\tLinked List: 'l'\n"
                     "\tSet: 's'\n"
                     "\tQueue: 'q'\n"
                     "\tStack: 'k'\n"
@@ -31,6 +32,9 @@ int main(int argc, char* argv[]){
         switch(choice){
             case 'a':
                 handleArray();
+                break;
+            case 'l':
+                handleLinkedList();
                 break;
             case 's':
                 handleSet();

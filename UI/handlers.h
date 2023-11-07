@@ -5,10 +5,13 @@
 #ifndef HANDLERS
 #define HANDLERS
 
+#include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
 
 void handleArray();
+
+void handleLinkedList();
 
 void handleSet();
 

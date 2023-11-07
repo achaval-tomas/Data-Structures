@@ -31,8 +31,10 @@ MyLinkedList* addElem(MyLinkedList* obj, int elem){
 /* Adds element elem at index position (0-indexed) of the list (if valid) */
 MyLinkedList* addElemAtIndex(MyLinkedList* obj, int elem, int index){
     int size = listSize(obj);
-    if (index < 0 || index > size)
+    if (index<0 || index>size) {
+        fprintf(stdout, "\nINVALID INDEX.\n");
         return obj;
+    }
     if (index == 0)
         return addElem(obj, elem);
 
@@ -50,7 +52,10 @@ MyLinkedList* addElemAtIndex(MyLinkedList* obj, int elem, int index){
 
 /* Removes all elements matching value */
 MyLinkedList* removeElemByValue(MyLinkedList* obj, int value){
-    assert(obj != NULL);
+    if (!obj){
+        fprintf(stdout, "\nNOTHING TO REMOVE.\n");
+        return obj;
+    }
     MyLinkedList* ret = obj;
     while (ret && ret->val == value){
         MyLinkedList *killme = ret;
@@ -71,7 +76,10 @@ MyLinkedList* removeElemByValue(MyLinkedList* obj, int value){
 
 /* Removes element at position index (0-indexed) */
 MyLinkedList* removeElemByIndex(MyLinkedList* obj, int index){
-    assert(obj != NULL);
+    if (index<0 || index>=listSize(obj)) {
+        fprintf(stdout, "\nINVALID INDEX.\n");
+        return obj;
+    }
     if (index == 0){
         MyLinkedList * ret = obj->next;
         free(obj);
@@ -98,7 +106,10 @@ MyLinkedList* addElemGroup(MyLinkedList* obj, int *group, int groupSize){
 
 /* Removes all matches from each element in group */
 MyLinkedList* removeGroup(MyLinkedList* obj, int *group, int groupSize){
-    assert(obj != NULL);
+    if (!obj) {
+        fprintf(stdout, "\nNOTHING TO REMOVE.\n");
+        return obj;
+    }
     MyLinkedList* ret = obj;
     for (int i = 0; i<groupSize; ++i)
         ret = removeElemByValue(ret, group[i]);
@@ -118,7 +129,10 @@ bool elemExists(MyLinkedList* obj, int elem){
 /* Returns the element at position index (0-indexed) */
 int elemAtIndex(MyLinkedList* obj, int index){
     int size = listSize(obj);
-    assert(0<=index && index<size); // MUST be a valid index.
+    if (index<0 || index>=size) {
+        fprintf(stdout, "\nINVALID INDEX.\n");
+        return 0;
+    }
     for (int i = 0; i<index; ++i)
         obj = obj->next;
     return obj->val;
@@ -134,11 +148,11 @@ void* freeList(MyLinkedList* obj){
 
 /* Prints the linked list to STDOUT */
 void printList(MyLinkedList* obj){
-    fprintf(stdout, "[ ");
+    fprintf(stdout, "head ->");
     while (obj != NULL){
-        fprintf(stdout, "%d ", obj->val);
+        fprintf(stdout, " %d ->", obj->val);
         obj = obj->next;
     }
-    fprintf(stdout, "]\n");
+    fprintf(stdout, " end\n");
     fflush(stdout);
 }
