@@ -16,6 +16,8 @@ void handleQueue();
 
 void handleStack();
 
+void handleTree();
+
 void handleGraph();
 
 #endif /*  HANDLERS  */

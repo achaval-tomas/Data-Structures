@@ -41,6 +41,9 @@ int main(int argc, char* argv[]){
             case 'k':
                 handleStack();
                 break;
+            case 't':
+                handleTree();
+                break;
             case 'g':
                 handleGraph();
                 break;

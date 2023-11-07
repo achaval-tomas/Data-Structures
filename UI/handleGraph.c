@@ -11,7 +11,7 @@ void printGraphInfo(MyGraph* g){
 
 /*  PRINT GRAPH MENU  */
 void printGraphMenu(MyGraph* g){
-        fprintf(stdout, "\n- MAIN MENU -> SET MENU\n");
+        fprintf(stdout, "\n- MAIN MENU -> GRAPH MENU\n");
         printGraphInfo(g);
         fprintf(stdout, "\n\t\tAdd edge: 'A'\n"
                         "\t\tRemove edge: 'R'\n"
