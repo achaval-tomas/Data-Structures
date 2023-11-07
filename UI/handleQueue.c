@@ -1,4 +1,5 @@
 #include "handlers.h"
+#include "../Queue/queue.h"
 
 /*  PRINT INFO OF QUEUE (size and current state)  */
 void printQueueInfo(MyQueue* q){

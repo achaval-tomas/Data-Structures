@@ -1,4 +1,5 @@
 #include "handlers.h"
+#include "../Stack/stack.h"
 
 /*  PRINT INFO OF STACK (size and current state)  */
 void printStackInfo(MyStack* s){

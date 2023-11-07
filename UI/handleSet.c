@@ -1,4 +1,5 @@
 #include "handlers.h"
+#include "../Set/set.h"
 
 /*  PRINT INFO OF SET (size and current state)  */
 void printSetInfo(MySet* s){

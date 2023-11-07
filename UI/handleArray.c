@@ -1,4 +1,5 @@
 #include "handlers.h"
+#include "../Array/array.h"
 
 /*  COMPARE FUNCTION FOR QUICK SORT  */
 bool cmp(int a, int b){return a<=b;}
