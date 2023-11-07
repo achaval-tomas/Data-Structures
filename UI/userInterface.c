@@ -41,10 +41,14 @@ int main(int argc, char* argv[]){
             case 'k':
                 handleStack();
                 break;
+            case 'g':
+                handleGraph();
+                break;
             case 'e':
                 fflush(stdin);
                 fflush(stdout);
                 quit = 1;
+                break;
             default:
                 break;
         }
