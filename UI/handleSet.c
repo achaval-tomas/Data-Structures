@@ -28,6 +28,7 @@ void handleSet(){
     int elem = 0;
     while (!quit){
 
+        clearConsole();
         printSetMenu(s);
         fflush(stdin);
         fscanf(stdin, " %c", &choice);  // Get user input.
@@ -73,6 +74,26 @@ void handleSet(){
 
             default:
                 break;
+        }
+
+        if (!quit){
+            fprintf(stdout, "\n\t\t\tContinue? Y/n -> ");
+            fflush(stdin);
+            fscanf(stdin, " %c", &choice);
+            while (1) {
+                if (choice == 'n' || choice == 'N'){
+                    freeSet(s);
+                    fflush(stdin);
+                    fflush(stdout);
+                    return;
+                } else if (choice == 'y' || choice == 'Y'){
+                    break;
+                } else {
+                    fprintf(stdout, "\n\t\t\tInvalid Input. Continue? Y/n -> ");
+                    fflush(stdin);
+                    fscanf(stdin, " %c", &choice);
+                }
+            }
         }
 
     }

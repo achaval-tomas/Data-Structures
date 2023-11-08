@@ -25,6 +25,7 @@ int main(int argc, char* argv[]){
     char choice = 0;
     while (!quit){
 
+        clearConsole();
         printMenu();
         fflush(stdin);
         fscanf(stdin, " %c", &choice);  // Get user input.

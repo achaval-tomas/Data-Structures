@@ -33,6 +33,7 @@ void handleLinkedList(){
     int elem = 0, idx = 0;
     while (!quit){
 
+        clearConsole();
         printListMenu(l);
         fflush(stdin);
         fscanf(stdin, " %c", &choice);  // Get user input.
@@ -145,6 +146,26 @@ void handleLinkedList(){
 
             default:
                 break;
+        }
+
+        if (!quit){
+            fprintf(stdout, "\n\t\t\tContinue? Y/n -> ");
+            fflush(stdin);
+            fscanf(stdin, " %c", &choice);
+            while (1) {
+                if (choice == 'n' || choice == 'N'){
+                    freeList(l);
+                    fflush(stdin);
+                    fflush(stdout);
+                    return;
+                } else if (choice == 'y' || choice == 'Y'){
+                    break;
+                } else {
+                    fprintf(stdout, "\n\t\t\tInvalid Input. Continue? Y/n -> ");
+                    fflush(stdin);
+                    fscanf(stdin, " %c", &choice);
+                }
+            }
         }
 
     }

@@ -29,6 +29,7 @@ void handleTree(){
     int elem = 0;
     while (!quit){
 
+        clearConsole();
         printTreeMenu(t);
         fflush(stdin);
         fscanf(stdin, " %c", &choice);  // Get user input.
@@ -88,6 +89,26 @@ void handleTree(){
 
             default:
                 break;
+        }
+
+        if (!quit){
+            fprintf(stdout, "\n\t\t\tContinue? Y/n -> ");
+            fflush(stdin);
+            fscanf(stdin, " %c", &choice);
+            while (1) {
+                if (choice == 'n' || choice == 'N'){
+                    freeTree(t);
+                    fflush(stdin);
+                    fflush(stdout);
+                    return;
+                } else if (choice == 'y' || choice == 'Y'){
+                    break;
+                } else {
+                    fprintf(stdout, "\n\t\t\tInvalid Input. Continue? Y/n -> ");
+                    fflush(stdin);
+                    fscanf(stdin, " %c", &choice);
+                }
+            }
         }
 
     }

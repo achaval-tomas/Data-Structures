@@ -30,6 +30,7 @@ void handleGraph(){
     int v1 = 0, v2 = 0;
     while (!quit){
 
+        clearConsole();
         printGraphMenu(g);
         fflush(stdin);
         fscanf(stdin, " %c", &choice);  // Get user input.
@@ -97,6 +98,26 @@ void handleGraph(){
 
             default:
                 break;
+        }
+
+        if (!quit){
+            fprintf(stdout, "\n\t\t\tContinue? Y/n -> ");
+            fflush(stdin);
+            fscanf(stdin, " %c", &choice);
+            while (1) {
+                if (choice == 'n' || choice == 'N'){
+                    freeGraph(g);
+                    fflush(stdin);
+                    fflush(stdout);
+                    return;
+                } else if (choice == 'y' || choice == 'Y'){
+                    break;
+                } else {
+                    fprintf(stdout, "\n\t\t\tInvalid Input. Continue? Y/n -> ");
+                    fflush(stdin);
+                    fscanf(stdin, " %c", &choice);
+                }
+            }
         }
 
     }

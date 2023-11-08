@@ -23,4 +23,6 @@ void handleTree();
 
 void handleGraph();
 
+void clearConsole();
+
 #endif /*  HANDLERS  */
