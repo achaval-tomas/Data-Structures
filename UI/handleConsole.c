@@ -2,5 +2,5 @@
 #include <stdlib.h>
 
 void clearConsole(){
-    system("clear");
+    printf("\033c");
 }
