@@ -102,7 +102,7 @@ void handleArray(){
                 fflush(stdin);
                 fscanf(stdin, " %d", &idx);
                 
-                // REMOVE ALL INSTANCES OF SELECTED ELEMENT
+                // REMOVE ELEMENT AT INDEX idx
                 removeAtIndex(arr, idx);
                 break;
             
