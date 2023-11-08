@@ -127,6 +127,7 @@ void handleArray(){
             default:
                 break;
         }
+        
         if (!quit){
             fprintf(stdout, "\n\t\t\tContinue? Y/n -> ");
             fflush(stdin);
