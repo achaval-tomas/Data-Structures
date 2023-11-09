@@ -19,6 +19,7 @@ void printGraphMenu(MyGraph* g){
                         "\t\tCheck if Edge exists: 'E'\n"
                         "\t\tGet Connections of a vertex: 'C'\n"
                         "\t\tPrint Graph: 'P'\n"
+                        "\t\tExport to Graphium: 'G'\n"
                         "\t\tExit: 'e'\n"
                         "\t\tSelect Option: ");
         fflush(stdout);
@@ -87,6 +88,32 @@ void handleGraph(){
 
             case 'P':
                 printGraphInfo(g);
+                break;
+
+            case 'G':
+                FILE *fpath = fopen("../graphium/saved-graphs/importedGraph", "w");
+                
+                if (!fpath){
+                    fprintf(stdout, "\nUnable to create file.\n");
+                    break;
+                }
+
+                // Load all vertices of the graph into verts. Save return size in &v1.
+                int* verts = vertices(g, &v1);
+
+                for (int i = 0; i<v1; ++i){
+                    fprintf(fpath, "%d| ", verts[i]);
+                    // Load array of all vertices connected to verts[i]. Retsize in &v2.
+                    int* cons = connections(g, verts[i], &v2);
+                    for (int j = 0; j<v2; ++j)
+                        fprintf(fpath, "%d", cons[j]);
+                    free(cons);
+                    fprintf(fpath, "\n");
+                }
+                free(verts);
+
+                fflush(fpath);
+                fclose(fpath);
                 break;
 
             case 'e':

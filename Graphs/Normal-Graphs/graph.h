@@ -37,6 +37,12 @@ void removeVertex(MyGraph* graph, int v);
  */
 int* connections(MyGraph* graph, int vertex, int* retSize);
 
+/*  RETURNS ALL VERTICES OF A GRAPH
+ *  loads the number of vertices into *retSize.
+ *  returned array must be freed by the caller.
+ */
+int* vertices(MyGraph* graph, int* retSize);
+
 /*  DETERMINES IF [v1, v2] IS AN EDGE OF THE GRAPH  */
 bool isEdge(MyGraph* graph, int v1, int v2);
 

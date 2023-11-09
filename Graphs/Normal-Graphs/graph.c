@@ -110,6 +110,40 @@ int* connections(MyGraph* graph, int vertex, int* retSize){
     return ret;
 }
 
+/*  AUX FUNCTION FOR vertices  */
+bool notInArr(int elem, int* arr, int size){
+    for (int i = 0; i<size; ++i){
+        if (arr[i] == elem)
+            return false;
+    }
+    return true;
+}
+
+
+/*  RETURNS ALL VERTICES OF A GRAPH
+ *  loads the number of vertices into *retSize.
+ *  returned array must be freed by the caller.
+ *  Very Slow Function
+ */
+int* vertices(MyGraph* graph, int* retSize){
+    if (!graph->size)
+        return NULL;
+    int* ret = NULL;
+    int cnt = 0;
+    for (int i = 0; i<graph->size; ++i){
+        if (notInArr((graph->adjList)[i].v1, ret, cnt) ){
+            ret = realloc(ret, sizeof(*ret)*(++cnt)); // Make space and increase count.
+            ret[cnt-1] = (graph->adjList)[i].v1;
+        }
+        if (notInArr((graph->adjList)[i].v2, ret, cnt) ){
+            ret = realloc(ret, sizeof(*ret)*(++cnt)); // Make space and increase count.
+            ret[cnt-1] = (graph->adjList)[i].v2;
+        }
+    }
+    *retSize = cnt;
+    return ret;
+}
+
 /*  DETERMINES IF [v1, v2] IS AN EDGE OF THE GRAPH, Time Complexity: O(n)  */
 bool isEdge(MyGraph* graph, int v1, int v2){
     struct s_edge edge = newEdge(v1, v2);
