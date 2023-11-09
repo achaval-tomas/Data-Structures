@@ -114,6 +114,9 @@ void handleGraph(){
                 }
                 free(verts);
 
+                fprintf(stdout, "\nSuccesfully exported to graphium.\n"
+                                "Exit and run graphium as instructred "
+                                "in the README to visualize it.\n");
                 fflush(fpath);
                 fclose(fpath);
                 break;
