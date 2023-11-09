@@ -94,7 +94,9 @@ void handleGraph(){
                 FILE *fpath = fopen("../graphium/saved-graphs/importedGraph", "w");
                 
                 if (!fpath){
-                    fprintf(stdout, "\nUnable to create file.\n");
+                    fprintf(stdout, "\nUnable to create file.\n"
+                                    "\tMake sure to follow the instructions on "
+                                    "how to use graphium from the README.md file\n");
                     break;
                 }
 
