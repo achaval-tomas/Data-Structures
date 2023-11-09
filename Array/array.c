@@ -10,7 +10,7 @@ struct s_array {
 
 /*  INIT ARRAY OBJECT  */
 MyArray* init(){
-    MyArray* arr = malloc(sizeof(MyArray*));
+    MyArray* arr = malloc(sizeof(*arr));
     arr->size = 0;
     arr->array = NULL;
     return arr;
@@ -20,7 +20,7 @@ MyArray* init(){
 void resize(MyArray* arr, int newSize){
     int len = arr->size;
     arr->size = newSize;
-    arr->array = realloc((arr->array), newSize*sizeof(MyArray*));
+    arr->array = realloc((arr->array), newSize*sizeof(*arr));
     if (len < newSize)
         setInRange(arr, len, newSize, 0); // If array increased in size, set new places to 0.
 }
