@@ -15,6 +15,9 @@ https://github.com/achaval-tomas/Data-Structures/assets/134091945/54f106da-5b04-
 - Run Graphium (````cabal run````) and choose to load a graph from a file.
 - Input Filename: ````importedGraph````.
 - A window with your graph will pop up. You can now play around moving the vertices.
+### Video demo:
+
+https://github.com/achaval-tomas/Data-Structures/assets/134091945/0505b9bb-7db2-45f2-9016-fa9fc6eda87c
 
 ## Structures available:
   * [**Array**](/Array)
