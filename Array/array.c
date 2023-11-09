@@ -20,7 +20,7 @@ MyArray* init(){
 void resize(MyArray* arr, int newSize){
     int len = arr->size;
     arr->size = newSize;
-    arr->array = realloc((arr->array), newSize*sizeof(*arr));
+    arr->array = realloc((arr->array), newSize*sizeof(*(arr->array)));
     if (len < newSize)
         setInRange(arr, len, newSize, 0); // If array increased in size, set new places to 0.
 }
