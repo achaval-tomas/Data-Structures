@@ -1,5 +1,5 @@
 # Data Structures
-My implementations of different data structures in C.
+This is an interactive library to test, use and visualize many different data structures in C.
 
 ## Try them out
  Use ```` make run ```` to start an interactive menu and play around with different data structures. When done, use ```` make clean ````.
