@@ -6,17 +6,17 @@ bool cmp(int a, int b){return a<=b;}
 
 /*  PRINT INFO OF ARRAY (size and current state)  */
 void printArrayInfo(MyArray* arr){
-    fprintf(stdout, "\n\t\tCURRENT ARRAY: ");
+    printf("\n\t\tCURRENT ARRAY: ");
     printArray(arr);
-    fprintf(stdout, "\t\tSIZE: %d\n", arraySize(arr));
+    printf("\t\tSIZE: %d\n", arraySize(arr));
     fflush(stdout);
 }
 
 /*  PRINT ARRAY MENU  */
 void printArrayMenu(MyArray* arr){
-        fprintf(stdout, "\n- MAIN MENU -> ARRAY MENU\n");
+        printf("\n- MAIN MENU -> ARRAY MENU\n");
         printArrayInfo(arr);
-        fprintf(stdout, "\n\t\tAdd at index: 'a'\n"
+        printf("\n\t\tAdd at index: 'a'\n"
                         "\t\tRemove element: 'r'\n"
                         "\t\tSet in Range: 'R'\n"
                         "\t\tSwap Indexes: 's'\n"
@@ -42,10 +42,10 @@ void handleArray(){
         switch(choice){
             case 'a':
 
-                fprintf(stdout, "\n\t\t\tSelect element: ");
+                printf("\n\t\t\tSelect element: ");
                 fscanf(stdin, " %d", &in0);
 
-                fprintf(stdout, "\n\t\t\tSelect Index: ");
+                printf("\n\t\t\tSelect Index: ");
                 fscanf(stdin, " %d", &in1);
 
                 // PLACE ELEM AT INDEX, MAKING SPACE IF NEEDED.
@@ -54,7 +54,7 @@ void handleArray(){
             
             case 'r':
 
-                fprintf(stdout, "\n\t\t\tSelect elem to remove: ");
+                printf("\n\t\t\tSelect elem to remove: ");
                 fscanf(stdin, " %d", &in0);
                 
                 // REMOVE ALL INSTANCES OF SELECTED ELEMENT
@@ -63,13 +63,13 @@ void handleArray(){
 
             case 'R':
 
-                fprintf(stdout, "\n\t\t\tSelect elem to add: ");
+                printf("\n\t\t\tSelect elem to add: ");
                 fscanf(stdin, " %d", &in0);
 
-                fprintf(stdout, "\n\t\t\tStart of range (>= 0): ");
+                printf("\n\t\t\tStart of range (>= 0): ");
                 fscanf(stdin, " %d", &in1);
 
-                fprintf(stdout, "\n\t\t\tEnd of range: ");
+                printf("\n\t\t\tEnd of range: ");
                 fscanf(stdin, " %d", &in2);
                 
                 setInRange(arr, in1, in2, in0);
@@ -78,10 +78,10 @@ void handleArray(){
 
             case 's':
 
-                fprintf(stdout, "\n\t\t\tSelect First Index: ");
+                printf("\n\t\t\tSelect First Index: ");
                 fscanf(stdin, " %d", &in1);
 
-                fprintf(stdout, "\n\t\t\tSelect Second Index: ");
+                printf("\n\t\t\tSelect Second Index: ");
                 fscanf(stdin, " %d", &in2);
                 
                 swap(arr, in1, in2);
@@ -89,7 +89,7 @@ void handleArray(){
             
             case 'i':
 
-                fprintf(stdout, "\n\t\t\tSelect index to remove: ");
+                printf("\n\t\t\tSelect index to remove: ");
                 fscanf(stdin, " %d", &in1);
                 
                 // REMOVE ELEMENT AT INDEX in1
@@ -118,7 +118,7 @@ void handleArray(){
         }
         
         if (!quit){
-            fprintf(stdout, "\n\t\t\tContinue? Y/n -> ");
+            printf("\n\t\t\tContinue? Y/n -> ");
             fscanf(stdin, " %c", &choice);
 
             while (1) {
@@ -129,7 +129,7 @@ void handleArray(){
                 } else if (choice == 'y' || choice == 'Y'){
                     break;
                 } else {
-                    fprintf(stdout, "\n\t\t\tInvalid Input. Continue? Y/n -> ");
+                    printf("\n\t\t\tInvalid Input. Continue? Y/n -> ");
                     fscanf(stdin, " %c", &choice);
                 }
             }

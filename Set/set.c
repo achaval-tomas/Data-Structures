@@ -60,9 +60,9 @@ void freeSet(MySet* set){
 /*  PRINT THE SET TO stdout  */
 void printSet(MySet* set){
     int size = set->size;
-    fprintf(stdout, "{ ");
+    printf("{ ");
     for (int i = 0; i<size; ++i)
-        fprintf(stdout, "%d ", (set->elements)[i]);
-    fprintf(stdout, "}\n");
+        printf("%d ", (set->elements)[i]);
+    printf("}\n");
     fflush(stdout);
 }

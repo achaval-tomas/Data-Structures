@@ -36,7 +36,7 @@ MyQueue* q_enqueue(MyQueue* q, int elem){
 /*  DEQUEUE  */
 void q_dequeue(MyQueue* q){
     if (q->pos == -1){
-        fprintf(stdout, "\nNOTHING TO DEQUEUE.\n");
+        printf("\nNOTHING TO DEQUEUE.\n");
         return;
     }
     while (q->pos > 1){
@@ -54,7 +54,7 @@ void q_dequeue(MyQueue* q){
 /*  RETURNS THE FIRST ELEMENT IN THE QUEUE  */
 int q_front(MyQueue* q){
     if (q->pos == -1){
-        fprintf(stdout, "\nQUEUE IS EMPTY.\n");
+        printf("\nQUEUE IS EMPTY.\n");
         return 0;
     }
     while (q->in_front)
@@ -84,11 +84,11 @@ void q_free(MyQueue* q){
 
 /*  PRINT QUEUE TO stdout  */
 void q_print(MyQueue* q){
-    fprintf(stdout, "last-> ");
+    printf("last-> ");
     while (q && q->pos != -1){
-        fprintf(stdout, "%d ", q->e);
+        printf("%d ", q->e);
         q = q->in_front;
     }
-    fprintf(stdout, "<- first\n");
+    printf("<- first\n");
     fflush(stdout);
 }

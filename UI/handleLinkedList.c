@@ -3,17 +3,17 @@
 
 /*  PRINT INFO OF LINKED LIST (size and current state)  */
 void printListInfo(MyLinkedList* l){
-    fprintf(stdout, "\n\t\tCURRENT LINKED LIST: ");
+    printf("\n\t\tCURRENT LINKED LIST: ");
     printList(l);
-    fprintf(stdout, "\t\tSIZE: %d\n", listSize(l));
+    printf("\t\tSIZE: %d\n", listSize(l));
     fflush(stdout);
 }
 
 /*  PRINT LINKED LIST MENU  */
 void printListMenu(MyLinkedList* l){
-        fprintf(stdout, "\n- MAIN MENU -> LINKED LIST MENU\n");
+        printf("\n- MAIN MENU -> LINKED LIST MENU\n");
         printListInfo(l);
-        fprintf(stdout, "\n\t\tAdd new element: 'A'\n"
+        printf("\n\t\tAdd new element: 'A'\n"
                         "\t\tAdd at index: 'a'\n"
                         "\t\tRemove element: 'R'\n"
                         "\t\tRemove at Index: 'r'\n"
@@ -40,7 +40,7 @@ void handleLinkedList(){
         switch(choice){
             case 'A':
 
-                fprintf(stdout, "\n\t\t\tSelect element to add: ");
+                printf("\n\t\t\tSelect element to add: ");
                 fscanf(stdin, " %d", &in0);
 
                 l = addElem(l, in0);
@@ -48,10 +48,10 @@ void handleLinkedList(){
 
             case 'a':
 
-                fprintf(stdout, "\n\t\t\tSelect element: ");
+                printf("\n\t\t\tSelect element: ");
                 fscanf(stdin, " %d", &in0);
 
-                fprintf(stdout, "\n\t\t\tSelect Index: ");
+                printf("\n\t\t\tSelect Index: ");
                 fscanf(stdin, " %d", &in1);
 
                 // PLACE ELEM AT INDEX, IF VALID.
@@ -60,7 +60,7 @@ void handleLinkedList(){
             
             case 'R':
 
-                fprintf(stdout, "\n\t\t\tSelect element to remove: ");
+                printf("\n\t\t\tSelect element to remove: ");
                 fscanf(stdin, " %d", &in0);
                 
                 // REMOVE ALL INSTANCES OF SELECTED ELEMENT
@@ -69,7 +69,7 @@ void handleLinkedList(){
             
             case 'r':
 
-                fprintf(stdout, "\n\t\t\tSelect index to remove: ");
+                printf("\n\t\t\tSelect index to remove: ");
                 fscanf(stdin, " %d", &in1);
                 
                 // REMOVE ELEMENT BY INDEX
@@ -78,12 +78,12 @@ void handleLinkedList(){
 
             case 'G':
 
-                fprintf(stdout, "\n\t\t\tSelect size of group: ");
+                printf("\n\t\t\tSelect size of group: ");
                 fscanf(stdin, " %d", &in0);
 
                 int* group = malloc(in0*sizeof(int));
                 for (int i = 0; i<in0; ++i){
-                    fprintf(stdout, "\n\t\t\tgroup[%d]: ", i);
+                    printf("\n\t\t\tgroup[%d]: ", i);
                     fscanf(stdin, " %d", &group[i]);
                 }
                 l = addElemGroup(l, group, in0);
@@ -92,12 +92,12 @@ void handleLinkedList(){
             
             case 'g':
 
-                fprintf(stdout, "\n\t\t\tSelect size of group: ");
+                printf("\n\t\t\tSelect size of group: ");
                 fscanf(stdin, " %d", &in0);
 
                 int* group2 = malloc(in0*sizeof(int));
                 for (int i = 0; i<in0; ++i){
-                    fprintf(stdout, "\n\t\t\tgroup[%d]: ", i);
+                    printf("\n\t\t\tgroup[%d]: ", i);
                     fscanf(stdin, " %d", &group[i]);
                 }
                 l = removeGroup(l, group, in0);
@@ -106,23 +106,23 @@ void handleLinkedList(){
 
             case 'c':
 
-                fprintf(stdout, "\n\t\t\tSelect Element to look for: ");
+                printf("\n\t\t\tSelect Element to look for: ");
                 fscanf(stdin, " %d", &in0);
 
-                fprintf(stdout, "\n\t\t\tThe element %d %s exist in the list.\n", in0, elemExists(l, in0) ? "DOES" : "DOES NOT");
+                printf("\n\t\t\tThe element %d %s exist in the list.\n", in0, elemExists(l, in0) ? "DOES" : "DOES NOT");
                 break;
             
             case 'i':
 
-                fprintf(stdout, "\n\t\t\tSelect Index to look at: ");
+                printf("\n\t\t\tSelect Index to look at: ");
                 fscanf(stdin, " %d", &in1);
 
                 if (in1<0 || in1>=listSize(l)) {
-                    fprintf(stdout, "\n\t\t\tINVALID INDEX.\n");
+                    printf("\n\t\t\tINVALID INDEX.\n");
                     break;
                 }
 
-                fprintf(stdout, "\n\t\t\tThe element at index %d is %d.\n", in1, elemAtIndex(l, in1));
+                printf("\n\t\t\tThe element at index %d is %d.\n", in1, elemAtIndex(l, in1));
                 break;
 
             case 'p':
@@ -140,7 +140,7 @@ void handleLinkedList(){
         }
 
         if (!quit){
-            fprintf(stdout, "\n\t\t\tContinue? Y/n -> ");
+            printf("\n\t\t\tContinue? Y/n -> ");
             fscanf(stdin, " %c", &choice);
 
             while (1) {
@@ -151,7 +151,7 @@ void handleLinkedList(){
                 } else if (choice == 'y' || choice == 'Y'){
                     break;
                 } else {
-                    fprintf(stdout, "\n\t\t\tInvalid Input. Continue? Y/n -> ");
+                    printf("\n\t\t\tInvalid Input. Continue? Y/n -> ");
                     fscanf(stdin, " %c", &choice);
                 }
             }

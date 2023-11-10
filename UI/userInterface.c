@@ -6,7 +6,7 @@
 #include "handlers.h"
 
 void printMenu(){
-    fprintf(stdout, "\n- MAIN MENU\n"
+    printf("\n- MAIN MENU\n"
                     "SELECT AN OPTION:\n"
                     "\tArray: 'a'\n"
                     "\tLinked List: 'l'\n"

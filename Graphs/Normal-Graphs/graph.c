@@ -165,9 +165,9 @@ void freeGraph(MyGraph* graph){
 /*  PRINT GRAPH TO stdout  */
 void printGraph(MyGraph* graph){
     if (!graph->size)
-        fprintf(stdout, "[ ]");
+        printf("[ ]");
     for (int i = 0; i<graph->size; ++i)
-        fprintf(stdout, "[%d, %d] ", (graph->adjList)[i].v1, (graph->adjList)[i].v2);
-    fprintf(stdout, "\n");
+        printf("[%d, %d] ", (graph->adjList)[i].v1, (graph->adjList)[i].v2);
+    printf("\n");
     fflush(stdout);
 }

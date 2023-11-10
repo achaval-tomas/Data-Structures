@@ -3,17 +3,17 @@
 
 /*  PRINT INFO OF QUEUE (size and current state)  */
 void printQueueInfo(MyQueue* q){
-    fprintf(stdout, "\n\t\tCURRENT QUEUE: ");
+    printf("\n\t\tCURRENT QUEUE: ");
     q_print(q);
-    fprintf(stdout, "\t\tSIZE: %d\n", q_size(q));
+    printf("\t\tSIZE: %d\n", q_size(q));
     fflush(stdout);
 }
 
 /*  PRINT QUEUE MENU  */
 void printQueueMenu(MyQueue* q){
-        fprintf(stdout, "\n- MAIN MENU -> QUEUE MENU\n");
+        printf("\n- MAIN MENU -> QUEUE MENU\n");
         printQueueInfo(q);
-        fprintf(stdout, "\n\t\tEnqueue: 'E'\n"
+        printf("\n\t\tEnqueue: 'E'\n"
                         "\t\tDequeue: 'D'\n"
                         "\t\tFront of queue: 'F'\n"
                         "\t\tPrint Queue: 'P'\n"
@@ -34,7 +34,7 @@ void handleQueue(){
 
         switch(choice){
             case 'E':
-                fprintf(stdout, "\n\t\t\tSelect element to enqueue: ");
+                printf("\n\t\t\tSelect element to enqueue: ");
                 fscanf(stdin, " %d", &in0);
 
                 // ENQUEUE NEW ELEMENT
@@ -42,12 +42,12 @@ void handleQueue(){
                 break;
             
             case 'D':
-                fprintf(stdout, "\n\t\t\tDEQUEUED: %d\n", q_front(q));
+                printf("\n\t\t\tDEQUEUED: %d\n", q_front(q));
                 q_dequeue(q);
                 break;
 
             case 'F':
-                fprintf(stdout, "\n\t\t\tELEMENT IN FRONT: %d\n", q_front(q));
+                printf("\n\t\t\tELEMENT IN FRONT: %d\n", q_front(q));
                 break;
 
             case 'P':
@@ -65,7 +65,7 @@ void handleQueue(){
         }
 
         if (!quit){
-            fprintf(stdout, "\n\t\t\tContinue? Y/n -> ");
+            printf("\n\t\t\tContinue? Y/n -> ");
             fscanf(stdin, " %c", &choice);
 
             while (1) {
@@ -76,7 +76,7 @@ void handleQueue(){
                 } else if (choice == 'y' || choice == 'Y'){
                     break;
                 } else {
-                    fprintf(stdout, "\n\t\t\tInvalid Input. Continue? Y/n -> ");
+                    printf("\n\t\t\tInvalid Input. Continue? Y/n -> ");
                     fscanf(stdin, " %c", &choice);
                 }
             }

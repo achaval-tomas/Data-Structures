@@ -159,10 +159,10 @@ void printTree(MyTree* tree, order_t order){
     int *a = orderTraversal(tree, order);
     int size = treeSize(tree);
 
-    fprintf(stdout, "[ ");
+    printf("[ ");
     for (int i = 0; i<size; ++i)
-        fprintf(stdout, "%d ", a[i]);
-    fprintf(stdout, "]\n");
+        printf("%d ", a[i]);
+    printf("]\n");
     fflush(stdout);
 
     free(a);
@@ -178,9 +178,9 @@ void visualizeTree(MyTree* tree, unsigned int depth) {
     visualizeTree(tree->right, depth + 1);
 
     for (unsigned int i = 0; i < depth; ++i)
-        fprintf(stdout, "  ");
+        printf("  ");
 
-    fprintf(stdout, "%d\n", tree->val);
+    printf("%d\n", tree->val);
 
     visualizeTree(tree->left, depth + 1);
 }

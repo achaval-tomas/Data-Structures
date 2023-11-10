@@ -3,17 +3,17 @@
 
 /*  PRINT INFO OF SET (size and current state)  */
 void printSetInfo(MySet* s){
-    fprintf(stdout, "\n\t\tCURRENT SET: ");
+    printf("\n\t\tCURRENT SET: ");
     printSet(s);
-    fprintf(stdout, "\t\tSIZE: %d\n", setSize(s));
+    printf("\t\tSIZE: %d\n", setSize(s));
     fflush(stdout);
 }
 
 /*  PRINT SET MENU  */
 void printSetMenu(MySet* s){
-        fprintf(stdout, "\n- MAIN MENU -> SET MENU\n");
+        printf("\n- MAIN MENU -> SET MENU\n");
         printSetInfo(s);
-        fprintf(stdout, "\n\t\tAdd element: 'A'\n"
+        printf("\n\t\tAdd element: 'A'\n"
                         "\t\tRemove element: 'R'\n"
                         "\t\tCheck if element exists: 'E'\n"
                         "\t\tPrint Set: 'P'\n"
@@ -34,7 +34,7 @@ void handleSet(){
 
         switch(choice){
             case 'A':
-                fprintf(stdout, "\n\t\t\tSelect element to add: ");
+                printf("\n\t\t\tSelect element to add: ");
                 fscanf(stdin, " %d", &in0);
 
                 // ADD NEW ELEMENT
@@ -42,7 +42,7 @@ void handleSet(){
                 break;
             
             case 'R':
-                fprintf(stdout, "\n\t\t\tSelect element to remove: ");
+                printf("\n\t\t\tSelect element to remove: ");
                 fscanf(stdin, " %d", &in0);
 
                 // REMOVE ELEMENT
@@ -50,10 +50,10 @@ void handleSet(){
                 break;
 
             case 'E':
-                fprintf(stdout, "\n\t\t\tSelect element to look for: ");
+                printf("\n\t\t\tSelect element to look for: ");
                 fscanf(stdin, " %d", &in0);
 
-                fprintf(stdout, "\n\t\t\tElement %s exist in the set\n", exists(s, in0) ? "DOES" : "DOES NOT");
+                printf("\n\t\t\tElement %s exist in the set\n", exists(s, in0) ? "DOES" : "DOES NOT");
                 break;
 
             case 'P':
@@ -71,7 +71,7 @@ void handleSet(){
         }
 
         if (!quit){
-            fprintf(stdout, "\n\t\t\tContinue? Y/n -> ");
+            printf("\n\t\t\tContinue? Y/n -> ");
             fscanf(stdin, " %c", &choice);
 
             while (1) {
@@ -82,7 +82,7 @@ void handleSet(){
                 } else if (choice == 'y' || choice == 'Y'){
                     break;
                 } else {
-                    fprintf(stdout, "\n\t\t\tInvalid Input. Continue? Y/n -> ");
+                    printf("\n\t\t\tInvalid Input. Continue? Y/n -> ");
                     fscanf(stdin, " %c", &choice);
                 }
             }

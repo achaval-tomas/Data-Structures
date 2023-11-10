@@ -3,17 +3,17 @@
 
 /*  PRINT INFO OF GRAPH (size and current state)  */
 void printGraphInfo(MyGraph* g){
-    fprintf(stdout, "\n\t\tCURRENT EDGES: ");
+    printf("\n\t\tCURRENT EDGES: ");
     printGraph(g);
-    fprintf(stdout, "\t\tSIZE: %d\n", graphSize(g));
+    printf("\t\tSIZE: %d\n", graphSize(g));
     fflush(stdout);
 }
 
 /*  PRINT GRAPH MENU  */
 void printGraphMenu(MyGraph* g){
-        fprintf(stdout, "\n- MAIN MENU -> GRAPH MENU\n");
+        printf("\n- MAIN MENU -> GRAPH MENU\n");
         printGraphInfo(g);
-        fprintf(stdout, "\n\t\tAdd edge: 'A'\n"
+        printf("\n\t\tAdd edge: 'A'\n"
                         "\t\tRemove edge: 'R'\n"
                         "\t\tRemove Vertex: 'V'\n"
                         "\t\tCheck if Edge exists: 'E'\n"
@@ -38,7 +38,7 @@ void handleGraph(){
 
         switch(choice){
             case 'A':
-                fprintf(stdout, "\n\t\t\tEdge to add \"v1, v2\": ");
+                printf("\n\t\t\tEdge to add \"v1, v2\": ");
                 fscanf(stdin, " %d, %d", &in0, &in1);
 
                 // ADD THE EDGE
@@ -46,7 +46,7 @@ void handleGraph(){
                 break;
             
             case 'R':
-                fprintf(stdout, "\n\t\t\tEdge to remove \"v1, v2\": ");
+                printf("\n\t\t\tEdge to remove \"v1, v2\": ");
                 fscanf(stdin, " %d, %d", &in0, &in1);
 
                 // REMOVE THE CHOSEN EDGE
@@ -54,43 +54,43 @@ void handleGraph(){
                 break;
 
             case 'V':
-                fprintf(stdout, "\n\t\t\tSelect Vertex to remove: ");
+                printf("\n\t\t\tSelect Vertex to remove: ");
                 fscanf(stdin, " %d", &in0);
 
                 removeVertex(g, in0);
                 break;
 
             case 'E':
-                fprintf(stdout, "\n\t\t\tEdge to look for \"v1, v2\": ");
+                printf("\n\t\t\tEdge to look for \"v1, v2\": ");
                 fscanf(stdin, " %d, %d", &in0, &in1);
 
                 // CHECK IF EXISTS
-                fprintf(stdout, "\n\t\t\tEdge [%d, %d] %s exist in the graph.", in0, in1, isEdge(g, in0, in1) ? "DOES" : "DOES NOT");
+                printf("\n\t\t\tEdge [%d, %d] %s exist in the graph.", in0, in1, isEdge(g, in0, in1) ? "DOES" : "DOES NOT");
                 break;
             
             case 'X':
-                fprintf(stdout, "\n\t\t\tCurrent Vertices in the graph: ");
+                printf("\n\t\t\tCurrent Vertices in the graph: ");
 
                 int *vtcs = vertices(g, &in0);
                 for (int i = 0; i<in0; ++i)
-                    fprintf(stdout, " %d", vtcs[i]);
+                    printf(" %d", vtcs[i]);
                 free(vtcs);
 
-                fprintf(stdout, "\n");
+                printf("\n");
                 break;
             
             case 'C':
-                fprintf(stdout, "\n\t\t\tSelect a Vertex: ");
+                printf("\n\t\t\tSelect a Vertex: ");
                 fscanf(stdin, " %d", &in0);
 
-                fprintf(stdout, "\n\t\t\tVertices connected to %d are: ", in0);
+                printf("\n\t\t\tVertices connected to %d are: ", in0);
 
                 int *arr = connections(g, in0, &in1); // Load array of connections.
                 for (int i = 0; i<in1;++i)
-                    fprintf(stdout, "%d ", arr[i]);
+                    printf("%d ", arr[i]);
                 free(arr);
 
-                fprintf(stdout, "\n");
+                printf("\n");
                 break;
 
             case 'P':
@@ -101,7 +101,7 @@ void handleGraph(){
                 FILE *fpath = fopen("../graphium/saved-graphs/importedGraph", "w");
                 
                 if (!fpath){
-                    fprintf(stdout, "\nUnable to create file.\n"
+                    printf("\nUnable to create file.\n"
                                     "\tMake sure to follow the instructions on "
                                     "how to use graphium from the README.md file\n");
                     break;
@@ -121,7 +121,7 @@ void handleGraph(){
                 }
                 free(verts);
 
-                fprintf(stdout, "\nSuccesfully exported to graphium.\n"
+                printf("\nSuccesfully exported to graphium.\n"
                                 "Exit and run graphium as instructred "
                                 "in the README to visualize it.\n");
                 fflush(fpath);
@@ -139,7 +139,7 @@ void handleGraph(){
         }
 
         if (!quit){
-            fprintf(stdout, "\n\t\t\tContinue? Y/n -> ");
+            printf("\n\t\t\tContinue? Y/n -> ");
             fscanf(stdin, " %c", &choice);
 
             while (1) {
@@ -150,7 +150,7 @@ void handleGraph(){
                 } else if (choice == 'y' || choice == 'Y'){
                     break;
                 } else {
-                    fprintf(stdout, "\n\t\t\tInvalid Input. Continue? Y/n -> ");
+                    printf("\n\t\t\tInvalid Input. Continue? Y/n -> ");
                     fscanf(stdin, " %c", &choice);
                 }
             }

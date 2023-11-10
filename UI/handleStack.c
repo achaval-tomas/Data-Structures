@@ -3,17 +3,17 @@
 
 /*  PRINT INFO OF STACK (size and current state)  */
 void printStackInfo(MyStack* s){
-    fprintf(stdout, "\n\t\tCURRENT STACK: ");
+    printf("\n\t\tCURRENT STACK: ");
     s_print(s);
-    fprintf(stdout, "\t\tSIZE: %d\n", s_size(s));
+    printf("\t\tSIZE: %d\n", s_size(s));
     fflush(stdout);
 }
 
 /*  PRINT STACK MENU  */
 void printStackMenu(MyStack* s){
-        fprintf(stdout, "\n- MAIN MENU -> STACK MENU\n");
+        printf("\n- MAIN MENU -> STACK MENU\n");
         printStackInfo(s);
-        fprintf(stdout, "\n\t\tPush to stack: 'P'\n"
+        printf("\n\t\tPush to stack: 'P'\n"
                         "\t\tPop stack: 'p'\n"
                         "\t\tTop of stack: 't'\n"
                         "\t\tPrint Stack: 's'\n"
@@ -34,7 +34,7 @@ void handleStack(){
 
         switch(choice){
             case 'P':
-                fprintf(stdout, "\n\t\t\tSelect element to push: ");
+                printf("\n\t\t\tSelect element to push: ");
                 fscanf(stdin, " %d", &in0);
 
                 // PUSH TO STACK
@@ -42,12 +42,12 @@ void handleStack(){
                 break;
             
             case 'p':
-                fprintf(stdout, "\n\t\t\tPOPPING: %d\n", s_top(stack));
+                printf("\n\t\t\tPOPPING: %d\n", s_top(stack));
                 s_pop(stack);
                 break;
 
             case 't':
-                fprintf(stdout, "\n\t\t\tTOP: %d\n", s_top(stack));
+                printf("\n\t\t\tTOP: %d\n", s_top(stack));
                 break;
 
             case 's':
@@ -65,7 +65,7 @@ void handleStack(){
         }
 
         if (!quit){
-            fprintf(stdout, "\n\t\t\tContinue? Y/n -> ");
+            printf("\n\t\t\tContinue? Y/n -> ");
             fscanf(stdin, " %c", &choice);
 
             while (1) {
@@ -76,7 +76,7 @@ void handleStack(){
                 } else if (choice == 'y' || choice == 'Y'){
                     break;
                 } else {
-                    fprintf(stdout, "\n\t\t\tInvalid Input. Continue? Y/n -> ");
+                    printf("\n\t\t\tInvalid Input. Continue? Y/n -> ");
                     fscanf(stdin, " %c", &choice);
                 }
             }

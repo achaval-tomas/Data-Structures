@@ -51,7 +51,7 @@ void setInRange(MyArray* arr, int start, int end, int elem){
 void swap(MyArray* arr, int i, int j){
     int size = arraySize(arr);
     if (i<0 || i>=size || j<0 || j>=size){
-        fprintf(stdout, "\nINVALID INDEX.\n");
+        printf("\nINVALID INDEX.\n");
         return;
     }
     int aux = (arr->array)[i];
@@ -67,7 +67,7 @@ void replaceAtIndex(MyArray* arr, int i, int elem){
 void removeAtIndex(MyArray* arr, int idx){
     int size = arraySize(arr);
     if (idx < 0 || idx >= size){
-        fprintf(stdout, "\nINVALID INDEX.\n");
+        printf("\nINVALID INDEX.\n");
         return;
     }
     for (int i = idx; i<size-1; ++i)
@@ -92,10 +92,10 @@ void freeArray(MyArray* arr){
 /*  PRINTS ARRAY TO STDOUT  */
 void printArray(MyArray* arr){
     int size = arr->size;
-    fprintf(stdout, "[ ");
+    printf("[ ");
     for (int i = 0; i<size; ++i)
-        fprintf(stdout, "%d ", (arr->array)[i]);
-    fprintf(stdout, "]\n");
+        printf("%d ", (arr->array)[i]);
+    printf("]\n");
     fflush(stdout);
 }
 
