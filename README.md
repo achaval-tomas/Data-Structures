@@ -39,7 +39,7 @@ https://github.com/achaval-tomas/Data-Structures/assets/134091945/0505b9bb-7db2-
    * Priority Queue
  * Trees
    * N-ary Tree
-   * Binary Seach Tree
+   * Binary Search Tree
    * Trie
  * Graphs
    * Directed
