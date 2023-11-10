@@ -97,7 +97,7 @@ bool isNode(MyTree* tree, int elem){
 
 /*  DETERMINES IF TREE IS EMPTY  */
 bool isEmpty(MyTree* tree){
-    return tree == NULL || (tree->left && (tree->left == tree->right));
+    return !tree || (tree->left && (tree->left == tree->right));
 }
 
 /*  HELPER FOR ORDER FUNCTIONS  */
@@ -172,15 +172,15 @@ void printTree(MyTree* tree, order_t order){
 /*  PRINT TREE BUT PRETTY   */
 void visualizeTree(MyTree* tree, unsigned int depth) {
 
-    if (!tree || isEmpty(tree))
+    if (isEmpty(tree))
         return;
 
     visualizeTree(tree->right, depth + 1);
 
     for (unsigned int i = 0; i < depth; ++i)
-        printf("  ");
+        fprintf(stdout, "  ");
 
-    printf("%d\n", tree->val);
+    fprintf(stdout, "%d\n", tree->val);
 
     visualizeTree(tree->left, depth + 1);
 }
