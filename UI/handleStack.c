@@ -25,7 +25,7 @@ void printStackMenu(MyStack* s){
 void handleStack(){
     MyStack* stack = s_newStack();
     char quit = 0, choice = 0;
-    int elem = 0;
+    int in0 = 0;
     while (!quit){
 
         clearConsole();
@@ -34,11 +34,11 @@ void handleStack(){
 
         switch(choice){
             case 'P':
-                fprintf(stdout, "\n\t\t\tSelect elem to push: ");
-                fscanf(stdin, " %d", &elem);
+                fprintf(stdout, "\n\t\t\tSelect element to push: ");
+                fscanf(stdin, " %d", &in0);
 
                 // PUSH TO STACK
-                stack = s_push(stack, elem);
+                stack = s_push(stack, in0);
                 break;
             
             case 'p':
@@ -67,7 +67,7 @@ void handleStack(){
         if (!quit){
             fprintf(stdout, "\n\t\t\tContinue? Y/n -> ");
             fscanf(stdin, " %c", &choice);
-            
+
             while (1) {
                 if (choice == 'n' || choice == 'N'){
                     s_free(stack);

@@ -25,7 +25,7 @@ void printQueueMenu(MyQueue* q){
 void handleQueue(){
     MyQueue* q = q_newQueue();
     char quit = 0, choice = 0;
-    int elem = 0;
+    int in0 = 0;
     while (!quit){
 
         clearConsole();
@@ -34,11 +34,11 @@ void handleQueue(){
 
         switch(choice){
             case 'E':
-                fprintf(stdout, "\n\t\t\tSelect elem to enqueue: ");
-                fscanf(stdin, " %d", &elem);
+                fprintf(stdout, "\n\t\t\tSelect element to enqueue: ");
+                fscanf(stdin, " %d", &in0);
 
                 // ENQUEUE NEW ELEMENT
-                q = q_enqueue(q, elem);
+                q = q_enqueue(q, in0);
                 break;
             
             case 'D':
@@ -67,7 +67,7 @@ void handleQueue(){
         if (!quit){
             fprintf(stdout, "\n\t\t\tContinue? Y/n -> ");
             fscanf(stdin, " %c", &choice);
-            
+
             while (1) {
                 if (choice == 'n' || choice == 'N'){
                     q_free(q);

@@ -25,7 +25,7 @@ void printSetMenu(MySet* s){
 void handleSet(){
     MySet* s = newSet();
     char quit = 0, choice = 0;
-    int elem = 0;
+    int in0 = 0;
     while (!quit){
 
         clearConsole();
@@ -35,25 +35,25 @@ void handleSet(){
         switch(choice){
             case 'A':
                 fprintf(stdout, "\n\t\t\tSelect element to add: ");
-                fscanf(stdin, " %d", &elem);
+                fscanf(stdin, " %d", &in0);
 
                 // ADD NEW ELEMENT
-                addTo(s, elem);
+                addTo(s, in0);
                 break;
             
             case 'R':
                 fprintf(stdout, "\n\t\t\tSelect element to remove: ");
-                fscanf(stdin, " %d", &elem);
+                fscanf(stdin, " %d", &in0);
 
                 // REMOVE ELEMENT
-                removeFrom(s, elem);
+                removeFrom(s, in0);
                 break;
 
             case 'E':
                 fprintf(stdout, "\n\t\t\tSelect element to look for: ");
-                fscanf(stdin, " %d", &elem);
+                fscanf(stdin, " %d", &in0);
 
-                fprintf(stdout, "\n\t\t\tElement %s exist in the set\n", exists(s, elem) ? "DOES" : "DOES NOT");
+                fprintf(stdout, "\n\t\t\tElement %s exist in the set\n", exists(s, in0) ? "DOES" : "DOES NOT");
                 break;
 
             case 'P':
@@ -73,7 +73,7 @@ void handleSet(){
         if (!quit){
             fprintf(stdout, "\n\t\t\tContinue? Y/n -> ");
             fscanf(stdin, " %c", &choice);
-            
+
             while (1) {
                 if (choice == 'n' || choice == 'N'){
                     freeSet(s);

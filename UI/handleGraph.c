@@ -28,7 +28,7 @@ void printGraphMenu(MyGraph* g){
 void handleGraph(){
     MyGraph* g = newGraph();
     char quit = 0, choice = 0;
-    int v1 = 0, v2 = 0;
+    int in0 = 0, in1 = 0;
     while (!quit){
 
         clearConsole();
@@ -38,42 +38,42 @@ void handleGraph(){
         switch(choice){
             case 'A':
                 fprintf(stdout, "\n\t\t\tEdge to add \"v1, v2\": ");
-                fscanf(stdin, " %d, %d", &v1, &v2);
+                fscanf(stdin, " %d, %d", &in0, &in1);
 
                 // ADD THE EDGE
-                addEdge(g, v1, v2);
+                addEdge(g, in0, in1);
                 break;
             
             case 'R':
                 fprintf(stdout, "\n\t\t\tEdge to remove \"v1, v2\": ");
-                fscanf(stdin, " %d, %d", &v1, &v2);
+                fscanf(stdin, " %d, %d", &in0, &in1);
 
                 // REMOVE THE CHOSEN EDGE
-                removeEdge(g, v1, v2);
+                removeEdge(g, in0, in1);
                 break;
 
             case 'V':
                 fprintf(stdout, "\n\t\t\tSelect Vertex to remove: ");
-                fscanf(stdin, " %d", &v1);
+                fscanf(stdin, " %d", &in0);
 
-                removeVertex(g, v1);
+                removeVertex(g, in0);
                 break;
 
             case 'E':
                 fprintf(stdout, "\n\t\t\tEdge to look for \"v1, v2\": ");
-                fscanf(stdin, " %d, %d", &v1, &v2);
+                fscanf(stdin, " %d, %d", &in0, &in1);
 
                 // CHECK IF EXISTS
-                fprintf(stdout, "\n\t\t\tEdge [%d, %d] %s exist in the graph.", v1, v2, isEdge(g, v1, v2) ? "DOES" : "DOES NOT");
+                fprintf(stdout, "\n\t\t\tEdge [%d, %d] %s exist in the graph.", in0, in1, isEdge(g, in0, in1) ? "DOES" : "DOES NOT");
                 break;
             
             case 'C':
                 fprintf(stdout, "\n\t\t\tSelect a Vertex: ");
-                fscanf(stdin, " %d", &v1);
+                fscanf(stdin, " %d", &in0);
 
-                int *arr = connections(g, v1, &v2); // Load array of connections.
-                fprintf(stdout, "\n\t\t\tVertices connected to %d are: ", v1);
-                for (int i = 0; i<v2;++i)
+                int *arr = connections(g, in0, &in1); // Load array of connections.
+                fprintf(stdout, "\n\t\t\tVertices connected to %d are: ", in0);
+                for (int i = 0; i<in1;++i)
                     fprintf(stdout, "%d ", arr[i]);
                 free(arr);
                 fprintf(stdout, "\n");
@@ -93,14 +93,14 @@ void handleGraph(){
                     break;
                 }
 
-                // Load all vertices of the graph into verts. Save return size in &v1.
-                int* verts = vertices(g, &v1);
+                // Load all vertices of the graph into verts. Save return size in &in0.
+                int* verts = vertices(g, &in0);
 
-                for (int i = 0; i<v1; ++i){
+                for (int i = 0; i<in0; ++i){
                     fprintf(fpath, "%d| ", verts[i]);
-                    // Load array of all vertices connected to verts[i]. Retsize in &v2.
-                    int* cons = connections(g, verts[i], &v2);
-                    for (int j = 0; j<v2; ++j)
+                    // Load array of all vertices connected to verts[i]. Retsize in &in1.
+                    int* cons = connections(g, verts[i], &in1);
+                    for (int j = 0; j<in1; ++j)
                         fprintf(fpath, "%d", cons[j]);
                     free(cons);
                     fprintf(fpath, "\n");
