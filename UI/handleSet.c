@@ -30,14 +30,11 @@ void handleSet(){
 
         clearConsole();
         printSetMenu(s);
-        fflush(stdin);
         fscanf(stdin, " %c", &choice);  // Get user input.
 
         switch(choice){
             case 'A':
-
                 fprintf(stdout, "\n\t\t\tSelect element to add: ");
-                fflush(stdin);
                 fscanf(stdin, " %d", &elem);
 
                 // ADD NEW ELEMENT
@@ -46,7 +43,6 @@ void handleSet(){
             
             case 'R':
                 fprintf(stdout, "\n\t\t\tSelect element to remove: ");
-                fflush(stdin);
                 fscanf(stdin, " %d", &elem);
 
                 // REMOVE ELEMENT
@@ -55,7 +51,6 @@ void handleSet(){
 
             case 'E':
                 fprintf(stdout, "\n\t\t\tSelect element to look for: ");
-                fflush(stdin);
                 fscanf(stdin, " %d", &elem);
 
                 fprintf(stdout, "\n\t\t\tElement %s exist in the set\n", exists(s, elem) ? "DOES" : "DOES NOT");
@@ -68,7 +63,6 @@ void handleSet(){
             case 'e':
                 quit = 1;
                 freeSet(s);
-                fflush(stdin);
                 fflush(stdout);
                 break;
 
@@ -78,19 +72,17 @@ void handleSet(){
 
         if (!quit){
             fprintf(stdout, "\n\t\t\tContinue? Y/n -> ");
-            fflush(stdin);
             fscanf(stdin, " %c", &choice);
+            
             while (1) {
                 if (choice == 'n' || choice == 'N'){
                     freeSet(s);
-                    fflush(stdin);
                     fflush(stdout);
                     return;
                 } else if (choice == 'y' || choice == 'Y'){
                     break;
                 } else {
                     fprintf(stdout, "\n\t\t\tInvalid Input. Continue? Y/n -> ");
-                    fflush(stdin);
                     fscanf(stdin, " %c", &choice);
                 }
             }

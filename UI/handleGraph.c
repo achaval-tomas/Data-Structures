@@ -33,14 +33,11 @@ void handleGraph(){
 
         clearConsole();
         printGraphMenu(g);
-        fflush(stdin);
         fscanf(stdin, " %c", &choice);  // Get user input.
 
         switch(choice){
             case 'A':
-
                 fprintf(stdout, "\n\t\t\tEdge to add \"v1, v2\": ");
-                fflush(stdin);
                 fscanf(stdin, " %d, %d", &v1, &v2);
 
                 // ADD THE EDGE
@@ -49,7 +46,6 @@ void handleGraph(){
             
             case 'R':
                 fprintf(stdout, "\n\t\t\tEdge to remove \"v1, v2\": ");
-                fflush(stdin);
                 fscanf(stdin, " %d, %d", &v1, &v2);
 
                 // REMOVE THE CHOSEN EDGE
@@ -58,7 +54,6 @@ void handleGraph(){
 
             case 'V':
                 fprintf(stdout, "\n\t\t\tSelect Vertex to remove: ");
-                fflush(stdin);
                 fscanf(stdin, " %d", &v1);
 
                 removeVertex(g, v1);
@@ -66,7 +61,6 @@ void handleGraph(){
 
             case 'E':
                 fprintf(stdout, "\n\t\t\tEdge to look for \"v1, v2\": ");
-                fflush(stdin);
                 fscanf(stdin, " %d, %d", &v1, &v2);
 
                 // CHECK IF EXISTS
@@ -75,7 +69,6 @@ void handleGraph(){
             
             case 'C':
                 fprintf(stdout, "\n\t\t\tSelect a Vertex: ");
-                fflush(stdin);
                 fscanf(stdin, " %d", &v1);
 
                 int *arr = connections(g, v1, &v2); // Load array of connections.
@@ -124,7 +117,6 @@ void handleGraph(){
             case 'e':
                 quit = 1;
                 freeGraph(g);
-                fflush(stdin);
                 fflush(stdout);
                 break;
 
@@ -134,19 +126,17 @@ void handleGraph(){
 
         if (!quit){
             fprintf(stdout, "\n\t\t\tContinue? Y/n -> ");
-            fflush(stdin);
             fscanf(stdin, " %c", &choice);
+
             while (1) {
                 if (choice == 'n' || choice == 'N'){
                     freeGraph(g);
-                    fflush(stdin);
                     fflush(stdout);
                     return;
                 } else if (choice == 'y' || choice == 'Y'){
                     break;
                 } else {
                     fprintf(stdout, "\n\t\t\tInvalid Input. Continue? Y/n -> ");
-                    fflush(stdin);
                     fscanf(stdin, " %c", &choice);
                 }
             }

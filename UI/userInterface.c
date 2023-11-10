@@ -27,7 +27,6 @@ int main(int argc, char* argv[]){
 
         clearConsole();
         printMenu();
-        fflush(stdin);
         fscanf(stdin, " %c", &choice);  // Get user input.
 
         switch(choice){
@@ -53,7 +52,6 @@ int main(int argc, char* argv[]){
                 handleGraph();
                 break;
             case 'e':
-                fflush(stdin);
                 fflush(stdout);
                 quit = 1;
                 break;

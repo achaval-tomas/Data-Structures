@@ -30,14 +30,11 @@ void handleStack(){
 
         clearConsole();
         printStackMenu(stack);
-        fflush(stdin);
         fscanf(stdin, " %c", &choice);  // Get user input.
 
         switch(choice){
             case 'P':
-
                 fprintf(stdout, "\n\t\t\tSelect elem to push: ");
-                fflush(stdin);
                 fscanf(stdin, " %d", &elem);
 
                 // PUSH TO STACK
@@ -60,7 +57,6 @@ void handleStack(){
             case 'e':
                 quit = 1;
                 s_free(stack);
-                fflush(stdin);
                 fflush(stdout);
                 break;
 
@@ -70,19 +66,17 @@ void handleStack(){
 
         if (!quit){
             fprintf(stdout, "\n\t\t\tContinue? Y/n -> ");
-            fflush(stdin);
             fscanf(stdin, " %c", &choice);
+            
             while (1) {
                 if (choice == 'n' || choice == 'N'){
                     s_free(stack);
-                    fflush(stdin);
                     fflush(stdout);
                     return;
                 } else if (choice == 'y' || choice == 'Y'){
                     break;
                 } else {
                     fprintf(stdout, "\n\t\t\tInvalid Input. Continue? Y/n -> ");
-                    fflush(stdin);
                     fscanf(stdin, " %c", &choice);
                 }
             }

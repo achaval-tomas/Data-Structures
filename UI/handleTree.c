@@ -31,14 +31,11 @@ void handleTree(){
 
         clearConsole();
         printTreeMenu(t);
-        fflush(stdin);
         fscanf(stdin, " %c", &choice);  // Get user input.
 
         switch(choice){
             case 'A':
-
                 fprintf(stdout, "\n\t\t\tSelect node to add: ");
-                fflush(stdin);
                 fscanf(stdin, " %d", &elem);
 
                 // ADD THE NEW NODE
@@ -47,7 +44,6 @@ void handleTree(){
             
             case 'R':
                 fprintf(stdout, "\n\t\t\tSelect node to remove: ");
-                fflush(stdin);
                 fscanf(stdin, " %d", &elem);
 
                 // REMOVE ALL INSTANCES OF THE CHOSEN NODE
@@ -56,7 +52,6 @@ void handleTree(){
 
             case 'C':
                 fprintf(stdout, "\n\t\t\tSelect node to look for: ");
-                fflush(stdin);
                 fscanf(stdin, " %d", &elem);
 
                 // CHECK IF CHOSEN NODE EXISTS
@@ -69,7 +64,7 @@ void handleTree(){
                                 "\t\t\tINORDER TRAVERSAL -> '1'\n"
                                 "\t\t\tPOSTORDER TRAVERSAL -> '2'\n"
                                 "\n\t\t\tSelect an order: ");
-                fflush(stdin);
+    
                 fscanf(stdin, " %d", &elem); // Save order selection in &elem.
                 
                 fprintf(stdout, "\n\t\t\t%sORDER TRAVERSAL IS: ", elem == 0 ? "PRE" : elem == 1 ? "IN" : "POST");
@@ -83,7 +78,7 @@ void handleTree(){
             case 'e':
                 quit = 1;
                 freeTree(t);
-                fflush(stdin);
+    
                 fflush(stdout);
                 break;
 
@@ -93,19 +88,17 @@ void handleTree(){
 
         if (!quit){
             fprintf(stdout, "\n\t\t\tContinue? Y/n -> ");
-            fflush(stdin);
             fscanf(stdin, " %c", &choice);
+            
             while (1) {
                 if (choice == 'n' || choice == 'N'){
                     freeTree(t);
-                    fflush(stdin);
                     fflush(stdout);
                     return;
                 } else if (choice == 'y' || choice == 'Y'){
                     break;
                 } else {
                     fprintf(stdout, "\n\t\t\tInvalid Input. Continue? Y/n -> ");
-                    fflush(stdin);
                     fscanf(stdin, " %c", &choice);
                 }
             }
