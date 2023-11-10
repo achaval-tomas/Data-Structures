@@ -77,7 +77,8 @@ void handleTree(){
                 break;
 
             case 'v':
-                visualizeTree(t, 0);
+                clearConsole();
+                visualizeTree(t, 12); // Print tree visualization with offset.
                 break;
 
             case 'e':

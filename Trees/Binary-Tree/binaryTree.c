@@ -178,7 +178,7 @@ void visualizeTree(MyTree* tree, unsigned int depth) {
     visualizeTree(tree->right, depth + 1);
 
     for (unsigned int i = 0; i < depth; ++i)
-        printf(" ");
+        printf("  ");
 
     printf("%d\n", tree->val);
 
