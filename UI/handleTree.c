@@ -77,7 +77,7 @@ void handleTree(){
                 break;
 
             case 'v':
-                visualizeTree(t, 0, 0);
+                visualizeTree(t, 0);
                 break;
 
             case 'e':

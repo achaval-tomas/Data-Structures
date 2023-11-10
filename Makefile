@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -Wall -lm
+CFLAGS = -Wall
 SRCS_ENC := $(wildcard **/*.c **/*/*.c)
 NOT_SRC = $(wildcard **/test*.c **/*/test*.c)
 SRCS_ENC := $(filter-out $(NOT_SRC), $(SRCS_ENC))

@@ -45,6 +45,6 @@ void freeTree(MyTree* tree);
 /*  PRINT TREE  */
 void printTree(MyTree* tree, order_t order);
 
-void visualizeTree(MyTree* tree, unsigned int depth, char line);
+void visualizeTree(MyTree* tree, unsigned int depth);
 
 #endif /* BINARY_TREE_HEADER */
