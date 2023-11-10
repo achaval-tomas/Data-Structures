@@ -27,7 +27,7 @@ int main(int argc, char* argv[]){
 
         clearConsole();
         printMenu();
-        fscanf(stdin, " %c", &choice);  // Get user input.
+        scanf(" %c", &choice);  // Get user input.
 
         switch(choice){
             case 'a':

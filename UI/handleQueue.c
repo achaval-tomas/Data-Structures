@@ -30,12 +30,12 @@ void handleQueue(){
 
         clearConsole();
         printQueueMenu(q);
-        fscanf(stdin, " %c", &choice);  // Get user input.
+        scanf(" %c", &choice);  // Get user input.
 
         switch(choice){
             case 'E':
                 printf("\n\t\t\tSelect element to enqueue: ");
-                fscanf(stdin, " %d", &in0);
+                scanf(" %d", &in0);
 
                 // ENQUEUE NEW ELEMENT
                 q = q_enqueue(q, in0);
@@ -66,7 +66,7 @@ void handleQueue(){
 
         if (!quit){
             printf("\n\t\t\tContinue? Y/n -> ");
-            fscanf(stdin, " %c", &choice);
+            scanf(" %c", &choice);
 
             while (1) {
                 if (choice == 'n' || choice == 'N'){
@@ -77,7 +77,7 @@ void handleQueue(){
                     break;
                 } else {
                     printf("\n\t\t\tInvalid Input. Continue? Y/n -> ");
-                    fscanf(stdin, " %c", &choice);
+                    scanf(" %c", &choice);
                 }
             }
         }

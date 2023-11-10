@@ -32,12 +32,12 @@ void handleTree(){
 
         clearConsole();
         printTreeMenu(t);
-        fscanf(stdin, " %c", &choice);  // Get user input.
+        scanf(" %c", &choice);  // Get user input.
 
         switch(choice){
             case 'A':
                 printf("\n\t\t\tSelect node to add: ");
-                fscanf(stdin, " %d", &in0);
+                scanf(" %d", &in0);
 
                 // ADD THE NEW NODE
                 addNode(t, in0);
@@ -45,7 +45,7 @@ void handleTree(){
             
             case 'R':
                 printf("\n\t\t\tSelect node to remove: ");
-                fscanf(stdin, " %d", &in0);
+                scanf(" %d", &in0);
 
                 // REMOVE ALL INSTANCES OF THE CHOSEN NODE
                 removeNode(t, in0);
@@ -53,7 +53,7 @@ void handleTree(){
 
             case 'C':
                 printf("\n\t\t\tSelect node to look for: ");
-                fscanf(stdin, " %d", &in0);
+                scanf(" %d", &in0);
 
                 // CHECK IF CHOSEN NODE EXISTS
                 printf("\n\t\t\tThe node %d %s exist in the Tree.\n", in0, isNode(t, in0) ? "DOES": "DOES NOT");
@@ -66,7 +66,7 @@ void handleTree(){
                                 "\t\t\tPOSTORDER TRAVERSAL -> '2'\n"
                                 "\n\t\t\tSelect an order: ");
     
-                fscanf(stdin, " %d", &in0); // Save order selection in &in0.
+                scanf(" %d", &in0); // Save order selection in &in0.
                 
                 printf("\n\t\t\t%sORDER TRAVERSAL IS: ", in0 == 0 ? "PRE" : in0 == 1 ? "IN" : "POST");
                 printTree(t, in0);
@@ -94,7 +94,7 @@ void handleTree(){
 
         if (!quit){
             printf("\n\t\t\tContinue? Y/n -> ");
-            fscanf(stdin, " %c", &choice);
+            scanf(" %c", &choice);
 
             while (1) {
                 if (choice == 'n' || choice == 'N'){
@@ -105,7 +105,7 @@ void handleTree(){
                     break;
                 } else {
                     printf("\n\t\t\tInvalid Input. Continue? Y/n -> ");
-                    fscanf(stdin, " %c", &choice);
+                    scanf(" %c", &choice);
                 }
             }
         }

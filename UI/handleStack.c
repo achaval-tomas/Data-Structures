@@ -30,12 +30,12 @@ void handleStack(){
 
         clearConsole();
         printStackMenu(stack);
-        fscanf(stdin, " %c", &choice);  // Get user input.
+        scanf(" %c", &choice);  // Get user input.
 
         switch(choice){
             case 'P':
                 printf("\n\t\t\tSelect element to push: ");
-                fscanf(stdin, " %d", &in0);
+                scanf(" %d", &in0);
 
                 // PUSH TO STACK
                 stack = s_push(stack, in0);
@@ -66,7 +66,7 @@ void handleStack(){
 
         if (!quit){
             printf("\n\t\t\tContinue? Y/n -> ");
-            fscanf(stdin, " %c", &choice);
+            scanf(" %c", &choice);
 
             while (1) {
                 if (choice == 'n' || choice == 'N'){
@@ -77,7 +77,7 @@ void handleStack(){
                     break;
                 } else {
                     printf("\n\t\t\tInvalid Input. Continue? Y/n -> ");
-                    fscanf(stdin, " %c", &choice);
+                    scanf(" %c", &choice);
                 }
             }
         }

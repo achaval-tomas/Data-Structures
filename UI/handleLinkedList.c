@@ -35,13 +35,13 @@ void handleLinkedList(){
 
         clearConsole();
         printListMenu(l);
-        fscanf(stdin, " %c", &choice);  // Get user input.
+        scanf(" %c", &choice);  // Get user input.
 
         switch(choice){
             case 'A':
 
                 printf("\n\t\t\tSelect element to add: ");
-                fscanf(stdin, " %d", &in0);
+                scanf(" %d", &in0);
 
                 l = addElem(l, in0);
                 break;
@@ -49,10 +49,10 @@ void handleLinkedList(){
             case 'a':
 
                 printf("\n\t\t\tSelect element: ");
-                fscanf(stdin, " %d", &in0);
+                scanf(" %d", &in0);
 
                 printf("\n\t\t\tSelect Index: ");
-                fscanf(stdin, " %d", &in1);
+                scanf(" %d", &in1);
 
                 // PLACE ELEM AT INDEX, IF VALID.
                 l = addElemAtIndex(l, in0, in1);
@@ -61,7 +61,7 @@ void handleLinkedList(){
             case 'R':
 
                 printf("\n\t\t\tSelect element to remove: ");
-                fscanf(stdin, " %d", &in0);
+                scanf(" %d", &in0);
                 
                 // REMOVE ALL INSTANCES OF SELECTED ELEMENT
                 l = removeElemByValue(l, in0);
@@ -70,7 +70,7 @@ void handleLinkedList(){
             case 'r':
 
                 printf("\n\t\t\tSelect index to remove: ");
-                fscanf(stdin, " %d", &in1);
+                scanf(" %d", &in1);
                 
                 // REMOVE ELEMENT BY INDEX
                 l = removeElemByIndex(l, in1);
@@ -79,12 +79,12 @@ void handleLinkedList(){
             case 'G':
 
                 printf("\n\t\t\tSelect size of group: ");
-                fscanf(stdin, " %d", &in0);
+                scanf(" %d", &in0);
 
                 int* group = malloc(in0*sizeof(int));
                 for (int i = 0; i<in0; ++i){
                     printf("\n\t\t\tgroup[%d]: ", i);
-                    fscanf(stdin, " %d", &group[i]);
+                    scanf(" %d", &group[i]);
                 }
                 l = addElemGroup(l, group, in0);
                 free(group);
@@ -93,12 +93,12 @@ void handleLinkedList(){
             case 'g':
 
                 printf("\n\t\t\tSelect size of group: ");
-                fscanf(stdin, " %d", &in0);
+                scanf(" %d", &in0);
 
                 int* group2 = malloc(in0*sizeof(int));
                 for (int i = 0; i<in0; ++i){
                     printf("\n\t\t\tgroup[%d]: ", i);
-                    fscanf(stdin, " %d", &group[i]);
+                    scanf(" %d", &group[i]);
                 }
                 l = removeGroup(l, group, in0);
                 free(group2);
@@ -107,7 +107,7 @@ void handleLinkedList(){
             case 'c':
 
                 printf("\n\t\t\tSelect Element to look for: ");
-                fscanf(stdin, " %d", &in0);
+                scanf(" %d", &in0);
 
                 printf("\n\t\t\tThe element %d %s exist in the list.\n", in0, elemExists(l, in0) ? "DOES" : "DOES NOT");
                 break;
@@ -115,7 +115,7 @@ void handleLinkedList(){
             case 'i':
 
                 printf("\n\t\t\tSelect Index to look at: ");
-                fscanf(stdin, " %d", &in1);
+                scanf(" %d", &in1);
 
                 if (in1<0 || in1>=listSize(l)) {
                     printf("\n\t\t\tINVALID INDEX.\n");
@@ -141,7 +141,7 @@ void handleLinkedList(){
 
         if (!quit){
             printf("\n\t\t\tContinue? Y/n -> ");
-            fscanf(stdin, " %c", &choice);
+            scanf(" %c", &choice);
 
             while (1) {
                 if (choice == 'n' || choice == 'N'){
@@ -152,7 +152,7 @@ void handleLinkedList(){
                     break;
                 } else {
                     printf("\n\t\t\tInvalid Input. Continue? Y/n -> ");
-                    fscanf(stdin, " %c", &choice);
+                    scanf(" %c", &choice);
                 }
             }
         }

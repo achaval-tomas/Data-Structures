@@ -37,16 +37,16 @@ void handleArray(){
 
         clearConsole();
         printArrayMenu(arr);
-        fscanf(stdin, " %c", &choice);  // Get user input.
+        scanf(" %c", &choice);  // Get user input.
 
         switch(choice){
             case 'a':
 
                 printf("\n\t\t\tSelect element: ");
-                fscanf(stdin, " %d", &in0);
+                scanf(" %d", &in0);
 
                 printf("\n\t\t\tSelect Index: ");
-                fscanf(stdin, " %d", &in1);
+                scanf(" %d", &in1);
 
                 // PLACE ELEM AT INDEX, MAKING SPACE IF NEEDED.
                 setInRange(arr, in1, in1+1, in0);
@@ -55,7 +55,7 @@ void handleArray(){
             case 'r':
 
                 printf("\n\t\t\tSelect elem to remove: ");
-                fscanf(stdin, " %d", &in0);
+                scanf(" %d", &in0);
                 
                 // REMOVE ALL INSTANCES OF SELECTED ELEMENT
                 removeMatches(arr, in0);
@@ -64,13 +64,13 @@ void handleArray(){
             case 'R':
 
                 printf("\n\t\t\tSelect elem to add: ");
-                fscanf(stdin, " %d", &in0);
+                scanf(" %d", &in0);
 
                 printf("\n\t\t\tStart of range (>= 0): ");
-                fscanf(stdin, " %d", &in1);
+                scanf(" %d", &in1);
 
                 printf("\n\t\t\tEnd of range: ");
-                fscanf(stdin, " %d", &in2);
+                scanf(" %d", &in2);
                 
                 setInRange(arr, in1, in2, in0);
 
@@ -79,10 +79,10 @@ void handleArray(){
             case 's':
 
                 printf("\n\t\t\tSelect First Index: ");
-                fscanf(stdin, " %d", &in1);
+                scanf(" %d", &in1);
 
                 printf("\n\t\t\tSelect Second Index: ");
-                fscanf(stdin, " %d", &in2);
+                scanf(" %d", &in2);
                 
                 swap(arr, in1, in2);
                 break;
@@ -90,7 +90,7 @@ void handleArray(){
             case 'i':
 
                 printf("\n\t\t\tSelect index to remove: ");
-                fscanf(stdin, " %d", &in1);
+                scanf(" %d", &in1);
                 
                 // REMOVE ELEMENT AT INDEX in1
                 removeAtIndex(arr, in1);
@@ -119,7 +119,7 @@ void handleArray(){
         
         if (!quit){
             printf("\n\t\t\tContinue? Y/n -> ");
-            fscanf(stdin, " %c", &choice);
+            scanf(" %c", &choice);
 
             while (1) {
                 if (choice == 'n' || choice == 'N'){
@@ -130,7 +130,7 @@ void handleArray(){
                     break;
                 } else {
                     printf("\n\t\t\tInvalid Input. Continue? Y/n -> ");
-                    fscanf(stdin, " %c", &choice);
+                    scanf(" %c", &choice);
                 }
             }
         }

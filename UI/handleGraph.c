@@ -34,12 +34,12 @@ void handleGraph(){
 
         clearConsole();
         printGraphMenu(g);
-        fscanf(stdin, " %c", &choice);  // Get user input.
+        scanf(" %c", &choice);  // Get user input.
 
         switch(choice){
             case 'A':
                 printf("\n\t\t\tEdge to add \"v1, v2\": ");
-                fscanf(stdin, " %d, %d", &in0, &in1);
+                scanf(" %d, %d", &in0, &in1);
 
                 // ADD THE EDGE
                 addEdge(g, in0, in1);
@@ -47,7 +47,7 @@ void handleGraph(){
             
             case 'R':
                 printf("\n\t\t\tEdge to remove \"v1, v2\": ");
-                fscanf(stdin, " %d, %d", &in0, &in1);
+                scanf(" %d, %d", &in0, &in1);
 
                 // REMOVE THE CHOSEN EDGE
                 removeEdge(g, in0, in1);
@@ -55,14 +55,14 @@ void handleGraph(){
 
             case 'V':
                 printf("\n\t\t\tSelect Vertex to remove: ");
-                fscanf(stdin, " %d", &in0);
+                scanf(" %d", &in0);
 
                 removeVertex(g, in0);
                 break;
 
             case 'E':
                 printf("\n\t\t\tEdge to look for \"v1, v2\": ");
-                fscanf(stdin, " %d, %d", &in0, &in1);
+                scanf(" %d, %d", &in0, &in1);
 
                 // CHECK IF EXISTS
                 printf("\n\t\t\tEdge [%d, %d] %s exist in the graph.", in0, in1, isEdge(g, in0, in1) ? "DOES" : "DOES NOT");
@@ -81,7 +81,7 @@ void handleGraph(){
             
             case 'C':
                 printf("\n\t\t\tSelect a Vertex: ");
-                fscanf(stdin, " %d", &in0);
+                scanf(" %d", &in0);
 
                 printf("\n\t\t\tVertices connected to %d are: ", in0);
 
@@ -140,7 +140,7 @@ void handleGraph(){
 
         if (!quit){
             printf("\n\t\t\tContinue? Y/n -> ");
-            fscanf(stdin, " %c", &choice);
+            scanf(" %c", &choice);
 
             while (1) {
                 if (choice == 'n' || choice == 'N'){
@@ -151,7 +151,7 @@ void handleGraph(){
                     break;
                 } else {
                     printf("\n\t\t\tInvalid Input. Continue? Y/n -> ");
-                    fscanf(stdin, " %c", &choice);
+                    scanf(" %c", &choice);
                 }
             }
         }

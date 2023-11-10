@@ -30,12 +30,12 @@ void handleSet(){
 
         clearConsole();
         printSetMenu(s);
-        fscanf(stdin, " %c", &choice);  // Get user input.
+        scanf(" %c", &choice);  // Get user input.
 
         switch(choice){
             case 'A':
                 printf("\n\t\t\tSelect element to add: ");
-                fscanf(stdin, " %d", &in0);
+                scanf(" %d", &in0);
 
                 // ADD NEW ELEMENT
                 addTo(s, in0);
@@ -43,7 +43,7 @@ void handleSet(){
             
             case 'R':
                 printf("\n\t\t\tSelect element to remove: ");
-                fscanf(stdin, " %d", &in0);
+                scanf(" %d", &in0);
 
                 // REMOVE ELEMENT
                 removeFrom(s, in0);
@@ -51,7 +51,7 @@ void handleSet(){
 
             case 'E':
                 printf("\n\t\t\tSelect element to look for: ");
-                fscanf(stdin, " %d", &in0);
+                scanf(" %d", &in0);
 
                 printf("\n\t\t\tElement %s exist in the set\n", exists(s, in0) ? "DOES" : "DOES NOT");
                 break;
@@ -72,7 +72,7 @@ void handleSet(){
 
         if (!quit){
             printf("\n\t\t\tContinue? Y/n -> ");
-            fscanf(stdin, " %c", &choice);
+            scanf(" %c", &choice);
 
             while (1) {
                 if (choice == 'n' || choice == 'N'){
@@ -83,7 +83,7 @@ void handleSet(){
                     break;
                 } else {
                     printf("\n\t\t\tInvalid Input. Continue? Y/n -> ");
-                    fscanf(stdin, " %c", &choice);
+                    scanf(" %c", &choice);
                 }
             }
         }
