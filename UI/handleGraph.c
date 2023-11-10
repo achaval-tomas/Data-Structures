@@ -17,6 +17,7 @@ void printGraphMenu(MyGraph* g){
                         "\t\tRemove edge: 'R'\n"
                         "\t\tRemove Vertex: 'V'\n"
                         "\t\tCheck if Edge exists: 'E'\n"
+                        "\t\tGet current Vertices in the graph: 'X'\n"
                         "\t\tGet Connections of a vertex: 'C'\n"
                         "\t\tPrint Graph: 'P'\n"
                         "\t\tExport to Graphium: 'G'\n"
@@ -67,15 +68,28 @@ void handleGraph(){
                 fprintf(stdout, "\n\t\t\tEdge [%d, %d] %s exist in the graph.", in0, in1, isEdge(g, in0, in1) ? "DOES" : "DOES NOT");
                 break;
             
+            case 'X':
+                fprintf(stdout, "\n\t\t\tCurrent Vertices in the graph: ");
+
+                int *vtcs = vertices(g, &in0);
+                for (int i = 0; i<in0; ++i)
+                    fprintf(stdout, " %d", vtcs[i]);
+                free(vtcs);
+
+                fprintf(stdout, "\n");
+                break;
+            
             case 'C':
                 fprintf(stdout, "\n\t\t\tSelect a Vertex: ");
                 fscanf(stdin, " %d", &in0);
 
-                int *arr = connections(g, in0, &in1); // Load array of connections.
                 fprintf(stdout, "\n\t\t\tVertices connected to %d are: ", in0);
+
+                int *arr = connections(g, in0, &in1); // Load array of connections.
                 for (int i = 0; i<in1;++i)
                     fprintf(stdout, "%d ", arr[i]);
                 free(arr);
+
                 fprintf(stdout, "\n");
                 break;
 
