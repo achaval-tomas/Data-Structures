@@ -39,19 +39,19 @@ void removeWord(MyDict* dict, string word){
 
 /*  RETURNS true if word is available in the dictionary.  */
 bool isAvailable(MyDict* dict, string word){
-    
+    return false;
 }
 
 /*  RETURNS an array of available words in the dictionary.
  *  Length of array is saved into retSize.
  */
 string* availableWords(MyDict* dict, int* retSize){
-
+    return NULL;
 }
 
 /*  RETURNS the definiton associated to word.  */
 string getDef(MyDict* dict, string word){
-
+    return NULL;
 }
 
 /*  FREE ALL SPACE USED BY dict.  */

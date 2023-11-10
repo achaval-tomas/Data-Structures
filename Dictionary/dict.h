@@ -3,6 +3,7 @@
 #ifndef DICT_HEADER
 #define DICT_HEADER
 
+#include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
 
