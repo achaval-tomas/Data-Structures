@@ -18,6 +18,7 @@ void printTreeMenu(MyTree* t){
                         "\t\tCheck if node exists: 'C'\n"
                         "\t\tPrint in a special order traversal: 'P'\n"
                         "\t\tPrint Tree: 'p'\n"
+                        "\t\tVisualize Tree: 'v'\n"
                         "\t\tExit: 'e'\n"
                         "\t\tSelect Option: ");
         fflush(stdout);
@@ -73,6 +74,10 @@ void handleTree(){
 
             case 'p':
                 printTreeInfo(t);
+                break;
+
+            case 'v':
+                visualizeTree(t, 0, 0);
                 break;
 
             case 'e':

@@ -2,6 +2,8 @@
 
 #include "binaryTree.h"
 #include <assert.h>
+#include <string.h>
+#include <math.h>
 
 struct s_btree {
     int val;
@@ -166,4 +168,50 @@ void printTree(MyTree* tree, order_t order){
     fflush(stdout);
 
     free(a);
+}
+
+char* treeToStr(MyTree* tree, unsigned int depth, unsigned int* length_ptr) {
+    if (tree == NULL || isEmpty(tree))
+        return calloc(1, sizeof(char));
+
+    unsigned int right_length;
+    char* str_right = treeToStr(tree->right, depth + 1, &right_length);
+
+    // calculate how many characters long is val
+    int n_digits = ceil(log10(tree->val));
+    
+    // make room for "depths" spaces, "n_digits" for val, 1 for \n 
+    unsigned int middle_length = depth + n_digits + 1;
+    char* str_middle = malloc((middle_length + 1) * sizeof(char));
+
+    for (unsigned int i = 0; i < depth; ++i)
+        str_middle[i] = ' ';
+
+    sprintf(str_middle + depth, "%d\n", tree->val);
+
+    unsigned int left_length;
+    char* str_left = treeToStr(tree->left, depth + 1, &left_length);
+
+    *length_ptr = right_length + middle_length + left_length;
+    char* str_res = malloc((*length_ptr + 1) * sizeof(char));
+
+    strcpy(str_res, str_right);
+    strcat(str_res, str_middle);
+    strcat(str_res, str_left);
+
+    free(str_right);
+    free(str_left);
+    free(str_middle);
+
+    return str_res;
+}
+
+/*  PRINT TREE BUT PRETTY   */
+void visualizeTree(MyTree* tree, unsigned int depth, char line) {
+    unsigned int l;
+    char* tree_str = treeToStr(tree, 0, &l);
+
+    printf("%s", tree_str);
+
+    free(tree_str);
 }
