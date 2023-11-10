@@ -167,3 +167,20 @@ void printTree(MyTree* tree, order_t order){
 
     free(a);
 }
+
+
+/*  PRINT TREE BUT PRETTY   */
+void visualizeTree(MyTree* tree, unsigned int depth) {
+
+    if (!tree || isEmpty(tree))
+        return;
+
+    visualizeTree(tree->right, depth + 1);
+
+    for (unsigned int i = 0; i < depth; ++i)
+        printf(" ");
+
+    printf("%d\n", tree->val);
+
+    visualizeTree(tree->left, depth + 1);
+}
