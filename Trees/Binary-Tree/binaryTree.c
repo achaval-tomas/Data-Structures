@@ -168,17 +168,6 @@ void printTree(MyTree* tree, order_t order){
     free(a);
 }
 
-unsigned int getTreeMaxDepth(MyTree* tree) {
-
-    if (tree == NULL || isEmpty(tree))
-        return 0;
-
-    unsigned int depth_right = getTreeMaxDepth(tree->right);
-    unsigned int depth_left = getTreeMaxDepth(tree->left);
-
-    return ((depth_right > depth_left) ? depth_right : depth_left) + 1;
-}
-
 
 /*  PRINT TREE BUT PRETTY   */
 void visualizeTree(MyTree* tree, unsigned int depth) {
