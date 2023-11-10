@@ -35,6 +35,9 @@ string* availableWords(MyDict* dict, int* retSize);
 /*  RETURNS the definiton associated to word.  */
 string getDef(MyDict* dict, string word);
 
+/*  Save the dictionary into the file at fpath.  */
+void saveDict(MyDict* dict, FILE* fpath);
+
 /*  FREE ALL SPACE USED BY dict.  */
 void freeDict(MyDict* dict);
 

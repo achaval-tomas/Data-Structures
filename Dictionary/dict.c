@@ -54,6 +54,11 @@ string getDef(MyDict* dict, string word){
     return NULL;
 }
 
+/*  Save the dictionary into the file at fpath.  */
+void saveDict(MyDict* dict, FILE* fpath){
+    
+}
+
 /*  FREE ALL SPACE USED BY dict.  */
 void freeDict(MyDict* dict){
 
