@@ -1,1 +1,0 @@
-/*  My Dictionary testing  */
