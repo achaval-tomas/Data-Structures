@@ -2,34 +2,34 @@
 #include "doubly-linked-list.h"
 
 int main() {
-    MyDoublyLinkedList* tester = createList();
+    MyDoublyLinkedList* tester = createDList();
 
     printf("List should have nothing:\n");
-    printList(tester);
+    printDList(tester);
 
-    tester = addElem(tester, 17);
-    tester = addElem(tester, -2);
+    tester = dListAddElem(tester, 17);
+    tester = dListAddElem(tester, -2);
     printf("List should be [-2 , 17]:\n");
-    printList(tester);
+    printDList(tester);
 
-    printf("List size: %d\n", listSize(tester));
+    printf("List size: %d\n", dListSize(tester));
 
-    tester = addElemAtIndex(tester, 33, 1);
+    tester = dListAddElemAtIndex(tester, 33, 1);
     printf("List should be [-2 , 33 , 17]:\n");
-    printList(tester);
+    printDList(tester);
 
-    tester = removeElemByValue(tester, 33);
+    tester = dListRemoveElemByValue(tester, 33);
     printf("List should be [-2 , 17]:\n");
-    printList(tester);
+    printDList(tester);
 
-    tester = addElem(tester, 33);
-    tester = addElem(tester, 100);
+    tester = dListAddElem(tester, 33);
+    tester = dListAddElem(tester, 100);
     printf("List should be [100, 33 , -2 , 17]:\n");
-    printList(tester);
+    printDList(tester);
 
-    tester = removeElemByIndex(tester, 3);
+    tester = dListRemoveElemByIndex(tester, 3);
     printf("List should be [100 , 33, -2]:\n");
-    printList(tester);
+    printDList(tester);
 
-    freeList(tester);
+    freeDList(tester);
 }

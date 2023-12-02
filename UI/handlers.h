@@ -13,6 +13,8 @@ void handleArray();
 
 void handleLinkedList();
 
+void handleDoublyLinkedList();
+
 void handleSet();
 
 void handleQueue();

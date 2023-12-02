@@ -12,17 +12,17 @@ struct s_dllist {
 };
 
 /* Initializes list object */
-MyDoublyLinkedList* createList(){
+MyDoublyLinkedList* createDList(){
     return (MyDoublyLinkedList*)NULL;
 }
 
 /* Returns the amount of elements in the list */
-int listSize(MyDoublyLinkedList* obj){
-    return (obj == NULL) ? 0 : 1 + listSize(obj->next);
+int dListSize(MyDoublyLinkedList* obj){
+    return (obj == NULL) ? 0 : 1 + dListSize(obj->next);
 }
 
 /* Adds element elem to the list */
-MyDoublyLinkedList* addElem(MyDoublyLinkedList* obj, int elem){
+MyDoublyLinkedList* dListAddElem(MyDoublyLinkedList* obj, int elem){
     MyDoublyLinkedList* node = (MyDoublyLinkedList*)malloc(sizeof(*node));
 
     node->val = elem;
@@ -35,14 +35,14 @@ MyDoublyLinkedList* addElem(MyDoublyLinkedList* obj, int elem){
 }
 
 /* Adds element elem at index position (0-indexed) of the list (if valid) */
-MyDoublyLinkedList* addElemAtIndex(MyDoublyLinkedList* obj, int elem, int index){
-    int size = listSize(obj);
+MyDoublyLinkedList* dListAddElemAtIndex(MyDoublyLinkedList* obj, int elem, int index){
+    int size = dListSize(obj);
     if (index<0 || index>size) {
         printf("\nINVALID INDEX.\n");
         return obj;
     }
     if (index == 0)
-        return addElem(obj, elem);
+        return dListAddElem(obj, elem);
 
     MyDoublyLinkedList* ret = obj;
     for (int i = 0; i<index-1 && obj->next; ++i)
@@ -58,7 +58,7 @@ MyDoublyLinkedList* addElemAtIndex(MyDoublyLinkedList* obj, int elem, int index)
 }
 
 /* Removes all elements matching value */
-MyDoublyLinkedList* removeElemByValue(MyDoublyLinkedList* obj, int value){
+MyDoublyLinkedList* dListRemoveElemByValue(MyDoublyLinkedList* obj, int value){
     if (!obj){
         printf("\nNOTHING TO REMOVE.\n");
         return obj;
@@ -102,8 +102,8 @@ MyDoublyLinkedList* removeElemByValue(MyDoublyLinkedList* obj, int value){
 }
 
 /* Removes element at position index (0-indexed) */
-MyDoublyLinkedList* removeElemByIndex(MyDoublyLinkedList* obj, int index){
-    if (index<0 || index>=listSize(obj)) {
+MyDoublyLinkedList* dListRemoveElemByIndex(MyDoublyLinkedList* obj, int index){
+    if (index<0 || index>=dListSize(obj)) {
         printf("\nINVALID INDEX.\n");
         return obj;
     }
@@ -134,27 +134,27 @@ MyDoublyLinkedList* removeElemByIndex(MyDoublyLinkedList* obj, int index){
 }
 
 /* Adds all elements in group to the list */
-MyDoublyLinkedList* addElemGroup(MyDoublyLinkedList* obj, int *group, int groupSize){
+MyDoublyLinkedList* dListAddElemGroup(MyDoublyLinkedList* obj, int *group, int groupSize){
     MyDoublyLinkedList* ret = obj;
     for (int i = 0; i<groupSize; ++i)
-        ret = addElem(ret, group[i]);
+        ret = dListAddElem(ret, group[i]);
     return ret;
 }
 
 /* Removes all matches from each element in group */
-MyDoublyLinkedList* removeGroup(MyDoublyLinkedList* obj, int *group, int groupSize){
+MyDoublyLinkedList* dListRemoveGroup(MyDoublyLinkedList* obj, int *group, int groupSize){
     if (!obj) {
         printf("\nNOTHING TO REMOVE.\n");
         return obj;
     }
     MyDoublyLinkedList* ret = obj;
     for (int i = 0; i<groupSize; ++i)
-        ret = removeElemByValue(ret, group[i]);
+        ret = dListRemoveElemByValue(ret, group[i]);
     return ret;
 }
 
 /* Returns a boolean value indicating whether the element is in the list */
-bool elemExists(MyDoublyLinkedList* obj, int elem){
+bool dListElemExists(MyDoublyLinkedList* obj, int elem){
     while (obj != NULL){
         if(obj->val == elem)
             return true;
@@ -164,8 +164,8 @@ bool elemExists(MyDoublyLinkedList* obj, int elem){
 }
 
 /* Returns the element at position index (0-indexed) */
-int elemAtIndex(MyDoublyLinkedList* obj, int index){
-    int size = listSize(obj);
+int dListElemAtIndex(MyDoublyLinkedList* obj, int index){
+    int size = dListSize(obj);
     if (index<0 || index>=size) {
         printf("\nINVALID INDEX.\n");
         return 0;
@@ -176,15 +176,15 @@ int elemAtIndex(MyDoublyLinkedList* obj, int index){
 }
 
 /* Frees all space used by the list, returns NULL if successfull */
-void* freeList(MyDoublyLinkedList* obj){
+void* freeDList(MyDoublyLinkedList* obj){
     while (obj != NULL)
-        obj = removeElemByIndex(obj, 0);
-    assert(listSize(obj) == 0);
+        obj = dListRemoveElemByIndex(obj, 0);
+    assert(dListSize(obj) == 0);
     return NULL;
 }
 
 /* Prints the linked list to STDOUT */
-void printList(MyDoublyLinkedList* obj){
+void printDList(MyDoublyLinkedList* obj){
     printf("head ->");
     while (obj != NULL){
         printf(" %d ->", obj->val);
