@@ -1,5 +1,5 @@
 #include "handlers.h"
-#include "../Linked-List/linked-list.h"
+#include "../Lists/Linked-List/linked-list.h"
 
 /*  PRINT INFO OF LINKED LIST (size and current state)  */
 void printListInfo(MyLinkedList* l){
