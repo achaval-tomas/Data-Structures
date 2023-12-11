@@ -20,6 +20,7 @@ void printDListMenu(MyDoublyLinkedList* l){
                         "\t\tAdd a group of elements: 'G'\n"
                         "\t\tRemove a group of elements: 'g'\n"
                         "\t\tCheck if an element exists: 'c'\n"
+                        "\t\tSee neighbors of an element: 'n'\n"
                         "\t\tGet element at index: 'i'\n"
                         "\t\tPrint List: 'p'\n"
                         "\t\tExit: 'e'\n"
@@ -110,6 +111,16 @@ void handleDoublyLinkedList(){
                 scanf(" %d", &in0);
 
                 printf("\n\t\t\tThe element %d %s exist in the list.\n", in0, dListElemExists(l, in0) ? "DOES" : "DOES NOT");
+                break;
+
+            case 'n':
+
+                printf("\n\t\t\tSelect Element: ");
+                scanf(" %d", &in0);
+
+                int* neighbors = dListGetNeighbors(l, in0);
+                printf("\n\t\t\tLeft neighbor -> %d , %d, %d <- Right neighbor.\n", neighbors[0], in0, neighbors[1]);
+                free(neighbors);
                 break;
             
             case 'i':

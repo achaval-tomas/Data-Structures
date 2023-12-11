@@ -163,6 +163,22 @@ bool dListElemExists(MyDoublyLinkedList* obj, int elem){
     return false;
 }
 
+/* Returns a 2-element array of left and right neighbors at index 0 and 1 respectively 
+ * Returned array must be freed by the caller.
+ */
+int* dListGetNeighbors(MyDoublyLinkedList* obj, int elem){
+    int* neighs = malloc(2*sizeof(obj->val));
+    while (obj && obj->val != elem)
+        obj = obj->next;
+
+    if (obj){
+        neighs[0] = obj->prev ? obj->prev->val : obj->val;
+        neighs[1] = obj->next ? obj->next->val : obj->val;
+    }
+
+    return neighs;
+}
+
 /* Returns the element at position index (0-indexed) */
 int dListElemAtIndex(MyDoublyLinkedList* obj, int index){
     int size = dListSize(obj);

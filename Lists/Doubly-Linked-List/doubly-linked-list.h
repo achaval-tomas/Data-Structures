@@ -37,6 +37,11 @@ MyDoublyLinkedList* dListRemoveGroup(MyDoublyLinkedList* obj, int *group, int gr
 /* Returns a boolean value indicating whether the element is in the list */
 bool dListElemExists(MyDoublyLinkedList* obj, int elem);
 
+/* Returns a 2-element array of left and right neighbors at index 0 and 1 respectively 
+ * Returned array must be freed by the caller.
+ */
+int* dListGetNeighbors(MyDoublyLinkedList* obj, int elem);
+
 /* Returns the element at position index (0-indexed) */
 int dListElemAtIndex(MyDoublyLinkedList* obj, int index);
 
