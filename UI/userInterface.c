@@ -10,6 +10,7 @@ void printMenu(){
                     "SELECT AN OPTION:\n"
                     "\tArray: 'a'\n"
                     "\tLinked List: 'l'\n"
+                    "\tDouble Linked List: 'd'\n"
                     "\tSet: 's'\n"
                     "\tQueue: 'q'\n"
                     "\tStack: 'k'\n"
@@ -35,6 +36,9 @@ int main(int argc, char* argv[]){
                 break;
             case 'l':
                 handleLinkedList();
+                break;
+            case 'd':
+                handleDoublyLinkedList();
                 break;
             case 's':
                 handleSet();

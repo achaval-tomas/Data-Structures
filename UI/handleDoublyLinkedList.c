@@ -1,18 +1,18 @@
 #include "handlers.h"
-#include "../Lists/Linked-List/linked-list.h"
+#include "../Lists/Doubly-Linked-List/doubly-linked-list.h"
 
 /*  PRINT INFO OF LINKED LIST (size and current state)  */
-void printListInfo(MyLinkedList* l){
+void printDListInfo(MyDoublyLinkedList* l){
     printf("\n\t\tCURRENT LINKED LIST: ");
-    printList(l);
-    printf("\t\tSIZE: %d\n", listSize(l));
+    printDList(l);
+    printf("\t\tSIZE: %d\n", dListSize(l));
     fflush(stdout);
 }
 
 /*  PRINT LINKED LIST MENU  */
-void printListMenu(MyLinkedList* l){
+void printDListMenu(MyDoublyLinkedList* l){
         printf("\n- MAIN MENU -> LINKED LIST MENU\n");
-        printListInfo(l);
+        printDListInfo(l);
         printf("\n\t\tAdd new element: 'A'\n"
                         "\t\tAdd at index: 'a'\n"
                         "\t\tRemove element: 'R'\n"
@@ -27,14 +27,14 @@ void printListMenu(MyLinkedList* l){
         fflush(stdout);
 }
 
-void handleLinkedList(){
-    MyLinkedList* l = createList();
+void handleDoublyLinkedList(){
+    MyDoublyLinkedList* l = createDList();
     char quit = 0, choice = 0;
     int in0 = 0, in1 = 0;
     while (!quit){
 
         clearConsole();
-        printListMenu(l);
+        printDListMenu(l);
         scanf(" %c", &choice);  // Get user input.
 
         switch(choice){
@@ -43,7 +43,7 @@ void handleLinkedList(){
                 printf("\n\t\t\tSelect element to add: ");
                 scanf(" %d", &in0);
 
-                l = addElem(l, in0);
+                l = dListAddElem(l, in0);
                 break;
 
             case 'a':
@@ -55,7 +55,7 @@ void handleLinkedList(){
                 scanf(" %d", &in1);
 
                 // PLACE ELEM AT INDEX, IF VALID.
-                l = addElemAtIndex(l, in0, in1);
+                l = dListAddElemAtIndex(l, in0, in1);
                 break;
             
             case 'R':
@@ -64,7 +64,7 @@ void handleLinkedList(){
                 scanf(" %d", &in0);
                 
                 // REMOVE ALL INSTANCES OF SELECTED ELEMENT
-                l = removeElemByValue(l, in0);
+                l = dListRemoveElemByValue(l, in0);
                 break;
             
             case 'r':
@@ -73,7 +73,7 @@ void handleLinkedList(){
                 scanf(" %d", &in1);
                 
                 // REMOVE ELEMENT BY INDEX
-                l = removeElemByIndex(l, in1);
+                l = dListRemoveElemByIndex(l, in1);
                 break;
 
             case 'G':
@@ -86,7 +86,7 @@ void handleLinkedList(){
                     printf("\n\t\t\tgroup[%d]: ", i);
                     scanf(" %d", &group[i]);
                 }
-                l = addElemGroup(l, group, in0);
+                l = dListAddElemGroup(l, group, in0);
                 free(group);
                 break;
             
@@ -100,7 +100,7 @@ void handleLinkedList(){
                     printf("\n\t\t\tgroup[%d]: ", i);
                     scanf(" %d", &group[i]);
                 }
-                l = removeGroup(l, group, in0);
+                l = dListRemoveGroup(l, group, in0);
                 free(group2);
                 break;
 
@@ -109,7 +109,7 @@ void handleLinkedList(){
                 printf("\n\t\t\tSelect Element to look for: ");
                 scanf(" %d", &in0);
 
-                printf("\n\t\t\tThe element %d %s exist in the list.\n", in0, elemExists(l, in0) ? "DOES" : "DOES NOT");
+                printf("\n\t\t\tThe element %d %s exist in the list.\n", in0, dListElemExists(l, in0) ? "DOES" : "DOES NOT");
                 break;
             
             case 'i':
@@ -117,21 +117,21 @@ void handleLinkedList(){
                 printf("\n\t\t\tSelect Index to look at: ");
                 scanf(" %d", &in1);
 
-                if (in1<0 || in1>=listSize(l)) {
+                if (in1<0 || in1>=dListSize(l)) {
                     printf("\n\t\t\tINVALID INDEX.\n");
                     break;
                 }
 
-                printf("\n\t\t\tThe element at index %d is %d.\n", in1, elemAtIndex(l, in1));
+                printf("\n\t\t\tThe element at index %d is %d.\n", in1, dListElemAtIndex(l, in1));
                 break;
 
             case 'p':
-                printListInfo(l);
+                printDListInfo(l);
                 break;
 
             case 'e':
                 quit = 1;
-                freeList(l);
+                freeDList(l);
                 fflush(stdout);
                 break;
 
@@ -145,7 +145,7 @@ void handleLinkedList(){
 
             while (1) {
                 if (choice == 'n' || choice == 'N'){
-                    freeList(l);
+                    freeDList(l);
                     fflush(stdout);
                     return;
                 } else if (choice == 'y' || choice == 'Y'){
