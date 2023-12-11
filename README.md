@@ -21,7 +21,9 @@ https://github.com/achaval-tomas/Data-Structures/assets/134091945/0505b9bb-7db2-
 
 ## Structures available:
   * [**Array**](/Array)
-  * [**Linked List**](/Linked-List)
+  * [**Lists**](/Lists)
+    * [**Linked List**](/Lists/Linked-List)
+    * [**Doubly Linked List**](/Lists/Doubly-Linked-List)
   * [**Set**](/Set)
   * [**Queue**](/Queue)
   * [**Stack**](/Stack)
@@ -32,11 +34,9 @@ https://github.com/achaval-tomas/Data-Structures/assets/134091945/0505b9bb-7db2-
 
 ## To Do / Ideas
  * Hash Table
- * Linked Lists
-   * Doubly Linked List
-   * Circular Linked List
  * Queues
    * Priority Queue
+   * Circular Queue
  * Trees
    * N-ary Tree
    * Binary Search Tree
