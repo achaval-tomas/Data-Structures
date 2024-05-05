@@ -10,7 +10,7 @@ void printMenu(){
                     "SELECT AN OPTION:\n"
                     "\tArray: 'a'\n"
                     "\tLinked List: 'l'\n"
-                    "\tDouble Linked List: 'd'\n"
+                    "\tDoubly Linked List: 'd'\n"
                     "\tSet: 's'\n"
                     "\tQueue: 'q'\n"
                     "\tStack: 'k'\n"

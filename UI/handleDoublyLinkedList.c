@@ -11,7 +11,7 @@ void printDListInfo(MyDoublyLinkedList* l){
 
 /*  PRINT LINKED LIST MENU  */
 void printDListMenu(MyDoublyLinkedList* l){
-        printf("\n- MAIN MENU -> LINKED LIST MENU\n");
+        printf("\n- MAIN MENU -> DOUBLY LINKED LIST MENU\n");
         printDListInfo(l);
         printf("\n\t\tAdd new element: 'A'\n"
                         "\t\tAdd at index: 'a'\n"
