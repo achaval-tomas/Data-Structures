@@ -1,8 +1,9 @@
-#include "handlers.h"
 #include "../Set/set.h"
+#include "handlers.h"
 
 /*  PRINT INFO OF SET (size and current state)  */
-void printSetInfo(MySet* s){
+void printSetInfo(MySet* s)
+{
     printf("\n\t\tCURRENT SET: ");
     printSet(s);
     printf("\t\tSIZE: %d\n", setSize(s));
@@ -10,29 +11,31 @@ void printSetInfo(MySet* s){
 }
 
 /*  PRINT SET MENU  */
-void printSetMenu(MySet* s){
-        printf("\n- MAIN MENU -> SET MENU\n");
-        printSetInfo(s);
-        printf("\n\t\tAdd element: 'A'\n"
-                        "\t\tRemove element: 'R'\n"
-                        "\t\tCheck if element exists: 'E'\n"
-                        "\t\tPrint Set: 'P'\n"
-                        "\t\tExit: 'e'\n"
-                        "\t\tSelect Option: ");
-        fflush(stdout);
+void printSetMenu(MySet* s)
+{
+    printf("\n- MAIN MENU -> SET MENU\n");
+    printSetInfo(s);
+    printf("\n\t\tAdd element: 'A'\n"
+           "\t\tRemove element: 'R'\n"
+           "\t\tCheck if element exists: 'E'\n"
+           "\t\tPrint Set: 'P'\n"
+           "\t\tExit: 'e'\n"
+           "\t\tSelect Option: ");
+    fflush(stdout);
 }
 
-void handleSet(){
+void handleSet()
+{
     MySet* s = newSet();
     char quit = 0, choice = 0;
     int in0 = 0;
-    while (!quit){
+    while (!quit) {
 
         clearConsole();
         printSetMenu(s);
-        scanf(" %c", &choice);  // Get user input.
+        scanf(" %c", &choice); // Get user input.
 
-        switch(choice){
+        switch (choice) {
             case 'A':
                 printf("\n\t\t\tSelect element to add: ");
                 scanf(" %d", &in0);
@@ -40,7 +43,7 @@ void handleSet(){
                 // ADD NEW ELEMENT
                 addTo(s, in0);
                 break;
-            
+
             case 'R':
                 printf("\n\t\t\tSelect element to remove: ");
                 scanf(" %d", &in0);
@@ -53,7 +56,8 @@ void handleSet(){
                 printf("\n\t\t\tSelect element to look for: ");
                 scanf(" %d", &in0);
 
-                printf("\n\t\t\tElement %s exist in the set\n", exists(s, in0) ? "DOES" : "DOES NOT");
+                printf(
+                    "\n\t\t\tElement %s exist in the set\n", exists(s, in0) ? "DOES" : "DOES NOT");
                 break;
 
             case 'P':
@@ -70,16 +74,16 @@ void handleSet(){
                 break;
         }
 
-        if (!quit){
+        if (!quit) {
             printf("\n\t\t\tContinue? Y/n -> ");
             scanf(" %c", &choice);
 
             while (1) {
-                if (choice == 'n' || choice == 'N'){
+                if (choice == 'n' || choice == 'N') {
                     freeSet(s);
                     fflush(stdout);
                     return;
-                } else if (choice == 'y' || choice == 'Y'){
+                } else if (choice == 'y' || choice == 'Y') {
                     break;
                 } else {
                     printf("\n\t\t\tInvalid Input. Continue? Y/n -> ");
@@ -87,6 +91,5 @@ void handleSet(){
                 }
             }
         }
-
     }
 }

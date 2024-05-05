@@ -29,15 +29,15 @@ MyDoublyLinkedList* dListRemoveElemByValue(MyDoublyLinkedList* obj, int value);
 MyDoublyLinkedList* dListRemoveElemByIndex(MyDoublyLinkedList* obj, int index);
 
 /* Adds all elements in group to the list */
-MyDoublyLinkedList* dListAddElemGroup(MyDoublyLinkedList* obj, int *group, int groupSize);
+MyDoublyLinkedList* dListAddElemGroup(MyDoublyLinkedList* obj, int* group, int groupSize);
 
 /* Removes all matches from each element in group */
-MyDoublyLinkedList* dListRemoveGroup(MyDoublyLinkedList* obj, int *group, int groupSize);
+MyDoublyLinkedList* dListRemoveGroup(MyDoublyLinkedList* obj, int* group, int groupSize);
 
 /* Returns a boolean value indicating whether the element is in the list */
 bool dListElemExists(MyDoublyLinkedList* obj, int elem);
 
-/* Returns a 2-element array of left and right neighbors at index 0 and 1 respectively 
+/* Returns a 2-element array of left and right neighbors at index 0 and 1 respectively
  * Returned array must be freed by the caller.
  */
 int* dListGetNeighbors(MyDoublyLinkedList* obj, int elem);

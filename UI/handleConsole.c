@@ -1,6 +1,7 @@
 #include "handlers.h"
 
-void clearConsole(){
+void clearConsole()
+{
     printf("\033c");
     fflush(stdout);
 }

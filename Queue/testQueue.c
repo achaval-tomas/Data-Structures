@@ -2,20 +2,21 @@
 
 #include "queue.h"
 
-int main(void){
+int main(void)
+{
 
     /*  INITIALIZE QUEUE OBJECT  */
     MyQueue* tester = q_newQueue();
 
     /*  TEST ENQUEUE  */
-    for (int i = 0; i<10; ++i)
-        tester = q_enqueue(tester, 100+i);
+    for (int i = 0; i < 10; ++i)
+        tester = q_enqueue(tester, 100 + i);
     printf("QUEUE SHOULD HAVE 10 ELEMENTS IN ORDER\n\tQUEUE: ");
     q_print(tester);
     printf("\n");
 
     /*  TEST DEQUEUE  */
-    for (int i = 0; i<6; ++i)
+    for (int i = 0; i < 6; ++i)
         q_dequeue(tester);
     printf("QUEUE SHOULD HAVE KEPT THE LAST 4 ELEMENTS\n\tQUEUE: ");
     q_print(tester);
@@ -38,7 +39,7 @@ int main(void){
     printf("IS EMPTY? %s", q_isEmpty(tester) ? "YES" : "NO");
     printf("\n");
     fflush(stdout);
-    
+
     q_free(tester);
     printf("\nALL TESTCASES PASSED SUCCESSFULLY.\n");
     fflush(stdout);

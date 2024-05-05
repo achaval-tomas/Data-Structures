@@ -29,10 +29,10 @@ MyLinkedList* removeElemByValue(MyLinkedList* obj, int value);
 MyLinkedList* removeElemByIndex(MyLinkedList* obj, int index);
 
 /* Adds all elements in group to the list */
-MyLinkedList* addElemGroup(MyLinkedList* obj, int *group, int groupSize);
+MyLinkedList* addElemGroup(MyLinkedList* obj, int* group, int groupSize);
 
 /* Removes all matches from each element in group */
-MyLinkedList* removeGroup(MyLinkedList* obj, int *group, int groupSize);
+MyLinkedList* removeGroup(MyLinkedList* obj, int* group, int groupSize);
 
 /* Returns a boolean value indicating whether the element is in the list */
 bool elemExists(MyLinkedList* obj, int elem);

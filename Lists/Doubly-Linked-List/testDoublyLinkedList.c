@@ -1,7 +1,8 @@
-#include <stdio.h>
 #include "doubly-linked-list.h"
+#include <stdio.h>
 
-int main() {
+int main()
+{
     MyDoublyLinkedList* tester = createDList();
 
     printf("List should have nothing:\n");

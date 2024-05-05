@@ -1,8 +1,9 @@
-#include "handlers.h"
 #include "../Queue/queue.h"
+#include "handlers.h"
 
 /*  PRINT INFO OF QUEUE (size and current state)  */
-void printQueueInfo(MyQueue* q){
+void printQueueInfo(MyQueue* q)
+{
     printf("\n\t\tCURRENT QUEUE: ");
     q_print(q);
     printf("\t\tSIZE: %d\n", q_size(q));
@@ -10,29 +11,31 @@ void printQueueInfo(MyQueue* q){
 }
 
 /*  PRINT QUEUE MENU  */
-void printQueueMenu(MyQueue* q){
-        printf("\n- MAIN MENU -> QUEUE MENU\n");
-        printQueueInfo(q);
-        printf("\n\t\tEnqueue: 'E'\n"
-                        "\t\tDequeue: 'D'\n"
-                        "\t\tFront of queue: 'F'\n"
-                        "\t\tPrint Queue: 'P'\n"
-                        "\t\tExit: 'e'\n"
-                        "\t\tSelect Option: ");
-        fflush(stdout);
+void printQueueMenu(MyQueue* q)
+{
+    printf("\n- MAIN MENU -> QUEUE MENU\n");
+    printQueueInfo(q);
+    printf("\n\t\tEnqueue: 'E'\n"
+           "\t\tDequeue: 'D'\n"
+           "\t\tFront of queue: 'F'\n"
+           "\t\tPrint Queue: 'P'\n"
+           "\t\tExit: 'e'\n"
+           "\t\tSelect Option: ");
+    fflush(stdout);
 }
 
-void handleQueue(){
+void handleQueue()
+{
     MyQueue* q = q_newQueue();
     char quit = 0, choice = 0;
     int in0 = 0;
-    while (!quit){
+    while (!quit) {
 
         clearConsole();
         printQueueMenu(q);
-        scanf(" %c", &choice);  // Get user input.
+        scanf(" %c", &choice); // Get user input.
 
-        switch(choice){
+        switch (choice) {
             case 'E':
                 printf("\n\t\t\tSelect element to enqueue: ");
                 scanf(" %d", &in0);
@@ -40,7 +43,7 @@ void handleQueue(){
                 // ENQUEUE NEW ELEMENT
                 q = q_enqueue(q, in0);
                 break;
-            
+
             case 'D':
                 printf("\n\t\t\tDEQUEUED: %d\n", q_front(q));
                 q_dequeue(q);
@@ -64,16 +67,16 @@ void handleQueue(){
                 break;
         }
 
-        if (!quit){
+        if (!quit) {
             printf("\n\t\t\tContinue? Y/n -> ");
             scanf(" %c", &choice);
 
             while (1) {
-                if (choice == 'n' || choice == 'N'){
+                if (choice == 'n' || choice == 'N') {
                     q_free(q);
                     fflush(stdout);
                     return;
-                } else if (choice == 'y' || choice == 'Y'){
+                } else if (choice == 'y' || choice == 'Y') {
                     break;
                 } else {
                     printf("\n\t\t\tInvalid Input. Continue? Y/n -> ");
@@ -81,6 +84,5 @@ void handleQueue(){
                 }
             }
         }
-
     }
 }

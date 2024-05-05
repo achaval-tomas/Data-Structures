@@ -2,9 +2,9 @@
 #ifndef ARRAY_HEADER
 #define ARRAY_HEADER
 
-#include <stdlib.h>
-#include <stdio.h>
 #include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 typedef struct s_array MyArray;
 
@@ -45,8 +45,8 @@ void printArray(MyArray* arr);
  *
  *  cmp should return true if a GOES BEFORE b
  *  Generally, O(nlog(n)) worst case O(n^2)
- * 
+ *
  */
-void quickSort(MyArray* arr, bool cmp (int a, int b));
+void quickSort(MyArray* arr, bool cmp(int a, int b));
 
 #endif /* ARRAY_HEADER */

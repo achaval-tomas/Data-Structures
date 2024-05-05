@@ -5,9 +5,9 @@
 #ifndef HANDLERS
 #define HANDLERS
 
-#include <stdlib.h>
-#include <stdio.h>
 #include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 void handleArray();
 

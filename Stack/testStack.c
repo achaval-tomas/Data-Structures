@@ -2,20 +2,21 @@
 
 #include "stack.h"
 
-int main(void){
+int main(void)
+{
 
     /*  INITIALIZE STACK OBJECT  */
     MyStack* tester = s_newStack();
 
     /*  TEST PUSH  */
-    for (int i = 0; i<10; ++i)
-        tester = s_push(tester, 100+i);
+    for (int i = 0; i < 10; ++i)
+        tester = s_push(tester, 100 + i);
     printf("STACK SHOULD HAVE 10 ELEMENTS IN DECREASING ORDER TOP TO BOTTOM.\n\tSTACK: ");
     s_print(tester);
     printf("\n");
 
     /*  TEST POP  */
-    for (int i = 0; i<6; ++i)
+    for (int i = 0; i < 6; ++i)
         s_pop(tester);
     printf("STACK SHOULD HAVE KEPT THE BOTTOM 4 ELEMENTS.\n\tSTACK: ");
     s_print(tester);
@@ -38,7 +39,7 @@ int main(void){
     printf("IS EMPTY? %s", s_isEmpty(tester) ? "YES." : "NO.");
     printf("\n");
     fflush(stdout);
-    
+
     s_free(tester);
     printf("\nALL TESTCASES PASSED SUCCESSFULLY.\n");
     fflush(stdout);

@@ -1,9 +1,10 @@
 /* TO-DO, create main to test functions */
+#include "linked-list.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include "linked-list.h"
 
-int main (void){
+int main(void)
+{
 
     /*  INITIALIZE TESTER LIST  */
     MyLinkedList* tester = createList();
@@ -17,7 +18,7 @@ int main (void){
 
     /*  TEST ADDING AT INDEX AND SIZE  */
     printf("TEST ADD AT INDEX:\n");
-    for (int i = 0; i<5; ++i)
+    for (int i = 0; i < 5; ++i)
         tester = addElemAtIndex(tester, i, i);
     printf("Tester Size : %d (should be 6)\n", listSize(tester));
     printList(tester);
@@ -26,8 +27,8 @@ int main (void){
 
     /*  TEST REMOVING GROUP OF ELEMETNS  */
     printf("TEST REMOVING GROUP:\n");
-    int* group = malloc(3*sizeof(*group));
-    for (int i = 0; i<3; ++i)
+    int* group = malloc(3 * sizeof(*group));
+    for (int i = 0; i < 3; ++i)
         group[i] = i;
     tester = removeGroup(tester, group, 3);
     printf("Tester should be [3, 4, 5]\n\tTester: ");
@@ -44,7 +45,9 @@ int main (void){
     fflush(stdout);
 
     /*  TEST ELEM EXISTS  */
-    printf("TEST ELEM EXISTS:\n exists(3): %d (should return 1)\n exists(7): %d (should return 0)\n", elemExists(tester, 3), elemExists(tester, 7));
+    printf(
+        "TEST ELEM EXISTS:\n exists(3): %d (should return 1)\n exists(7): %d (should return 0)\n",
+        elemExists(tester, 3), elemExists(tester, 7));
     printf("\n");
     fflush(stdout);
 
@@ -71,7 +74,7 @@ int main (void){
     /*  TEST REMOVING MANY INSTANCES OF ONE ELEMENT  */
     printf("TEST REMOVE ALL MATCHES:\n");
     tester = addElemAtIndex(tester, 111, 6);
-    for (int i = 0; i<5; ++i)
+    for (int i = 0; i < 5; ++i)
         tester = addElem(tester, 111);
 
     printf("Tester SHOULD CONTAIN the number 111.\n\tTester: ");

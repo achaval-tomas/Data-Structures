@@ -2,26 +2,29 @@
  * My implementation for linked lists.
  */
 #include "linked-list.h"
-#include <stdlib.h>
 #include <assert.h>
+#include <stdlib.h>
 
 struct s_llist {
     int val;
-    MyLinkedList *next;
+    MyLinkedList* next;
 };
 
 /* Initializes list object */
-MyLinkedList* createList(){
+MyLinkedList* createList()
+{
     return (MyLinkedList*)NULL;
 }
 
 /* Returns the amount of elements in the list */
-int listSize(MyLinkedList* obj){
+int listSize(MyLinkedList* obj)
+{
     return (obj == NULL) ? 0 : 1 + listSize(obj->next);
 }
 
 /* Adds element elem to the list */
-MyLinkedList* addElem(MyLinkedList* obj, int elem){
+MyLinkedList* addElem(MyLinkedList* obj, int elem)
+{
     MyLinkedList* node = (MyLinkedList*)malloc(sizeof(*node));
     node->val = elem;
     node->next = (MyLinkedList*)obj;
@@ -29,9 +32,10 @@ MyLinkedList* addElem(MyLinkedList* obj, int elem){
 }
 
 /* Adds element elem at index position (0-indexed) of the list (if valid) */
-MyLinkedList* addElemAtIndex(MyLinkedList* obj, int elem, int index){
+MyLinkedList* addElemAtIndex(MyLinkedList* obj, int elem, int index)
+{
     int size = listSize(obj);
-    if (index<0 || index>size) {
+    if (index < 0 || index > size) {
         printf("\nINVALID INDEX.\n");
         return obj;
     }
@@ -39,7 +43,7 @@ MyLinkedList* addElemAtIndex(MyLinkedList* obj, int elem, int index){
         return addElem(obj, elem);
 
     MyLinkedList* ret = obj;
-    for (int i = 0; i<index-1 && obj->next; ++i)
+    for (int i = 0; i < index - 1 && obj->next; ++i)
         obj = obj->next;
 
     MyLinkedList* node = malloc(sizeof(*node));
@@ -51,20 +55,21 @@ MyLinkedList* addElemAtIndex(MyLinkedList* obj, int elem, int index){
 }
 
 /* Removes all elements matching value */
-MyLinkedList* removeElemByValue(MyLinkedList* obj, int value){
-    if (!obj){
+MyLinkedList* removeElemByValue(MyLinkedList* obj, int value)
+{
+    if (!obj) {
         printf("\nNOTHING TO REMOVE.\n");
         return obj;
     }
     MyLinkedList* ret = obj;
-    while (ret && ret->val == value){
-        MyLinkedList *killme = ret;
+    while (ret && ret->val == value) {
+        MyLinkedList* killme = ret;
         ret = ret->next;
         free(killme);
     }
     obj = ret;
-    while (obj && obj->next){
-        while (obj && obj->next && obj->next->val == value){
+    while (obj && obj->next) {
+        while (obj && obj->next && obj->next->val == value) {
             MyLinkedList* killme = obj->next;
             obj->next = obj->next->next;
             free(killme);
@@ -75,18 +80,19 @@ MyLinkedList* removeElemByValue(MyLinkedList* obj, int value){
 }
 
 /* Removes element at position index (0-indexed) */
-MyLinkedList* removeElemByIndex(MyLinkedList* obj, int index){
-    if (index<0 || index>=listSize(obj)) {
+MyLinkedList* removeElemByIndex(MyLinkedList* obj, int index)
+{
+    if (index < 0 || index >= listSize(obj)) {
         printf("\nINVALID INDEX.\n");
         return obj;
     }
-    if (index == 0){
-        MyLinkedList * ret = obj->next;
+    if (index == 0) {
+        MyLinkedList* ret = obj->next;
         free(obj);
         return ret;
     } else {
         MyLinkedList* node = obj;
-        for (int i = 0; i<index-1 && node != NULL;++i){
+        for (int i = 0; i < index - 1 && node != NULL; ++i) {
             node = node->next;
         }
         MyLinkedList* killme = node->next;
@@ -97,29 +103,32 @@ MyLinkedList* removeElemByIndex(MyLinkedList* obj, int index){
 }
 
 /* Adds all elements in group to the list */
-MyLinkedList* addElemGroup(MyLinkedList* obj, int *group, int groupSize){
+MyLinkedList* addElemGroup(MyLinkedList* obj, int* group, int groupSize)
+{
     MyLinkedList* ret = obj;
-    for (int i = 0; i<groupSize; ++i)
+    for (int i = 0; i < groupSize; ++i)
         ret = addElem(ret, group[i]);
     return ret;
 }
 
 /* Removes all matches from each element in group */
-MyLinkedList* removeGroup(MyLinkedList* obj, int *group, int groupSize){
+MyLinkedList* removeGroup(MyLinkedList* obj, int* group, int groupSize)
+{
     if (!obj) {
         printf("\nNOTHING TO REMOVE.\n");
         return obj;
     }
     MyLinkedList* ret = obj;
-    for (int i = 0; i<groupSize; ++i)
+    for (int i = 0; i < groupSize; ++i)
         ret = removeElemByValue(ret, group[i]);
     return ret;
 }
 
 /* Returns a boolean value indicating whether the element is in the list */
-bool elemExists(MyLinkedList* obj, int elem){
-    while (obj != NULL){
-        if(obj->val == elem)
+bool elemExists(MyLinkedList* obj, int elem)
+{
+    while (obj != NULL) {
+        if (obj->val == elem)
             return true;
         obj = obj->next;
     }
@@ -127,19 +136,21 @@ bool elemExists(MyLinkedList* obj, int elem){
 }
 
 /* Returns the element at position index (0-indexed) */
-int elemAtIndex(MyLinkedList* obj, int index){
+int elemAtIndex(MyLinkedList* obj, int index)
+{
     int size = listSize(obj);
-    if (index<0 || index>=size) {
+    if (index < 0 || index >= size) {
         printf("\nINVALID INDEX.\n");
         return 0;
     }
-    for (int i = 0; i<index; ++i)
+    for (int i = 0; i < index; ++i)
         obj = obj->next;
     return obj->val;
 }
 
 /* Frees all space used by the list, returns NULL if successfull */
-void* freeList(MyLinkedList* obj){
+void* freeList(MyLinkedList* obj)
+{
     while (obj != NULL)
         obj = removeElemByIndex(obj, 0);
     assert(listSize(obj) == 0);
@@ -147,9 +158,10 @@ void* freeList(MyLinkedList* obj){
 }
 
 /* Prints the linked list to STDOUT */
-void printList(MyLinkedList* obj){
+void printList(MyLinkedList* obj)
+{
     printf("head ->");
-    while (obj != NULL){
+    while (obj != NULL) {
         printf(" %d ->", obj->val);
         obj = obj->next;
     }

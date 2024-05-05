@@ -2,12 +2,13 @@
 
 #include "binaryTree.h"
 
-int main(void){
+int main(void)
+{
 
     MyTree* tester = newTree();
 
     /*  TESTING ADD NODE  */
-    for (int i = 1; i<=11; ++i)
+    for (int i = 1; i <= 11; ++i)
         addNode(tester, i);
 
     /*  TESTING SIZE  */
@@ -40,7 +41,7 @@ int main(void){
     printf("REMOVING NODES...\n");
     printf("\t");
     printTree(tester, INORDER);
-    for (int i = 1; i<=11; ++i){
+    for (int i = 1; i <= 11; ++i) {
         removeNode(tester, i);
         printf("\t");
         printTree(tester, INORDER);
@@ -53,7 +54,7 @@ int main(void){
     fflush(stdout);
 
     /*  TESTING REMOVE ALL INSTANCES OF AN ELEMENT  */
-    for (int i = 0; i<10; ++i){
+    for (int i = 0; i < 10; ++i) {
         addNode(tester, 1);
         addNode(tester, 0);
     }

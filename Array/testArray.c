@@ -2,12 +2,13 @@
 
 #include "array.h"
 
-bool cmpf (int a, int b){
+bool cmpf(int a, int b)
+{
     return a < b;
 }
 
-
-int main(void){
+int main(void)
+{
 
     /*  INITIALIZE ARRAY OBJECT WITH SIZE 10 */
     MyArray* tester = init();
@@ -65,8 +66,8 @@ int main(void){
     /*  TEST QUICK SORT  */
     resize(tester, 20);
     setZeroes(tester);
-    for (int i = 0; i<20; ++i)
-        replaceAtIndex(tester, i, i%6);
+    for (int i = 0; i < 20; ++i)
+        replaceAtIndex(tester, i, i % 6);
     printf("ARRAY SHOULD NOT BE SORTED:\n\tARRAY: ");
     printArray(tester);
     quickSort(tester, cmpf);

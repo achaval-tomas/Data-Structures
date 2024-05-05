@@ -1,11 +1,15 @@
-#include "handlers.h"
 #include "../Array/array.h"
+#include "handlers.h"
 
 /*  COMPARE FUNCTION FOR QUICK SORT  */
-bool cmp(int a, int b){return a<=b;}
+bool cmp(int a, int b)
+{
+    return a <= b;
+}
 
 /*  PRINT INFO OF ARRAY (size and current state)  */
-void printArrayInfo(MyArray* arr){
+void printArrayInfo(MyArray* arr)
+{
     printf("\n\t\tCURRENT ARRAY: ");
     printArray(arr);
     printf("\t\tSIZE: %d\n", arraySize(arr));
@@ -13,33 +17,35 @@ void printArrayInfo(MyArray* arr){
 }
 
 /*  PRINT ARRAY MENU  */
-void printArrayMenu(MyArray* arr){
-        printf("\n- MAIN MENU -> ARRAY MENU\n");
-        printArrayInfo(arr);
-        printf("\n\t\tAdd at index: 'a'\n"
-                        "\t\tRemove element: 'r'\n"
-                        "\t\tSet in Range: 'R'\n"
-                        "\t\tSwap Indexes: 's'\n"
-                        "\t\tRemove at Index: 'i'\n"
-                        "\t\tSet all to Zero: 'z'\n"
-                        "\t\tQuick Sort the array: 'q'\n"
-                        "\t\tPrint Array: 'p'\n"
-                        "\t\tExit: 'e'\n"
-                        "\t\tSelect Option: ");
-        fflush(stdout);
+void printArrayMenu(MyArray* arr)
+{
+    printf("\n- MAIN MENU -> ARRAY MENU\n");
+    printArrayInfo(arr);
+    printf("\n\t\tAdd at index: 'a'\n"
+           "\t\tRemove element: 'r'\n"
+           "\t\tSet in Range: 'R'\n"
+           "\t\tSwap Indexes: 's'\n"
+           "\t\tRemove at Index: 'i'\n"
+           "\t\tSet all to Zero: 'z'\n"
+           "\t\tQuick Sort the array: 'q'\n"
+           "\t\tPrint Array: 'p'\n"
+           "\t\tExit: 'e'\n"
+           "\t\tSelect Option: ");
+    fflush(stdout);
 }
 
-void handleArray(){
+void handleArray()
+{
     MyArray* arr = init();
     char quit = 0, choice = 0;
     int in0 = 0, in1 = 0, in2 = 0;
-    while (!quit){
+    while (!quit) {
 
         clearConsole();
         printArrayMenu(arr);
-        scanf(" %c", &choice);  // Get user input.
+        scanf(" %c", &choice); // Get user input.
 
-        switch(choice){
+        switch (choice) {
             case 'a':
 
                 printf("\n\t\t\tSelect element: ");
@@ -49,14 +55,14 @@ void handleArray(){
                 scanf(" %d", &in1);
 
                 // PLACE ELEM AT INDEX, MAKING SPACE IF NEEDED.
-                setInRange(arr, in1, in1+1, in0);
+                setInRange(arr, in1, in1 + 1, in0);
                 break;
-            
+
             case 'r':
 
                 printf("\n\t\t\tSelect elem to remove: ");
                 scanf(" %d", &in0);
-                
+
                 // REMOVE ALL INSTANCES OF SELECTED ELEMENT
                 removeMatches(arr, in0);
                 break;
@@ -71,7 +77,7 @@ void handleArray(){
 
                 printf("\n\t\t\tEnd of range: ");
                 scanf(" %d", &in2);
-                
+
                 setInRange(arr, in1, in2, in0);
 
                 break;
@@ -83,19 +89,19 @@ void handleArray(){
 
                 printf("\n\t\t\tSelect Second Index: ");
                 scanf(" %d", &in2);
-                
+
                 swap(arr, in1, in2);
                 break;
-            
+
             case 'i':
 
                 printf("\n\t\t\tSelect index to remove: ");
                 scanf(" %d", &in1);
-                
+
                 // REMOVE ELEMENT AT INDEX in1
                 removeAtIndex(arr, in1);
                 break;
-            
+
             case 'z':
                 setZeroes(arr);
 
@@ -116,17 +122,17 @@ void handleArray(){
             default:
                 break;
         }
-        
-        if (!quit){
+
+        if (!quit) {
             printf("\n\t\t\tContinue? Y/n -> ");
             scanf(" %c", &choice);
 
             while (1) {
-                if (choice == 'n' || choice == 'N'){
+                if (choice == 'n' || choice == 'N') {
                     freeArray(arr);
                     fflush(stdout);
                     return;
-                } else if (choice == 'y' || choice == 'Y'){
+                } else if (choice == 'y' || choice == 'Y') {
                     break;
                 } else {
                     printf("\n\t\t\tInvalid Input. Continue? Y/n -> ");
@@ -134,6 +140,5 @@ void handleArray(){
                 }
             }
         }
-
     }
 }

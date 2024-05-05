@@ -3,9 +3,9 @@
 #ifndef SET_HEADER
 #define SET_HEADER
 
-#include <stdlib.h>
-#include <stdio.h>
 #include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 typedef struct s_set MySet;
 
@@ -29,6 +29,5 @@ void freeSet(MySet* set);
 
 /*  PRINT THE SET TO stdout  */
 void printSet(MySet* set);
-
 
 #endif /* SET_HEADER */

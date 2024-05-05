@@ -10,7 +10,8 @@ struct s_stack {
 };
 
 /*  INITIALIZE STACK OBJECT  */
-MyStack* s_newStack(void){
+MyStack* s_newStack(void)
+{
     MyStack* s = malloc(sizeof(*s));
     s->e = 0;
     s->pos = -1;
@@ -19,8 +20,9 @@ MyStack* s_newStack(void){
 }
 
 /*  PUSH elem TO TOP  */
-MyStack* s_push(MyStack* s, int elem){
-    if (s->pos == -1){
+MyStack* s_push(MyStack* s, int elem)
+{
+    if (s->pos == -1) {
         s->e = elem;
         s->pos = 0;
         s->below = NULL;
@@ -28,18 +30,19 @@ MyStack* s_push(MyStack* s, int elem){
     }
     MyStack* s_long = malloc(sizeof(*s_long));
     s_long->e = elem;
-    s_long->pos = s->pos+1;
+    s_long->pos = s->pos + 1;
     s_long->below = s;
     return s_long;
 }
 
 /*  POP FRONT  */
-void s_pop(MyStack* s){
-    if (s->pos == -1){
+void s_pop(MyStack* s)
+{
+    if (s->pos == -1) {
         printf("\nNOTHING TO POP.\n");
         return;
     }
-    if (s->below){
+    if (s->below) {
         MyStack* freeme = s->below;
         s->e = s->below->e;
         s->pos = s->below->pos;
@@ -51,8 +54,9 @@ void s_pop(MyStack* s){
 }
 
 /*  RETURNS THE TOP  */
-int s_top(MyStack* s){
-    if (s->pos == -1){
+int s_top(MyStack* s)
+{
+    if (s->pos == -1) {
         printf("\nNOTHING ON TOP.\n");
         return 0;
     }
@@ -60,18 +64,21 @@ int s_top(MyStack* s){
 }
 
 /*  RETURNS SIZE OF STACK  */
-int s_size(MyStack* s){
-    return s->pos+1;
+int s_size(MyStack* s)
+{
+    return s->pos + 1;
 }
 
 /*  RETURNS 1 IF STACK IS EMPTY, 0 otherwise  */
-int s_isEmpty(MyStack* s){
+int s_isEmpty(MyStack* s)
+{
     return s->pos == -1;
 }
 
 /*  FREE ALL SPACE USED BY STACK  */
-void s_free(MyStack* s){
-    while (s->below){
+void s_free(MyStack* s)
+{
+    while (s->below) {
         MyStack* killme = s;
         s = s->below;
         free(killme);
@@ -80,9 +87,10 @@ void s_free(MyStack* s){
 }
 
 /*  PRINT STACK TO stdout  */
-void s_print(MyStack* s){
+void s_print(MyStack* s)
+{
     printf("TOP --> ");
-    while (s && s->pos != -1){
+    while (s && s->pos != -1) {
         printf("%d ", s->e);
         s = s->below;
     }

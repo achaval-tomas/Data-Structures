@@ -3,16 +3,15 @@
  *    Graphs are represented as an adjacency list between their
  *  vertices. If printed, [a, b] represents an edge connecting vertex
  *  a with vertex b.
- * 
+ *
  */
-
 
 #ifndef GRAPH_HEADER
 #define GRAPH_HEADER
 
-#include <stdlib.h>
-#include <stdio.h>
 #include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 typedef struct s_graph MyGraph;
 

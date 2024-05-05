@@ -3,8 +3,8 @@
 #ifndef QUEUE_HEADER
 #define QUEUE_HEADER
 
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 typedef struct s_queue MyQueue;
 
@@ -31,6 +31,5 @@ void q_free(MyQueue* q);
 
 /*  PRINT QUEUE TO stdout  */
 void q_print(MyQueue* q);
-
 
 #endif /* QUEUE_HEADER */

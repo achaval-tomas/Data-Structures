@@ -3,8 +3,8 @@
 #ifndef STACK_HEADER
 #define STACK_HEADER
 
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 typedef struct s_stack MyStack;
 

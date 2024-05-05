@@ -1,8 +1,9 @@
-#include "handlers.h"
 #include "../Trees/Binary-Tree/binaryTree.h"
+#include "handlers.h"
 
 /*  PRINT INFO OF TREE (size and current state)  */
-void printTreeInfo(MyTree* t){
+void printTreeInfo(MyTree* t)
+{
     printf("\n\t\tCURRENT TREE (INORDER TRAVERSAL): ");
     printTree(t, INORDER);
     printf("\t\tSIZE: %d\n", treeSize(t));
@@ -10,31 +11,33 @@ void printTreeInfo(MyTree* t){
 }
 
 /*  PRINT TREE MENU  */
-void printTreeMenu(MyTree* t){
-        printf("\n- MAIN MENU -> TREE MENU\n");
-        printTreeInfo(t);
-        printf("\n\t\tAdd Node: 'A'\n"
-                        "\t\tRemove Node (all instances): 'R'\n"
-                        "\t\tCheck if node exists: 'C'\n"
-                        "\t\tPrint in a special order traversal: 'P'\n"
-                        "\t\tPrint Tree: 'p'\n"
-                        "\t\tVisualize Tree: 'v'\n"
-                        "\t\tExit: 'e'\n"
-                        "\t\tSelect Option: ");
-        fflush(stdout);
+void printTreeMenu(MyTree* t)
+{
+    printf("\n- MAIN MENU -> TREE MENU\n");
+    printTreeInfo(t);
+    printf("\n\t\tAdd Node: 'A'\n"
+           "\t\tRemove Node (all instances): 'R'\n"
+           "\t\tCheck if node exists: 'C'\n"
+           "\t\tPrint in a special order traversal: 'P'\n"
+           "\t\tPrint Tree: 'p'\n"
+           "\t\tVisualize Tree: 'v'\n"
+           "\t\tExit: 'e'\n"
+           "\t\tSelect Option: ");
+    fflush(stdout);
 }
 
-void handleTree(){
+void handleTree()
+{
     MyTree* t = newTree();
     char quit = 0, choice = 0;
     int in0 = 0;
-    while (!quit){
+    while (!quit) {
 
         clearConsole();
         printTreeMenu(t);
-        scanf(" %c", &choice);  // Get user input.
+        scanf(" %c", &choice); // Get user input.
 
-        switch(choice){
+        switch (choice) {
             case 'A':
                 printf("\n\t\t\tSelect node to add: ");
                 scanf(" %d", &in0);
@@ -42,7 +45,7 @@ void handleTree(){
                 // ADD THE NEW NODE
                 addNode(t, in0);
                 break;
-            
+
             case 'R':
                 printf("\n\t\t\tSelect node to remove: ");
                 scanf(" %d", &in0);
@@ -56,19 +59,23 @@ void handleTree(){
                 scanf(" %d", &in0);
 
                 // CHECK IF CHOSEN NODE EXISTS
-                printf("\n\t\t\tThe node %d %s exist in the Tree.\n", in0, isNode(t, in0) ? "DOES": "DOES NOT");
+                printf("\n\t\t\tThe node %d %s exist in the Tree.\n", in0,
+                    isNode(t, in0) ? "DOES" : "DOES NOT");
                 break;
 
             case 'P':
                 printf("\n"
-                                "\t\t\tPREORDER TRAVERSAL -> '0'\n"
-                                "\t\t\tINORDER TRAVERSAL -> '1'\n"
-                                "\t\t\tPOSTORDER TRAVERSAL -> '2'\n"
-                                "\n\t\t\tSelect an order: ");
-    
+                       "\t\t\tPREORDER TRAVERSAL -> '0'\n"
+                       "\t\t\tINORDER TRAVERSAL -> '1'\n"
+                       "\t\t\tPOSTORDER TRAVERSAL -> '2'\n"
+                       "\n\t\t\tSelect an order: ");
+
                 scanf(" %d", &in0); // Save order selection in &in0.
-                
-                printf("\n\t\t\t%sORDER TRAVERSAL IS: ", in0 == 0 ? "PRE" : in0 == 1 ? "IN" : "POST");
+
+                printf("\n\t\t\t%sORDER TRAVERSAL IS: ",
+                    in0 == 0       ? "PRE"
+                        : in0 == 1 ? "IN"
+                                   : "POST");
                 printTree(t, in0);
                 break;
 
@@ -84,7 +91,7 @@ void handleTree(){
             case 'e':
                 quit = 1;
                 freeTree(t);
-    
+
                 fflush(stdout);
                 break;
 
@@ -92,16 +99,16 @@ void handleTree(){
                 break;
         }
 
-        if (!quit){
+        if (!quit) {
             printf("\n\t\t\tContinue? Y/n -> ");
             scanf(" %c", &choice);
 
             while (1) {
-                if (choice == 'n' || choice == 'N'){
+                if (choice == 'n' || choice == 'N') {
                     freeTree(t);
                     fflush(stdout);
                     return;
-                } else if (choice == 'y' || choice == 'Y'){
+                } else if (choice == 'y' || choice == 'Y') {
                     break;
                 } else {
                     printf("\n\t\t\tInvalid Input. Continue? Y/n -> ");
@@ -109,6 +116,5 @@ void handleTree(){
                 }
             }
         }
-
     }
 }
