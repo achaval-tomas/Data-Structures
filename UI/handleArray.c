@@ -104,6 +104,7 @@ void handleArray()
 
             case 'z':
                 setZeroes(arr);
+                break;
 
             case 'q':
                 quickSort(arr, cmp);

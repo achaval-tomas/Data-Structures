@@ -124,7 +124,7 @@ MyDoublyLinkedList* dListRemoveElemByIndex(MyDoublyLinkedList* obj, int index)
 
     MyDoublyLinkedList* iter = obj;
 
-    for (unsigned int i = 0; i < index; ++i) {
+    for (int i = 0; i < index; ++i) {
         iter = iter->next;
     }
 

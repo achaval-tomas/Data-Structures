@@ -35,7 +35,7 @@ void addTo(MySet* set, int elem)
 void removeFrom(MySet* set, int elem)
 {
     char found = 0;
-    for (int i = 0; i < set->size; ++i) {
+    for (unsigned int i = 0; i < set->size; ++i) {
         if (!found) {
             found = found || ((set->elements)[i] == elem);
         } else {
@@ -49,7 +49,7 @@ void removeFrom(MySet* set, int elem)
 /*  CHECK IF elem EXISTS IN THE SET  */
 bool exists(MySet* set, int elem)
 {
-    for (int i = 0; i < set->size; ++i) {
+    for (unsigned int i = 0; i < set->size; ++i) {
         if ((set->elements)[i] == elem)
             return true;
     }
@@ -66,9 +66,8 @@ void freeSet(MySet* set)
 /*  PRINT THE SET TO stdout  */
 void printSet(MySet* set)
 {
-    int size = set->size;
     printf("{ ");
-    for (int i = 0; i < size; ++i)
+    for (unsigned int i = 0; i < set->size; ++i)
         printf("%d ", (set->elements)[i]);
     printf("}\n");
     fflush(stdout);
