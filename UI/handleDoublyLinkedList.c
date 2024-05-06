@@ -1,7 +1,7 @@
 #include "../Lists/Doubly-Linked-List/doubly-linked-list.h"
 #include "handlers.h"
 
-/*  PRINT INFO OF LINKED LIST (size and current state)  */
+/*  PRINT INFO OF DOUBLY LINKED LIST (size and current state)  */
 void printDListInfo(MyDoublyLinkedList* l)
 {
     printf("\n\t\tCURRENT LINKED LIST: ");
@@ -10,7 +10,7 @@ void printDListInfo(MyDoublyLinkedList* l)
     fflush(stdout);
 }
 
-/*  PRINT LINKED LIST MENU  */
+/*  PRINT DOUBLY LINKED LIST MENU  */
 void printDListMenu(MyDoublyLinkedList* l)
 {
     printf("\n- MAIN MENU -> DOUBLY LINKED LIST MENU\n");

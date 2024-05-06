@@ -1,7 +1,3 @@
-/* TO-DO
- *  - DS handlers
- */
-
 #ifndef HANDLERS
 #define HANDLERS
 
