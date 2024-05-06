@@ -15,18 +15,19 @@ void printDListMenu(MyDoublyLinkedList* l)
 {
     printf("\n- MAIN MENU -> DOUBLY LINKED LIST MENU\n");
     printDListInfo(l);
-    printf("\n\t\tAdd new element: 'A'\n"
-           "\t\tAdd at index: 'a'\n"
-           "\t\tRemove element: 'R'\n"
-           "\t\tRemove at Index: 'r'\n"
-           "\t\tAdd a group of elements: 'G'\n"
-           "\t\tRemove a group of elements: 'g'\n"
-           "\t\tCheck if an element exists: 'c'\n"
-           "\t\tSee neighbors of an element: 'n'\n"
-           "\t\tGet element at index: 'i'\n"
-           "\t\tPrint List: 'p'\n"
-           "\t\tExit: 'e'\n"
-           "\t\tSelect Option: ");
+    printf("\n"
+           MENUOPTION("Add new element", "A")
+           MENUOPTION("Add at index", "a")
+           MENUOPTION("Remove element", "R")
+           MENUOPTION("Remove at Index", "r")
+           MENUOPTION("Add a group of elements", "G")
+           MENUOPTION("Remove a group of elements", "g")
+           MENUOPTION("Check if an element exists", "c")
+           MENUOPTION("See neighbors of an element", "n")
+           MENUOPTION("Get element at index", "i")
+           MENUOPTION("Print List", "p")
+           EXIT
+           SELECT);
     fflush(stdout);
 }
 

@@ -15,16 +15,17 @@ void printGraphMenu(MyGraph* g)
 {
     printf("\n- MAIN MENU -> GRAPH MENU\n");
     printGraphInfo(g);
-    printf("\n\t\tAdd edge: 'A'\n"
-           "\t\tRemove edge: 'R'\n"
-           "\t\tRemove Vertex: 'V'\n"
-           "\t\tCheck if Edge exists: 'E'\n"
-           "\t\tGet current Vertices in the graph: 'X'\n"
-           "\t\tGet Connections of a vertex: 'C'\n"
-           "\t\tPrint Graph: 'P'\n"
-           "\t\tExport to Graphium: 'G'\n"
-           "\t\tExit: 'e'\n"
-           "\t\tSelect Option: ");
+    printf("\n"
+           MENUOPTION("Add edge", "A")
+           MENUOPTION("Remove edge", "R")
+           MENUOPTION("Remove Vertex", "V")
+           MENUOPTION("Check if Edge exists", "E")
+           MENUOPTION("Get current Vertices in the graph", "X")
+           MENUOPTION("Get Connections of a vertex", "C")
+           MENUOPTION("Print Graph", "P")
+           MENUOPTION("Export to Graphium", "G")
+           EXIT
+           SELECT);
     fflush(stdout);
 }
 

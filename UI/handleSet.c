@@ -15,12 +15,13 @@ void printSetMenu(MySet* s)
 {
     printf("\n- MAIN MENU -> SET MENU\n");
     printSetInfo(s);
-    printf("\n\t\tAdd element: 'A'\n"
-           "\t\tRemove element: 'R'\n"
-           "\t\tCheck if element exists: 'E'\n"
-           "\t\tPrint Set: 'P'\n"
-           "\t\tExit: 'e'\n"
-           "\t\tSelect Option: ");
+    printf("\n"
+           MENUOPTION("Add element", "A")
+           MENUOPTION("Remove element", "R")
+           MENUOPTION("Check if element exists", "E")
+           MENUOPTION("Print Set", "P")
+           EXIT
+           SELECT);
     fflush(stdout);
 }
 

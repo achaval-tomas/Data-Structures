@@ -15,12 +15,13 @@ void printStackMenu(MyStack* s)
 {
     printf("\n- MAIN MENU -> STACK MENU\n");
     printStackInfo(s);
-    printf("\n\t\tPush to stack: 'P'\n"
-           "\t\tPop stack: 'p'\n"
-           "\t\tTop of stack: 't'\n"
-           "\t\tPrint Stack: 's'\n"
-           "\t\tExit: 'e'\n"
-           "\t\tSelect Option: ");
+    printf("\n"
+           MENUOPTION("Push to stack", "P")
+           MENUOPTION("Pop stack", "p")
+           MENUOPTION("Top of stack", "t")
+           MENUOPTION("Print Stack", "s")
+           EXIT
+           SELECT);
     fflush(stdout);
 }
 

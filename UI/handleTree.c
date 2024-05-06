@@ -15,14 +15,15 @@ void printTreeMenu(MyTree* t)
 {
     printf("\n- MAIN MENU -> TREE MENU\n");
     printTreeInfo(t);
-    printf("\n\t\tAdd Node: 'A'\n"
-           "\t\tRemove Node (all instances): 'R'\n"
-           "\t\tCheck if node exists: 'C'\n"
-           "\t\tPrint in a special order traversal: 'P'\n"
-           "\t\tPrint Tree: 'p'\n"
-           "\t\tVisualize Tree: 'v'\n"
-           "\t\tExit: 'e'\n"
-           "\t\tSelect Option: ");
+    printf("\n"
+           MENUOPTION("Add Node", "A")
+           MENUOPTION("Remove Node (all instances)", "R")
+           MENUOPTION("Check if node exists", "C")
+           MENUOPTION("Print in a special order traversal", "P")
+           MENUOPTION("Print Tree", "p")
+           MENUOPTION("Visualize Tree", "v")
+           EXIT
+           SELECT);
     fflush(stdout);
 }
 

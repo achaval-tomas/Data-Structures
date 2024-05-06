@@ -15,12 +15,13 @@ void printQueueMenu(MyQueue* q)
 {
     printf("\n- MAIN MENU -> QUEUE MENU\n");
     printQueueInfo(q);
-    printf("\n\t\tEnqueue: 'E'\n"
-           "\t\tDequeue: 'D'\n"
-           "\t\tFront of queue: 'F'\n"
-           "\t\tPrint Queue: 'P'\n"
-           "\t\tExit: 'e'\n"
-           "\t\tSelect Option: ");
+    printf("\n"
+           MENUOPTION("Enqueue", "E")
+           MENUOPTION("Dequeue", "D")
+           MENUOPTION("Front of queue", "F")
+           MENUOPTION("Print Queue", "P")
+           EXIT
+           SELECT);
     fflush(stdout);
 }
 

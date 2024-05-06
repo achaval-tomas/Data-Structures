@@ -21,16 +21,17 @@ void printArrayMenu(MyArray* arr)
 {
     printf("\n- MAIN MENU -> ARRAY MENU\n");
     printArrayInfo(arr);
-    printf("\n\t\tAdd at index: 'a'\n"
-           "\t\tRemove element: 'r'\n"
-           "\t\tSet in Range: 'R'\n"
-           "\t\tSwap Indexes: 's'\n"
-           "\t\tRemove at Index: 'i'\n"
-           "\t\tSet all to Zero: 'z'\n"
-           "\t\tQuick Sort the array: 'q'\n"
-           "\t\tPrint Array: 'p'\n"
-           "\t\tExit: 'e'\n"
-           "\t\tSelect Option: ");
+    printf("\n"
+           MENUOPTION("Add at index", "a")
+           MENUOPTION("Remove element", "r")
+           MENUOPTION("Set in Range", "R")
+           MENUOPTION("Swap Indexes", "s")
+           MENUOPTION("Remove at Index", "i")
+           MENUOPTION("Set all to Zero", "z")
+           MENUOPTION("Quick Sort the array", "q")
+           MENUOPTION("Print Array", "p")
+           EXIT
+           SELECT);
     fflush(stdout);
 }
 
